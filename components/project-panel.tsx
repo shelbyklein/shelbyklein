@@ -10,7 +10,6 @@ import {
   type ComponentProps,
   type ReactNode,
 } from 'react';
-import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, X } from 'lucide-react';
 import {
   Sheet,
@@ -92,9 +91,11 @@ export function ProjectPanelProvider({
               </div>
             </div>
             <footer className="project-sheet-actions">
-              <Link className="project-sheet-primary" href={`/work/${project.id}`}>
+              <a className="project-sheet-primary" href={`/work/${project.id}`} onClick={event => {
+                if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) setOpen(false);
+              }}>
                 View full project <ArrowRight size={18} aria-hidden="true" />
-              </Link>
+              </a>
               {project.url && <a className="project-sheet-secondary" href={project.url} target="_blank" rel="noreferrer">
                 {projectLinkLabel(project)} <ArrowUpRight size={18} aria-hidden="true" />
               </a>}

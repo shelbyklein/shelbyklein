@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import playcaseVisuals from '@/content/playcase-visuals.json';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
@@ -34,7 +33,7 @@ export default function Home() {
         ['03','Motion & experiences','Video, live broadcasts, and interactive installations.'],
         ['04','Tools & experiments','AI workspaces, creative software, and interactive systems.'],
       ].map(([n,title,body])=><div key={n}><span className="eyebrow">{n}</span><h3>{title}</h3><p>{body}</p></div>)}</section>
-      <section className="writing-section wrap" aria-labelledby="writing-title"><div className="section-heading"><h2 id="writing-title">Writing & insights</h2><Link className="text-link" href="/writing">All writing <ArrowUpRight size={17}/></Link></div><div className="writing-grid">{articles.slice(0,2).map(article=><Link className="writing-card" href={`/writing/${article.slug}`} key={article.slug}><time dateTime={article.date}>{new Date(article.date+'T12:00:00Z').toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'})}</time><h3>{article.title}</h3><span>Read the article <ArrowUpRight size={17}/></span></Link>)}</div></section>
+      <section className="writing-section wrap" aria-labelledby="writing-title"><div className="section-heading"><h2 id="writing-title">Writing & insights</h2><a className="text-link" href="/writing">All writing <ArrowUpRight size={17}/></a></div><div className="writing-grid">{articles.slice(0,2).map(article=><a className="writing-card" href={`/writing/${article.slug}`} key={article.slug}><time dateTime={article.date}>{new Date(article.date+'T12:00:00Z').toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'})}</time><h3>{article.title}</h3><span>Read the article <ArrowUpRight size={17}/></span></a>)}</div></section>
     </main><SiteFooter/>
   </div></ProjectPanelProvider>;
 }

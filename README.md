@@ -8,6 +8,7 @@ A portfolio for Shelby Klein’s design and creative technology practice: 15 pro
 - `npm run dev`
 - `npm run build`
 - `node scripts/check-content.mjs http://localhost:3001` (use the URL printed by the development server)
+- With Playwright and Chrome available: after building, start `npm run start -- --port 8787`, then run `node scripts/check-navigation.mjs http://localhost:8787` to verify the production navigation paths.
 
 Content is in `content/projects.json` and `content/articles.json`. New articles are also retained in `content/authored-articles.json` so the WordPress migration preserves them; update both JSON files when editing a published article. The original Markdown draft is retained in `content/drafts/` as an editorial reference. Shared presentation is in `app/globals.css`; project pages use `app/work/[slug]/page.tsx`. No credentials or services are required for the portfolio itself.
 
@@ -15,13 +16,15 @@ Original publicly accessible source data is archived locally in `research/`, wit
 
 Newton, Current, and Arcadia are clearly described as independent work in development or exploration. Original articles retain their dates. Historical audience numbers are not presented as current. No generated project artwork, client testimonials, or invented outcomes were added.
 
-Validation: production build and TypeScript check passed. Content check verifies 15 unique complete projects, five articles (including four sanitized archived articles), and all referenced images. HTTP checks cover 23 pages/resources, 19 redirects, and a missing-project 404. The site is a reading/navigation portfolio; WebMCP is not applicable. No automated browser interaction or responsive screenshot testing was performed for the rebuilt portfolio.
+Validation: production build and TypeScript check passed. Content check verifies 15 unique complete projects, five articles (including four sanitized archived articles), and all referenced images. HTTP checks cover 23 pages/resources, 19 redirects, and a missing-project 404. Production browser checks cover all 15 project-preview-to-page paths, return links, keyboard activation, related projects, writing links, browser Back, and the mobile full-project action. No JavaScript errors occurred in the navigation checks. The site is a reading/navigation portfolio; WebMCP is not applicable.
 
 “Creative work, fewer tools” appears first on the homepage and Writing index, with a dedicated article page and links to its six referenced projects. New writing does not display the historical archive notice.
 
 Project cards, titles, archive rows, and hero project links open a shared accessible side panel. It includes the project image, summary, details, a full-project link, and an external website link when available. Standard modified clicks retain normal link behavior; Escape, the close button, and backdrop dismissal use the installed Base UI dialog primitive. Keyboard focus returns to the opening link. Small screens use the full viewport width.
 
 Full project pages use `content/case-studies.json` for project-specific introductions, roles, scope, design and development context, media headings, and related projects. This editorial content is separate from the WordPress migration, which leaves it intact. Every project has a complete case study; image and video sections appear only where media is available. Website galleries distinguish original portfolio images from dated captures of the live sites. App and experiment copy retains its development status. The source material is the original project archive, public resume, existing product records, and Newton/Arcadia project documentation; no new performance metrics are asserted.
+
+Page navigation uses native anchors. The installed Vinext production Link bundle throws before requesting a destination because its dynamically loaded `navigateClientSide` export is unavailable, even though development navigation works. Native page loads avoid that failing path, preserve ordinary browser navigation, and close a project panel when its full-project link is followed. Project preview triggers continue to open the side panel.
 
 PlayCase visuals were refreshed from playcase.gg on September 5, 2026. The homepage, project preview, and project page use the current product renders, with a gallery of faceplate variants, storage, rear controls, and assembly. Original-resolution WebP assets and their source URLs are recorded in `content/playcase-visuals.json`; the migration script preserves these selections.
 
