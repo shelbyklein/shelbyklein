@@ -12,8 +12,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
 ::selection { background:#de472b; color:white; }
 .wrap { width:min(1440px,calc(100% - 112px)); margin-inline:auto; }
 .site-header { height:110px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); }
-.wordmark { font-size:28px; letter-spacing:-1.7px; font-weight:700; }
-.wordmark span { display:inline-block; font-size:12px; vertical-align:top; padding:7px 0 0 4px; }
+.site-brand { display:inline-flex; align-items:center; gap:15px; flex-shrink:0; }
+.brand-mark { display:grid; place-items:center; flex-shrink:0; width:76px; height:58px; padding:10px; background:var(--accent); border-radius:3px; }
+.brand-mark img { display:block; width:100%; height:auto; }
+.brand-name { font-family:var(--font-display),sans-serif; font-size:25px; font-weight:750; letter-spacing:-1.2px; }
+.footer-brand { display:inline-flex; align-items:center; gap:14px; line-height:1.7; }
+.footer-brand .brand-mark { width:60px; height:46px; padding:8px; background:var(--foreground); }
+@media(max-width:600px){.brand-name{display:none}.site-brand .brand-mark{width:66px;height:50px}.footer-brand{gap:10px}.footer-brand .brand-mark{width:48px;height:40px;padding:7px}}
 .site-header nav { display:flex; align-items:center; gap:38px; font-size:15px; }
 .contact-link { display:flex; align-items:center; gap:14px; border-bottom:1px solid var(--foreground); padding:8px 0; }
 .eyebrow { font-family:var(--font-geist-mono),monospace; font-size:12px; font-weight:500; letter-spacing:1.1px; display:flex; gap:10px; align-items:center; }
