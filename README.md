@@ -10,6 +10,8 @@ Pushing to `main` runs `.github/workflows/pages.yml`, builds the static portfoli
 
 The Pages build prefixes links and assets with `/shelbyklein`. `scripts/prepare-pages.mjs` arranges Vinext’s HTML and asset output for that GitHub mount. For browser verification, serve `out/` at `/shelbyklein/` and pass that complete base URL to `scripts/check-navigation.mjs`. The default `npm run build` retains the existing Sites/Cloudflare build and root-relative URLs.
 
+The homepage uses the supplied alien-planet scene as a local, script-only sandboxed background. Its eight canvas layers, procedural terrain, moon, and stars are retained in `public/scenes/alien-planet.html`. The adaptation draws at up to 20 fps, yields during terrain generation, and reuses textures on resize. `components/hero-planet.tsx` provides a pause/play control, follows reduced-motion preferences, and suspends playback outside the viewport or in a hidden tab. `node scripts/check-hero-scene.mjs` checks drawing and playback lifecycle without external services; it also runs before Pages deployment.
+
 ## Development
 
 - `npm install`

@@ -380,3 +380,68 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
 .case-related-item:hover h3,.case-related-item:hover svg{color:var(--accent)}
 @media(max-width:1000px){.case-overview{grid-template-columns:1fr 3fr;gap:35px}.case-scope>li{padding:25px 22px}.case-approach{gap:38px}.case-facts{gap:28px}.case-detail .playcase-gallery figure>a{height:380px}.case-detail .playcase-gallery img{max-height:330px}}
 @media(max-width:700px){.case-facts{grid-template-columns:1fr;gap:22px;padding:24px 0}.case-facts>div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:18px}.case-facts dt{margin-top:4px}.case-facts dd{font-size:16px}.case-hero>figcaption{font-size:13px;gap:18px}.case-navigation{gap:16px 24px;padding:18px 0}.case-overview{grid-template-columns:1fr;gap:22px;padding:48px 0}.case-overview h2{font-size:35px}.case-overview p{font-size:18px}.case-section-heading{align-items:flex-start;gap:18px}.case-section-heading>h2{font-size:27px}.case-section-heading>.eyebrow{font-size:11px;padding-top:5px}.case-scope{grid-template-columns:1fr}.case-scope>li{padding:25px}.case-scope>li+li{border-left:0;border-top:1px solid #c8d0bb}.case-item-number{margin-bottom:20px}.case-scope h3{font-size:25px}.case-approach{grid-template-columns:1fr;gap:35px;padding:48px 0}.case-chapter h2{font-size:29px}.case-chapter p{font-size:17px}.case-detail .playcase-gallery,.case-detail .olympic-jerseys-gallery{grid-template-columns:1fr;gap:26px}.case-detail .playcase-gallery figure>a{height:360px;padding:20px}.case-detail .playcase-gallery img{max-height:320px}.case-reading{display:block;padding:27px;margin-top:45px}.case-reading h2{font-size:29px}.case-reading>a{margin-top:18px}.case-related{padding:55px 0}.case-related-grid{grid-template-columns:1fr;gap:25px}.case-related-item h3{font-size:29px}.case-detail .case-videos{padding-top:45px}.case-section-intro{font-size:16px}.case-detail .case-gallery figcaption{font-size:13px}}
+
+/* The supplied planet scene sits behind the existing hero composition. */
+.hero--space {
+  isolation: isolate;
+  overflow: hidden;
+  background: #040611;
+  color: #f4f5ef;
+}
+.hero-scene { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.hero-scene iframe { display: block; width: 100%; height: 100%; border: 0; }
+.hero-scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #040611d9 0%, #0406119c 38%, #04061112 76%), linear-gradient(0deg, #040611e6, transparent 38%);
+}
+.hero-content { position: relative; }
+.hero--space .hero-content > .eyebrow { padding-right: 170px; color: #d6dae2; }
+.hero--space h1 > .hero-line--design { color: #f4f5ef; }
+.hero--space h1 > .hero-line--creative { color: #ff8968; mix-blend-mode: screen; }
+.hero--space h1 > .hero-line--technology { color: #83b4ff; mix-blend-mode: screen; }
+.hero--space h1 > .hero-shapes { mix-blend-mode: screen; }
+.hero--space .hero-shape--ring { border-color: #ff8968; }
+.hero--space .hero-shape--bar { background: #538fff; }
+.hero--space .status-dot { background: #ff8968; }
+.hero--space .studio-note { color: #ffad94; }
+.hero--space .object-card { color: #23291f; box-shadow: 0 12px 35px #0005; }
+.hero--space .object-caption { color: #e0e5ed; }
+.hero--space .hero-bottom p { color: #e2e5ec; }
+.hero--space .round-link .circle { background: #f4f5ef; border-color: #f4f5ef; color: #23291f; }
+.hero--space .round-link:hover .circle { background: #ffad94; border-color: #ffad94; }
+.hero--space .hero-foot { color: #b6bfcd; border-color: #ffffff30; }
+.hero-scene-toggle {
+  position: absolute;
+  z-index: 2;
+  top: 34px;
+  right: max(56px, calc((100% - 1440px) / 2));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 13px;
+  border: 1px solid #ffffff40;
+  border-radius: 24px;
+  background: #040611a6;
+  color: #e2e5ec;
+  font: 12px var(--font-geist-mono), monospace;
+  cursor: pointer;
+}
+.hero-scene-toggle:hover { background: #162238; border-color: #ffffff80; }
+.hero--space a:focus-visible, .hero-scene-toggle:focus-visible { outline-color: #ffad94; }
+@media (max-width: 900px) {
+  .hero-scene-toggle { right: 28px; }
+}
+@media (max-width: 600px) {
+  .hero--space .hero-content > .eyebrow { padding-right: 24px; }
+  .hero-scene-toggle { top: 26px; right: 18px; width: 44px; padding: 0; }
+  .hero-scene-toggle span { display: none; }
+  .hero-scene::after { background: linear-gradient(90deg, #040611a6, #04061133), linear-gradient(0deg, #040611e6, transparent 65%); }
+}
+@media (forced-colors: active) {
+  .hero-scene { display: none; }
+  .hero--space h1 > .hero-line { color: CanvasText; mix-blend-mode: normal; }
+}

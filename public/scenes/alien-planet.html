@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alien Pixel Planet</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #040611; }
+    main { position: fixed; inset: 0; }
+    canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <main aria-label="Fullscreen animated alien planet and moon">
+    <canvas id="space"></canvas>
+    <canvas id="moon-glow"></canvas>
+    <canvas id="moon"></canvas>
+    <canvas id="planet-glow"></canvas>
+    <canvas id="water"></canvas>
+    <canvas id="ground"></canvas>
+    <canvas id="cloud-shadow"></canvas>
+    <canvas id="clouds"></canvas>
+  </main>
+
+  <!-- Supplied pixel-nebula.html, adapted for an embedded portfolio hero.
+       Texture generation yields to input; resize reuses maps; playback is host-controlled. -->
+  <script>
+    const BASE_RESOLUTION = 384;
+    const MAP_WIDTH = 768;
+    const MAP_HEIGHT = 384;
+    const SHADE_STEPS = 16;
+
+    let viewWidth = BASE_RESOLUTION;
+    let viewHeight = BASE_RESOLUTION;
+    let frameId = 0;
+    let lastTime = 0;
+    let animationTime = 0;
+    let ready = false;
+    let paused = true;
+    let needsResize = false;
+    const FRAME_INTERVAL = 1000 / 20;
+    const layers = {};
+    let resizeTimer = 0;
+    const currentSeed = (Math.random() * 2 ** 32) >>> 0;
+
+    const stars = [];
+    const terrainMap = new Uint8Array(MAP_WIDTH * MAP_HEIGHT);
+    const waterMap = new Uint8Array(MAP_WIDTH * MAP_HEIGHT);
+    const cloudMap = new Uint8Array(MAP_WIDTH * MAP_HEIGHT);
+    const moonMap = new Uint8Array(MAP_WIDTH * MAP_HEIGHT);
+
+    const planet = { x: 0, y: 0, radius: 0, surfaceOffset: 0, cloudOffset: 0 };
+    const moon = { x: 0, y: 0, radius: 0, surfaceOffset: 0 };
+
+    const canvases = Object.fromEntries(
+      ["space", "moon-glow", "moon", "planet-glow", "water", "ground", "cloud-shadow", "clouds"]
+        .map((id) => [id, document.getElementById(id)])
+    );
+    const contexts = Object.fromEntries(
+      Object.entries(canvases).map(([id, canvas]) => [id, canvas.getContext("2d")])
+    );
+
+    const waterPalette = [
+      [18, 83, 96],
+      [19, 88, 102],
+      [22, 94, 108],
+      [25, 100, 114]
+    ];
+    const landPalette = {
+      coast: [216, 153, 84],
+      low: [144, 67, 72],
+      high: [202, 91, 78],
+      rock: [126, 103, 82],
+      cap: [242, 205, 139]
+    };
+    const moonPalette = [
+      [79, 87, 101],
+      [103, 111, 124],
+      [132, 139, 150],
+      [164, 170, 179]
+    ];
+
+    function clamp(value, min = 0, max = 1) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function lerp(a, b, t) {
+      return a + (b - a) * t;
+    }
+
+    function smoothstep(a, b, value) {
+      const t = clamp((value - a) / (b - a));
+      return t * t * (3 - 2 * t);
+    }
+
+    function quantize(value, steps = SHADE_STEPS) {
+      return Math.round(clamp(value) * (steps - 1)) / (steps - 1);
+    }
+
+    function mulberry32(seed) {
+      return function () {
+        let t = (seed += 0x6d2b79f5);
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function buildPermutation(rng) {
+      const values = Uint8Array.from({ length: 256 }, (_, i) => i);
+      const permutation = new Uint8Array(512);
+      for (let i = 255; i > 0; i -= 1) {
+        const j = Math.floor(rng() * (i + 1));
+        [values[i], values[j]] = [values[j], values[i]];
+      }
+      for (let i = 0; i < 512; i += 1) permutation[i] = values[i & 255];
+      return permutation;
+    }
+
+    function fade(t) {
+      return t * t * t * (t * (t * 6 - 15) + 10);
+    }
+
+    function gradient(hash, x, y, z) {
+      const h = hash & 15;
+      const u = h < 8 ? x : y;
+      const v = h < 4 ? y : h === 12 || h === 14 ? x : z;
+      return (h & 1 ? -u : u) + (h & 2 ? -v : v);
+    }
+
+    function perlin3(x, y, z, p) {
+      const floorX = Math.floor(x);
+      const floorY = Math.floor(y);
+      const floorZ = Math.floor(z);
+      const X = floorX & 255;
+      const Y = floorY & 255;
+      const Z = floorZ & 255;
+      const fx = x - floorX;
+      const fy = y - floorY;
+      const fz = z - floorZ;
+      const u = fade(fx);
+      const v = fade(fy);
+      const w = fade(fz);
+      const A = p[X] + Y;
+      const AA = p[A] + Z;
+      const AB = p[A + 1] + Z;
+      const B = p[X + 1] + Y;
+      const BA = p[B] + Z;
+      const BB = p[B + 1] + Z;
+      const low = lerp(
+        lerp(gradient(p[AA], fx, fy, fz), gradient(p[BA], fx - 1, fy, fz), u),
+        lerp(gradient(p[AB], fx, fy - 1, fz), gradient(p[BB], fx - 1, fy - 1, fz), u),
+        v
+      );
+      const high = lerp(
+        lerp(gradient(p[AA + 1], fx, fy, fz - 1), gradient(p[BA + 1], fx - 1, fy, fz - 1), u),
+        lerp(gradient(p[AB + 1], fx, fy - 1, fz - 1), gradient(p[BB + 1], fx - 1, fy - 1, fz - 1), u),
+        v
+      );
+      return lerp(low, high, w) * 0.5 + 0.5;
+    }
+
+    function fbm3(x, y, z, p, octaves, frequency = 1, persistence = 0.5, lacunarity = 2) {
+      let value = 0;
+      let amplitude = 1;
+      let amplitudeSum = 0;
+      for (let i = 0; i < octaves; i += 1) {
+        value += perlin3(x * frequency, y * frequency, z * frequency, p) * amplitude;
+        amplitudeSum += amplitude;
+        frequency *= lacunarity;
+        amplitude *= persistence;
+      }
+      return value / amplitudeSum;
+    }
+
+    function sampleMap(map, u, v) {
+      const x = ((Math.floor(u * MAP_WIDTH) % MAP_WIDTH) + MAP_WIDTH) % MAP_WIDTH;
+      const y = clamp(Math.floor(v * MAP_HEIGHT), 0, MAP_HEIGHT - 1);
+      return map[y * MAP_WIDTH + x] / 255;
+    }
+
+    function shadeColor(color, diffuse) {
+      const shade = lerp(0.34, 1, quantize(smoothstep(0, 1, diffuse)));
+      return color.map((channel) => Math.round(channel * shade));
+    }
+
+    function paletteColor(value, palette) {
+      const index = Math.min(palette.length - 1, Math.floor(value * palette.length));
+      return palette[index];
+    }
+
+    function landColor(value) {
+      if (value < 0.6) return landPalette.coast;
+      if (value < 0.78) return landPalette.low;
+      if (value < 0.9) return landPalette.high;
+      if (value < 0.96) return landPalette.rock;
+      return landPalette.cap;
+    }
+
+    function resizeCanvases() {
+      const screenWidth = Math.max(1, innerWidth);
+      const screenHeight = Math.max(1, innerHeight);
+      const aspect = screenWidth / screenHeight;
+      if (aspect >= 1) {
+        viewWidth = Math.ceil(BASE_RESOLUTION * aspect);
+        viewHeight = BASE_RESOLUTION;
+      } else {
+        viewWidth = BASE_RESOLUTION;
+        viewHeight = Math.ceil(BASE_RESOLUTION / aspect);
+      }
+      for (const canvas of Object.values(canvases)) {
+        canvas.width = viewWidth;
+        canvas.height = viewHeight;
+      }
+      for (const ctx of Object.values(contexts)) ctx.imageSmoothingEnabled = false;
+      for (const id of ["moon", "water", "ground", "cloud-shadow", "clouds"]) {
+        layers[id] = contexts[id].createImageData(viewWidth, viewHeight);
+      }
+    }
+
+    function layoutScene(seed) {
+      const rng = mulberry32(seed);
+      const shortSide = Math.min(viewWidth, viewHeight);
+      const edge = Math.max(8, Math.round(shortSide * 0.025));
+
+      planet.radius = Math.floor(shortSide * 0.92);
+      planet.x = viewWidth - planet.radius * 0.08;
+      planet.y = viewHeight - planet.radius * 0.08 + viewHeight * 0.2;
+      planet.surfaceOffset = rng();
+      planet.cloudOffset = rng();
+
+      moon.radius = Math.max(30, Math.floor(shortSide * 0.11));
+      moon.x = edge * 2 + moon.radius;
+      moon.y = edge * 2 + moon.radius;
+      moon.surfaceOffset = rng();
+
+      stars.length = 0;
+      const starCount = Math.round((viewWidth * viewHeight * 380) / (384 * 384));
+      const starColors = ["#ffffff", "#ffd2f5", "#85d8ff", "#ffbc88", "#99a9ff"];
+      for (let i = 0; i < starCount; i += 1) {
+        stars.push({
+          x: Math.floor(rng() * viewWidth),
+          y: Math.floor(rng() * viewHeight),
+          color: starColors[Math.floor(rng() * starColors.length)],
+          cross: rng() > 0.84,
+          phase: rng() * Math.PI * 2,
+          speed: 0.55 + rng() * 1.75,
+          brightness: 0.16 + rng() * 0.28,
+          twinkle: rng() > 0.38
+        });
+      }
+
+      return rng;
+    }
+
+    async function generate(seed) {
+      const rng = layoutScene(seed);
+      const terrainP = buildPermutation(rng);
+      const cloudP = buildPermutation(rng);
+      const moonP = buildPermutation(rng);
+      const terrainO = [rng() * 96, rng() * 96, rng() * 96];
+      const cloudO = [rng() * 96, rng() * 96, rng() * 96];
+      const moonO = [rng() * 96, rng() * 96, rng() * 96];
+
+      for (let y = 0; y < MAP_HEIGHT; y += 1) {
+        if (y % 4 === 0) await new Promise(resolve => setTimeout(resolve, 0));
+        const latitude = (y / (MAP_HEIGHT - 1) - 0.5) * Math.PI;
+        const cy = Math.sin(latitude);
+        const ring = Math.cos(latitude);
+        for (let x = 0; x < MAP_WIDTH; x += 1) {
+          const longitude = (x / MAP_WIDTH) * Math.PI * 2;
+          const sx = ring * Math.cos(longitude);
+          const sz = ring * Math.sin(longitude);
+          const index = y * MAP_WIDTH + x;
+
+          const wx = fbm3(sx + terrainO[0] + 17.2, cy + terrainO[1] - 9.1, sz + terrainO[2] + 4.7, terrainP, 3, 0.82, 0.48) - 0.5;
+          const wy = fbm3(sx + terrainO[0] - 23.8, cy + terrainO[1] + 12.4, sz + terrainO[2] - 16.3, terrainP, 3, 0.82, 0.48) - 0.5;
+          const wz = fbm3(sx + terrainO[0] + 6.6, cy + terrainO[1] + 31.7, sz + terrainO[2] + 20.9, terrainP, 3, 0.82, 0.48) - 0.5;
+          const tx = sx + wx * 0.52;
+          const ty = cy + wy * 0.52;
+          const tz = sz + wz * 0.52;
+          const continent = fbm3(tx + terrainO[0], ty + terrainO[1], tz + terrainO[2], terrainP, 5, 1.18, 0.5, 2.03);
+          const coast = fbm3(tx + terrainO[0] + 41.3, ty + terrainO[1] - 27.1, tz + terrainO[2] + 13.8, terrainP, 3, 3.7, 0.42, 2.08);
+          const terrain = smoothstep(0.49, 0.63, continent * 0.84 + coast * 0.16);
+          const water = fbm3(sx + terrainO[0] - 14.3, cy + terrainO[1] + 26.8, sz + terrainO[2] - 31.4, terrainP, 3, 5.4, 0.38, 2.12);
+
+          const cwx = fbm3(sx + cloudO[0] + 14.5, cy * 1.35 + cloudO[1] - 18.2, sz + cloudO[2] + 7.1, cloudP, 2, 0.92, 0.42) - 0.5;
+          const cwz = fbm3(sx + cloudO[0] - 32.4, cy * 1.35 + cloudO[1] + 10.6, sz + cloudO[2] - 21.5, cloudP, 2, 0.92, 0.42) - 0.5;
+          const cloudBase = fbm3(sx + cwx * 0.42 + cloudO[0], cy * 1.55 + cloudO[1], sz + cwz * 0.42 + cloudO[2], cloudP, 3, 1.82, 0.4, 2.04);
+          const cloudDetail = fbm3(sx + cwx * 0.42 + cloudO[0] + 26.8, cy * 1.55 + cloudO[1] - 34.2, sz + cwz * 0.42 + cloudO[2] + 11.7, cloudP, 2, 4.1, 0.34, 2.1);
+          const clouds = smoothstep(0.54, 0.64, cloudBase * 0.9 + cloudDetail * 0.1);
+
+          const moonBase = fbm3(sx + moonO[0], cy + moonO[1], sz + moonO[2], moonP, 5, 1.42, 0.5, 2.03);
+          const moonDetail = fbm3(sx + moonO[0] - 28.6, cy + moonO[1] + 17.4, sz + moonO[2] + 36.1, moonP, 3, 5.2, 0.4, 2.11);
+
+          terrainMap[index] = Math.floor(terrain * 255);
+          waterMap[index] = Math.floor(clamp(water) * 255);
+          cloudMap[index] = Math.floor(clouds * 255);
+          moonMap[index] = Math.floor(clamp(moonBase * 0.78 + moonDetail * 0.22) * 255);
+        }
+      }
+    }
+
+    function drawStars(time) {
+      const ctx = contexts.space;
+      ctx.clearRect(0, 0, viewWidth, viewHeight);
+      ctx.fillStyle = "#040611";
+      ctx.fillRect(0, 0, viewWidth, viewHeight);
+      for (const star of stars) {
+        const wave = 0.5 + 0.5 * Math.sin(time * 0.001 * star.speed + star.phase);
+        const pulse = star.twinkle ? wave * wave : 0.35 + wave * 0.18;
+        ctx.fillStyle = star.color;
+        ctx.globalAlpha = clamp(star.brightness + pulse * (star.cross ? 0.58 : 0.34));
+        ctx.fillRect(star.x, star.y, 1, 1);
+        if (star.cross) {
+          ctx.globalAlpha = 0.06 + Math.pow(wave, 6) * 0.82;
+          ctx.fillRect(star.x - 1, star.y, 3, 1);
+          ctx.fillRect(star.x, star.y - 1, 1, 3);
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function drawHalo(ctx, body, colors, scale = 1.45) {
+      ctx.clearRect(0, 0, viewWidth, viewHeight);
+      const halo = ctx.createRadialGradient(body.x, body.y, body.radius * 0.9, body.x, body.y, body.radius * scale);
+      for (const [stop, color] of colors) halo.addColorStop(stop, color);
+      ctx.fillStyle = halo;
+      ctx.fillRect(0, 0, viewWidth, viewHeight);
+    }
+
+    function writePixel(layer, x, y, color, alpha = 1) {
+      if (x < 0 || x >= viewWidth || y < 0 || y >= viewHeight) return;
+      const index = (y * viewWidth + x) * 4;
+      layer.data[index] = color[0];
+      layer.data[index + 1] = color[1];
+      layer.data[index + 2] = color[2];
+      layer.data[index + 3] = Math.round(alpha * 255);
+    }
+
+    function drawMoon() {
+      const ctx = contexts.moon;
+      const light = [-0.64, -0.3, 0.7];
+      drawHalo(contexts["moon-glow"], moon, [
+        [0, "rgba(196,218,255,.2)"], [0.3, "rgba(128,171,230,.1)"], [1, "rgba(92,132,205,0)"]
+      ], 1.48);
+      layers.moon.data.fill(0);
+      for (let py = -moon.radius; py <= moon.radius; py += 1) {
+        for (let px = -moon.radius; px <= moon.radius; px += 1) {
+          const nx = px / moon.radius;
+          const ny = py / moon.radius;
+          const rr = nx * nx + ny * ny;
+          if (rr > 1) continue;
+          const nz = Math.sqrt(1 - rr);
+          const u = Math.atan2(nx, nz) / (Math.PI * 2) + 0.5 + moon.surfaceOffset;
+          const v = Math.asin(ny) / Math.PI + 0.5;
+          const diffuse = clamp(nx * light[0] + ny * light[1] + nz * light[2]);
+          const color = shadeColor(paletteColor(sampleMap(moonMap, u, v), moonPalette), diffuse);
+          writePixel(layers.moon, Math.round(moon.x + px), Math.round(moon.y + py), color);
+        }
+      }
+      ctx.putImageData(layers.moon, 0, 0);
+    }
+
+    function drawPlanet() {
+      const waterCtx = contexts.water;
+      const groundCtx = contexts.ground;
+      const shadowCtx = contexts["cloud-shadow"];
+      const cloudCtx = contexts.clouds;
+      const light = [-0.64, -0.3, 0.7];
+      drawHalo(contexts["planet-glow"], planet, [
+        [0, "rgba(85,235,221,.3)"], [0.16, "rgba(58,196,203,.22)"], [0.48, "rgba(43,125,177,.1)"], [1, "rgba(32,91,155,0)"]
+      ], 1.42);
+      for (const id of ["water", "ground", "cloud-shadow", "clouds"]) layers[id].data.fill(0);
+
+      const startX = Math.max(-planet.radius, Math.ceil(-planet.x));
+      const endX = Math.min(planet.radius, Math.floor(viewWidth - 1 - planet.x));
+      const startY = Math.max(-planet.radius, Math.ceil(-planet.y));
+      const endY = Math.min(planet.radius, Math.floor(viewHeight - 1 - planet.y));
+
+      for (let py = startY; py <= endY; py += 1) {
+        for (let px = startX; px <= endX; px += 1) {
+          const nx = px / planet.radius;
+          const ny = py / planet.radius;
+          const rr = nx * nx + ny * ny;
+          if (rr > 1) continue;
+          const nz = Math.sqrt(1 - rr);
+          const longitude = Math.atan2(nx, nz) / (Math.PI * 2) + 0.5;
+          const latitude = Math.asin(ny) / Math.PI + 0.5;
+          const diffuse = clamp(nx * light[0] + ny * light[1] + nz * light[2]);
+          const screenX = Math.round(planet.x + px);
+          const screenY = Math.round(planet.y + py);
+          const terrain = sampleMap(terrainMap, longitude + planet.surfaceOffset, latitude);
+          const water = sampleMap(waterMap, longitude + planet.surfaceOffset, latitude);
+          const cloud = sampleMap(cloudMap, longitude + planet.cloudOffset, latitude);
+          const shadow = sampleMap(cloudMap, longitude + planet.cloudOffset - 0.014, clamp(latitude - 0.012));
+
+          const waterShade = shadeColor(paletteColor(water, waterPalette), diffuse);
+          writePixel(layers.water, screenX, screenY, waterShade);
+
+          if (terrain > 0.52) {
+            const landShade = shadeColor(landColor(terrain), Math.min(1, diffuse + 0.08));
+            writePixel(layers.ground, screenX, screenY, landShade);
+          }
+
+          if (shadow > 0.12) {
+            const opacity = 0.08 + smoothstep(0.12, 0.82, shadow) * (0.13 + diffuse * 0.11);
+            writePixel(layers["cloud-shadow"], screenX, screenY, [8, 18, 34], opacity);
+          }
+
+          if (cloud > 0.14) {
+            const tone = cloud > 0.62 ? [248, 251, 255] : [212, 229, 247];
+            const shade = lerp(0.78, 1, quantize(diffuse));
+            const opacity = clamp(0.34 + cloud * 0.62, 0.42, 0.94);
+            writePixel(layers.clouds, screenX, screenY, tone.map(channel => Math.round(channel * shade)), opacity);
+          }
+        }
+      }
+      for (const id of ["water", "ground", "cloud-shadow", "clouds"]) contexts[id].putImageData(layers[id], 0, 0);
+    }
+
+    function drawScene() {
+      drawStars(animationTime);
+      drawMoon();
+      drawPlanet();
+    }
+
+    function frame(time) {
+      frameId = 0;
+      if (!ready || paused || document.hidden) return;
+      if (!lastTime || time - lastTime >= FRAME_INTERVAL) {
+        const dt = lastTime ? clamp((time - lastTime) / 1000, 0, 0.1) : 0;
+        lastTime = time;
+        animationTime += dt * 1000;
+        planet.surfaceOffset = (planet.surfaceOffset + dt * 0.0018) % 1;
+        planet.cloudOffset = (planet.cloudOffset + dt * 0.0032) % 1;
+        moon.surfaceOffset = (moon.surfaceOffset + dt * 0.0008) % 1;
+        drawScene();
+      }
+      frameId = requestAnimationFrame(frame);
+    }
+
+    function syncPlayback() {
+      if (!ready || paused || document.hidden) {
+        cancelAnimationFrame(frameId);
+        frameId = 0;
+        lastTime = 0;
+      } else if (!frameId) {
+        frameId = requestAnimationFrame(frame);
+      }
+    }
+
+    addEventListener("message", event => {
+      if (event.source !== parent || event.data?.type !== "hero-scene-playback" || typeof event.data.paused !== "boolean") return;
+      paused = event.data.paused;
+      syncPlayback();
+    });
+    document.addEventListener("visibilitychange", syncPlayback);
+    addEventListener("pagehide", () => {
+      paused = true;
+      clearTimeout(resizeTimer);
+      syncPlayback();
+    });
+    addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (!ready) { needsResize = true; return; }
+        resizeCanvases();
+        layoutScene(currentSeed);
+        drawScene();
+      }, 120);
+    });
+
+    async function boot() {
+      resizeCanvases();
+      await generate(currentSeed);
+      if (needsResize) {
+        resizeCanvases();
+        layoutScene(currentSeed);
+      }
+      ready = true;
+      drawScene();
+      parent.postMessage({ type: "hero-scene-ready" }, "*");
+      syncPlayback();
+    }
+    boot();
+  </script>
+</body>
+</html>

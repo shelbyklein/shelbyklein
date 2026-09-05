@@ -10,11 +10,12 @@ await fs.rename(path.join(root, 'shelbyklein/_next'), path.join(root, '_next'));
 await fs.rmdir(path.join(root, 'shelbyklein'));
 const projects = JSON.parse(await fs.readFile('content/projects.json', 'utf8'));
 const articles = JSON.parse(await fs.readFile('content/articles.json', 'utf8'));
+const publicHTML = new Set((await fs.readdir('public', { recursive: true })).filter(file => file.endsWith('.html')));
 // Vinext prerenders extensionless route requests; Pages serves directory indexes.
 // Move exported HTML to those indexes after rendering to avoid server redirects
 // during the export. Keep the conventional root index and 404 files in place.
 for (const file of await fs.readdir(root, { recursive: true })) {
-  if (!file.endsWith('.html') || path.basename(file) === 'index.html' || file === '404.html') continue;
+  if (!file.endsWith('.html') || publicHTML.has(file) || path.basename(file) === 'index.html' || file === '404.html') continue;
   const destination = path.join(root, file.slice(0, -5), 'index.html');
   await fs.mkdir(path.dirname(destination), { recursive: true });
   await fs.rename(path.join(root, file), destination);
@@ -39,7 +40,7 @@ for (const file of htmlFiles) {
     checked.add(url);
   }
 }
-assert.equal(htmlFiles.length, routes.length + projects.filter(project => project.legacySlug).length + articles.length + 4, 'Missing legacy or 404 pages');
+assert.equal(htmlFiles.length, routes.length + projects.filter(project => project.legacySlug).length + articles.length + 4 + publicHTML.size, 'Missing legacy, embedded, or 404 pages');
 await fs.access(path.join(root, '404.html'));
 await fs.writeFile(path.join(root, '.nojekyll'), '');
-console.log(`GitHub Pages export ready: ${routes.length} content pages, ${htmlFiles.length - routes.length - 1} legacy pages, a 404 page, and ${checked.size} verified local links/assets in out/.`);
+console.log(`GitHub Pages export ready: ${routes.length} content pages, ${htmlFiles.length - routes.length - publicHTML.size - 1} legacy pages, ${publicHTML.size} embedded scenes, a 404 page, and ${checked.size} verified local links/assets in out/.`);
