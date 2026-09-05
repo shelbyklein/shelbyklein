@@ -1,0 +1,561 @@
+{
+  "newton": {
+    "headline": "Keeping a team’s work connected over time.",
+    "intro": "Newton is a local desktop workspace for working with persistent AI teammates. I’m designing and building a place where a project’s people, conversations, routines, and work stay together, so returning to a task does not mean reconstructing its context.",
+    "role": "Product design & development",
+    "format": "Desktop application",
+    "coverCaption": "Newton desktop interface · September 2026",
+    "scope": [
+      {
+        "title": "A home for each project",
+        "body": "Project teams, named teammates, saved conversations, and profiles organized around ongoing work."
+      },
+      {
+        "title": "Coordination and continuity",
+        "body": "Recurring routines, project handoffs, and a runtime that stays connected to work beyond the desktop window."
+      },
+      {
+        "title": "Interface and identity",
+        "body": "A focused reading surface, illustrated characters, and a recognizable visual identity for the workspace."
+      }
+    ],
+    "sections": [
+      {
+        "title": "The conversation is the working surface",
+        "body": "Newton gives conversations most of the screen, with role details and technical activity available when they are useful. Project selection, pinned teammates, and message drafts persist across navigation. The aim is to keep orientation easy while moving between different kinds of work."
+      },
+      {
+        "title": "A desktop app with a separate runtime",
+        "body": "The React and TypeScript interface sits inside a Tauri desktop shell. A Rust runtime manages queues, routines, provider sessions, and handoffs to Codex CLI and Claude Code. Closing the window does not end that runtime; reopening reconnects to its state. Newton remains an independent application in active development."
+      }
+    ],
+    "related": [
+      "current",
+      "arcadia"
+    ],
+    "article": true
+  },
+  "current": {
+    "headline": "Software that stays close to a creative moment.",
+    "intro": "Current is a live rhyme studio for finding the next line while you rap. Spoken or typed words lead to rhyme suggestions, vowel matches, and phrase ideas in a single working surface. I’m exploring how to make those suggestions useful without pulling attention away from the line itself.",
+    "role": "Product & interface development",
+    "format": "Creative web application",
+    "coverCaption": "Current’s rhyme studio, phrase ideas, and rhyme log · September 2026",
+    "scope": [
+      {
+        "title": "Live language input",
+        "body": "Spoken and typed words connect the emerging line to suggestions in the studio."
+      },
+      {
+        "title": "Sound and phrase exploration",
+        "body": "Rhyme suggestions, related vowel sounds, and phrase ideas give the writer several ways to develop a line."
+      },
+      {
+        "title": "A record of the session",
+        "body": "A rhyme log, session audio, and transcript tools support returning to ideas after the moment has passed."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Useful suggestions within reach",
+        "body": "The interface groups related sounds and keeps the developing rhyme scheme visible. Its design centers on a short feedback loop: a word enters the studio, possible directions appear, and the writer decides where to take the line. Timing and readable grouping are central to that experience."
+      },
+      {
+        "title": "From improvisation to something to revisit",
+        "body": "The studio brings immediate suggestions and the session’s record into the same workspace. That connects the spontaneous part of writing with the slower work of reviewing and developing material. Current is in active development; the image documents the interface as it stood in September 2026."
+      }
+    ],
+    "related": [
+      "newton",
+      "vispix"
+    ],
+    "article": true
+  },
+  "vispix": {
+    "headline": "From a photo library to a shared creative resource.",
+    "intro": "Vispix brings the work of finding, reviewing, and choosing marketing images into one collaborative workspace. Event albums, search, team ratings, and shortlists sit alongside the information people need to decide whether a photo is suitable for a project.",
+    "role": "Product design & development",
+    "format": "Collaborative photo workspace",
+    "coverCaption": "Vispix identity",
+    "scope": [
+      {
+        "title": "Find relevant images",
+        "body": "Search based on image descriptions helps connect a creative brief to the photos already in the library."
+      },
+      {
+        "title": "Review and choose together",
+        "body": "Albums, team ratings, and shared shortlists support selection without scattering feedback across separate tools."
+      },
+      {
+        "title": "Keep context with the photo",
+        "body": "Usage-rights information and duplicate detection help teams assess and organize their options."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Selection is part of the workflow",
+        "body": "A library’s value depends on what a team can do with its contents. Vispix places review and selection alongside search, so a promising image can become part of a shared shortlist within the same workspace. The product’s focus is the path from a collection of photos to a useful set of choices."
+      },
+      {
+        "title": "Making the library available to other tools",
+        "body": "Vispix also connects to AI tools through the Model Context Protocol, or MCP. That makes the photo library available within a broader creative workflow. The connection extends the usefulness of the existing collection and its metadata, rather than requiring a separate collection for each tool."
+      }
+    ],
+    "related": [
+      "current",
+      "archery-is-for-everyone"
+    ],
+    "article": true
+  },
+  "arcadia": {
+    "headline": "Exploring software as a place you can navigate.",
+    "intro": "Arcadia brings an AI agent workspace and a life simulation into the same experience. I’m exploring how work, activity, and character can become visible in a spatial interface, while keeping a clear distinction between the system doing the work and the world that represents it.",
+    "role": "Creative technology & development",
+    "format": "Interactive software experiment",
+    "scope": [
+      {
+        "title": "Agent coordination",
+        "body": "Work orders, an inbox, and project activity provide a way to start work and follow what happens."
+      },
+      {
+        "title": "Persistent history",
+        "body": "An event log records activity so the workspace can reconstruct its state and show the history behind it."
+      },
+      {
+        "title": "Spatial interaction",
+        "body": "A simulated world introduces character, movement, and a navigable sense of place to the interface."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Work that can pause and resume",
+        "body": "The agent workspace runs tasks as individual processes. When a task needs an answer, the question becomes part of its history; a later reply resumes the conversation. This makes the recorded work and its context central to the experience, even when an agent process is no longer running."
+      },
+      {
+        "title": "A world with its own responsibilities",
+        "body": "The simulation and the agent system retain distinct responsibilities. The interface can give activity a spatial presence while the underlying systems remain accountable for their own state. Arcadia is an ongoing exploration of that relationship, with room to investigate both practical coordination and playful interaction."
+      }
+    ],
+    "related": [
+      "newton",
+      "us-open"
+    ],
+    "article": true
+  },
+  "playcase": {
+    "headline": "A familiar phone, with a different way to play.",
+    "intro": "I designed and built PlayCase from concept to production. The product brings physical controls to classic games on the iPhone, with swappable faceplates that accommodate different button layouts. My work covers the object itself and the identity, communication, and community around it.",
+    "role": "Product design through production",
+    "format": "Physical product & brand",
+    "coverCaption": "PlayCase in use and with the faceplate stowed on the back",
+    "scope": [
+      {
+        "title": "Industrial design",
+        "body": "The case, swappable faceplates, and physical controls form a product designed around the iPhone."
+      },
+      {
+        "title": "Prototyping and production",
+        "body": "3D printing supports developing the parts and taking the product from concept into production."
+      },
+      {
+        "title": "Brand and launch materials",
+        "body": "Product presentation, marketing, and community engagement connect the physical design to the people using it."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Different games call for different controls",
+        "body": "The faceplates provide button layouts tailored to popular emulators such as Delta and RetroArch. That makes the control arrangement part of the product’s flexibility. The gallery shows the handheld, dual-screen, and classic layouts, along with the way the faceplate stores on the case."
+      },
+      {
+        "title": "Working across the whole product",
+        "body": "The design work extends from the shape and assembly of the printed components to explaining how the product works. Product renders show the relationship between the case, faceplate, buttons, and rear controls. That continuity between making and communicating is a central part of my role."
+      }
+    ],
+    "galleryTitle": "The product, in detail",
+    "galleryIntro": "Faceplate variants, storage, controls, and assembly views from PlayCase.",
+    "related": [
+      "us-open",
+      "current"
+    ],
+    "article": true
+  },
+  "usa-archery-broadcast": {
+    "headline": "Bringing a national event to the screen.",
+    "intro": "For USA Archery’s national events, I work across the full live production process: the streaming A/V setup, motion graphics, scoring integration, custom software, and on-site execution. The work brings creative production and technical systems together with a small crew and limited resources.",
+    "role": "Live stream producer",
+    "format": "Live broadcast & custom software",
+    "coverCaption": "A frame from USA Archery’s live event coverage",
+    "scope": [
+      {
+        "title": "Production systems",
+        "body": "Building and supporting the streaming audio and video stack used for national event coverage."
+      },
+      {
+        "title": "Graphics and live data",
+        "body": "Creating motion graphics and integrating real-time scoring with USA Archery’s data."
+      },
+      {
+        "title": "On-site execution",
+        "body": "Carrying the setup into live production and developing custom software to support the broadcast."
+      }
+    ],
+    "sections": [
+      {
+        "title": "The graphics are connected to the event",
+        "body": "Scoring is part of how viewers follow the competition. Integrating real-time event data connects the broadcast’s visual presentation to what is happening on the field. This work spans both the appearance of the graphics and the software that supports them."
+      },
+      {
+        "title": "Designing for the moment of production",
+        "body": "The production has to bring its technical and creative parts together while the event is happening. My role covers preparing those parts and operating the broadcast on site. Working across the stack gives me a direct connection between the systems I build and the conditions in which they are used."
+      }
+    ],
+    "videoTitle": "Event broadcasts",
+    "videoIntro": "Selected examples of USA Archery’s national event coverage.",
+    "related": [
+      "archery-is-for-everyone",
+      "olympic-jerseys"
+    ],
+    "article": true
+  },
+  "olympic-jerseys": {
+    "headline": "Team identity, made for the field of play.",
+    "intro": "I designed Team USA archery jerseys for the Tokyo 2020 and Paris 2024 Olympic Games. The work carried a national identity into competition apparel, from early concepts and visual direction through production-ready artwork.",
+    "role": "Apparel design & creative direction",
+    "format": "Olympic competition apparel",
+    "period": "Tokyo 2020 · Paris 2024",
+    "coverCaption": "Team USA archery competition apparel",
+    "scope": [
+      {
+        "title": "Concept development",
+        "body": "Exploring how Team USA’s identity could take shape across the competition jerseys."
+      },
+      {
+        "title": "Visual direction",
+        "body": "Balancing national identity and Olympic branding requirements with the needs of performance apparel."
+      },
+      {
+        "title": "Production artwork",
+        "body": "Preparing the designs for manufacture in collaboration with athletes, USA Archery, and apparel partners."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Identity with practical constraints",
+        "body": "Competition apparel has to work as clothing and as a visible expression of the team. The design process considered performance requirements alongside national identity and Olympic branding standards. Those constraints shaped the visual direction as the concepts developed."
+      },
+      {
+        "title": "Carrying the design into production",
+        "body": "The work continued beyond concept selection into production-ready artwork and collaboration with the people wearing and manufacturing the garments. The photographs show the designs in their intended setting: Team USA athletes competing."
+      }
+    ],
+    "galleryTitle": "The jerseys in competition",
+    "galleryIntro": "Photographs of the apparel in use, preserved from the original project portfolio.",
+    "related": [
+      "national-event-identities",
+      "usa-archery-broadcast"
+    ]
+  },
+  "steam-deck-hq": {
+    "headline": "An identity and publishing home for a gaming community.",
+    "intro": "Steam Deck HQ helps readers find ways to configure games and get more from the Steam Deck. My work connects the publication’s brand identity with its website, turning an initial concept into a platform for gaming coverage and a community of handheld enthusiasts.",
+    "role": "Creative technology, brand & web",
+    "format": "Editorial website",
+    "coverCaption": "Steam Deck HQ brand and website presentation",
+    "scope": [
+      {
+        "title": "Brand identity",
+        "body": "Developing a cohesive identity for a publication focused on handheld gaming."
+      },
+      {
+        "title": "Website design and development",
+        "body": "Building the publication’s digital presence around its coverage and game-related information."
+      },
+      {
+        "title": "Digital marketing",
+        "body": "Supporting the brand with marketing informed by website data and audience engagement."
+      }
+    ],
+    "sections": [
+      {
+        "title": "A publication built around a particular audience",
+        "body": "The subject gives the project a clear focus: the experience of playing on the Steam Deck. News, reviews, and configuration information serve readers who want to understand how games behave on the handheld. The website and identity provide a consistent home for that work."
+      },
+      {
+        "title": "Brand and publishing, considered together",
+        "body": "My role spans the way the publication presents itself and the website through which readers encounter it. The examples include the home page and a game review, showing the identity across both an overview of the publication and a focused piece of coverage."
+      }
+    ],
+    "galleryTitle": "Across the publication",
+    "galleryIntro": "Original website examples alongside desktop and mobile captures from September 2026.",
+    "related": [
+      "field-studies",
+      "playcase"
+    ]
+  },
+  "sea-education": {
+    "headline": "A digital introduction to ocean education.",
+    "intro": "Sea Education Association connects students with ocean education and exploration. My work on sea.edu covered website design and development, bringing that subject into a digital experience for people discovering the organization and its programs.",
+    "role": "Website design & development",
+    "format": "Educational website",
+    "coverCaption": "Sea Education Association website presentation",
+    "scope": [
+      {
+        "title": "Web design",
+        "body": "The visual presentation of Sea Education Association’s educational work online."
+      },
+      {
+        "title": "Web development",
+        "body": "Turning the website design into a working digital experience."
+      },
+      {
+        "title": "Desktop and mobile",
+        "body": "Website examples show the project across larger and smaller screens."
+      }
+    ],
+    "sections": [
+      {
+        "title": "The subject leads the experience",
+        "body": "Ocean education gives the site a distinct subject and audience. The website introduces the organization’s work and provides a place to explore its programs. The selected imagery shows the visual presentation and the relationship between program information and the wider organization."
+      },
+      {
+        "title": "A closer look at the website",
+        "body": "The gallery combines imagery from the original portfolio with recent captures of the live program finder. The dated captures provide current website context alongside the earlier project examples; they show both desktop content and a narrower mobile view."
+      }
+    ],
+    "galleryTitle": "Exploring the website",
+    "galleryIntro": "Original project imagery and live program-finder captures from September 2026.",
+    "related": [
+      "field-studies",
+      "sfs-brochure"
+    ]
+  },
+  "field-studies": {
+    "headline": "Connecting field education with a maintainable website.",
+    "intro": "I designed and developed a new website for the School for Field Studies, restructuring its content and systems architecture to make ongoing maintenance easier for the client. The project connects environmental field education with a digital experience for prospective students.",
+    "role": "Web design, development & content architecture",
+    "format": "Educational website",
+    "coverCaption": "The School for Field Studies website presentation",
+    "scope": [
+      {
+        "title": "Website design",
+        "body": "A digital presentation of the school’s environmental field education programs."
+      },
+      {
+        "title": "Content architecture",
+        "body": "Restructuring the site’s content and underlying organization."
+      },
+      {
+        "title": "Client maintenance",
+        "body": "Designing and developing the system with ongoing updates by the client in mind."
+      }
+    ],
+    "sections": [
+      {
+        "title": "The structure is part of the design",
+        "body": "Program information has to be understandable to a prospective student and manageable for the people keeping it up to date. Restructuring the content and systems architecture made maintenance a central part of the project, alongside the visible website design."
+      },
+      {
+        "title": "A connected set of recruitment materials",
+        "body": "My work with the School for Field Studies also includes its 2023 and 2024 recruitment brochures. Together, the website and printed materials introduce the programs through different formats. The related brochure project shows the editorial and print side of that work."
+      }
+    ],
+    "galleryTitle": "Program information across screens",
+    "galleryIntro": "Original desktop and mobile examples, with September 2026 captures of the live program finder.",
+    "related": [
+      "sfs-brochure",
+      "sea-education"
+    ]
+  },
+  "workplace-solutions": {
+    "headline": "Presenting spaces, services, and ideas with clarity.",
+    "intro": "I redesigned and launched the Workplace Solutions website, with a focus on a clear, professional experience for a commercial interiors company. The work extended into pitch decks and video, supporting how the company introduced itself and presented opportunities to prospective clients.",
+    "role": "Web design, video & presentations",
+    "format": "Website & marketing materials",
+    "coverCaption": "Workplace Solutions project imagery",
+    "scope": [
+      {
+        "title": "Website redesign",
+        "body": "Refreshing the company’s digital presence and carrying the design through launch."
+      },
+      {
+        "title": "Pitch presentations",
+        "body": "Contributing to decks used to communicate ideas and capabilities to prospective clients."
+      },
+      {
+        "title": "Video content",
+        "body": "Producing engaging visual material for presentations and corporate marketing."
+      }
+    ],
+    "sections": [
+      {
+        "title": "A website shaped around the work",
+        "body": "A commercial interiors company needs to communicate through both information and examples of the spaces it helps create. The redesign focused on clarity, professionalism, and user experience, using the website as a place to present that work."
+      },
+      {
+        "title": "Supporting the next conversation",
+        "body": "The project also reached into the materials used in client conversations. Pitch decks and video gave the company additional ways to present its capabilities and ideas. The website and presentation work share an emphasis on communicating visually and making the material easy to follow."
+      }
+    ],
+    "galleryTitle": "Website and project presentation",
+    "galleryIntro": "Original project imagery and September 2026 captures of the live website’s work section.",
+    "videoTitle": "Video examples",
+    "videoIntro": "Selected video work from the Workplace Solutions project.",
+    "related": [
+      "sea-education",
+      "us-open"
+    ]
+  },
+  "national-event-identities": {
+    "headline": "A family of identities with room to evolve.",
+    "intro": "I designed a series of logos for USA Archery’s national events. The work develops a distinct identity for each event while retaining the core visual motifs that connect the series to the organization.",
+    "role": "Identity & event design",
+    "format": "Logo series",
+    "coverCaption": "A collection of USA Archery national event identities",
+    "scope": [
+      {
+        "title": "Event identities",
+        "body": "Individual logos developed for USA Archery’s national competitions."
+      },
+      {
+        "title": "A shared visual language",
+        "body": "Core motifs provide continuity across the series."
+      },
+      {
+        "title": "Ongoing development",
+        "body": "New designs evolve the event identities while retaining a recognizable relationship to earlier work."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Recognizable as a group",
+        "body": "A series of event marks has to hold together across different competitions and editions. The work keeps that relationship visible through recurring design motifs, giving the individual identities a common foundation."
+      },
+      {
+        "title": "Space for each event",
+        "body": "Within that foundation, each logo provides an opportunity to develop a particular event’s character. The collection shows the balance between continuity and variation across the work, with the core identity evolving over successive designs."
+      }
+    ],
+    "galleryTitle": "The identity collection",
+    "galleryIntro": "A selection of the national event logos shown together.",
+    "related": [
+      "olympic-jerseys",
+      "archery-is-for-everyone"
+    ]
+  },
+  "archery-is-for-everyone": {
+    "headline": "An invitation to try archery, across film and design.",
+    "intro": "As creative manager for USA Archery’s “Archery is for Everyone” campaign, I worked across film, graphics, apparel, and club marketing materials. The campaign was a collaboration with Marvel Entertainment and connected its creative message to ways people could find a place to try the sport.",
+    "role": "Campaign creative manager",
+    "format": "Integrated campaign",
+    "coverCaption": "Archery is for Everyone campaign identity",
+    "scope": [
+      {
+        "title": "Film production",
+        "body": "Filming and editing a 30-second advertisement that combines live action with AI-generated cartoon sequences."
+      },
+      {
+        "title": "Campaign materials",
+        "body": "Graphics, apparel, and marketing materials for club leaders and the USA Archery store."
+      },
+      {
+        "title": "Event discovery",
+        "body": "Coordinating development of an event finder connecting visitors with participating clubs and events."
+      }
+    ],
+    "sections": [
+      {
+        "title": "An inclusive message in several formats",
+        "body": "The campaign introduced archery’s inclusivity through a combination of moving image and graphic design. The film appeared as a preroll advertisement on Marvel.com, while the wider materials carried the campaign into apparel, club communication, and the USA Archery store."
+      },
+      {
+        "title": "Connecting interest with participation",
+        "body": "The event finder provided a next step for someone interested in trying archery. My role included coordinating its development on the USA Archery website. That connected the campaign’s invitation with participating clubs and events."
+      }
+    ],
+    "galleryTitle": "Campaign artwork",
+    "galleryIntro": "A selected graphic from the Archery is for Everyone campaign.",
+    "videoTitle": "The campaign film",
+    "videoIntro": "The 30-second advertisement, combining live-action footage and animated sequences.",
+    "related": [
+      "usa-archery-broadcast",
+      "national-event-identities"
+    ]
+  },
+  "us-open": {
+    "headline": "Turning a fan’s movement into an interactive experience.",
+    "intro": "I designed and developed an interactive installation for the 2016 U.S. Open using Microsoft Kinect and C#. The experience brought motion tracking and responsive visuals into a live event setting, connecting hardware, software, and game design.",
+    "role": "Interactive design & development",
+    "format": "Live event installation",
+    "period": "2016 U.S. Open",
+    "coverCaption": "The U.S. Open fan experience installation",
+    "scope": [
+      {
+        "title": "Motion tracking",
+        "body": "Using Microsoft Kinect to make a participant’s movement part of the interaction."
+      },
+      {
+        "title": "Application development",
+        "body": "Building the installation in C# and connecting the hardware to responsive visuals."
+      },
+      {
+        "title": "Event experience",
+        "body": "Bringing interaction and game design into USTA’s fan-facing event environment."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Movement as the input",
+        "body": "Motion tracking gives the participant a physical way to engage with a digital experience. The installation responds through visuals, making the relationship between movement and feedback central to the interaction. The video shows the experience in use."
+      },
+      {
+        "title": "Building for a real event",
+        "body": "The project was developed from the ground up, bringing its hardware and software into one experience. It formed part of my broader work on USTA’s 2016 U.S. Open booth presence, which also included app and game development, web work, booth design, and implementation."
+      }
+    ],
+    "videoTitle": "The installation in use",
+    "videoIntro": "USTA Virtual Skills Challenge · 2016 U.S. Open.",
+    "related": [
+      "playcase",
+      "arcadia"
+    ]
+  },
+  "sfs-brochure": {
+    "headline": "Making field education tangible on the page.",
+    "intro": "I designed the School for Field Studies recruitment brochures for 2023 and 2024. The materials introduce environmental field education to students at colleges across the country, bringing photography and program information together in a printed format.",
+    "role": "Editorial design & print production",
+    "format": "Recruitment brochures",
+    "period": "2023 & 2024",
+    "coverCaption": "School for Field Studies recruitment brochure",
+    "scope": [
+      {
+        "title": "Editorial structure",
+        "body": "Organizing program information into a printed introduction to the school."
+      },
+      {
+        "title": "Photography and layout",
+        "body": "Bringing the places and subject matter of field education into the design."
+      },
+      {
+        "title": "Recruitment materials",
+        "body": "Designing the 2023 and 2024 brochures for distribution to colleges."
+      }
+    ],
+    "sections": [
+      {
+        "title": "An introduction that can be explored",
+        "body": "The brochures bring visual and informational material together so a student can get a sense of the school’s programs. Photography introduces the subject and setting, while the editorial structure gives the program information a place within the same experience."
+      },
+      {
+        "title": "Print within a wider relationship",
+        "body": "The brochure work sits alongside my design and development of the School for Field Studies website. Working across these formats brings different reading experiences to the same educational subject: something to browse on screen and something to spend time with in print."
+      }
+    ],
+    "galleryTitle": "Inside the brochure",
+    "galleryIntro": "Selected pages from the 2023 recruitment brochure.",
+    "related": [
+      "field-studies",
+      "sea-education"
+    ]
+  }
+}
