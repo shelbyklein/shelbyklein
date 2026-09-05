@@ -1,2 +1,2 @@
-import { redirect } from 'next/navigation';
-export default function Projects(){redirect('/#work')}
+import { LegacyRedirect } from '@/components/legacy-redirect';
+export default function Projects(){return <LegacyRedirect href="/#work"/>}

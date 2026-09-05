@@ -1,3 +1,4 @@
+import { sitePath } from '@/lib/site-path';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Bricolage_Grotesque } from 'next/font/google';
 import './globals.css';
@@ -20,7 +21,7 @@ const displayFont = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: 'Shelby Klein — Design & Creative Technology',
   description: 'Independent designer and creative technologist in Atlanta, Georgia. Product design, software, brand identities, Olympic apparel, broadcast, and interactive experiences.',
-  icons: { icon: '/favicon.svg' },
+  icons: { icon: sitePath('/favicon.svg') },
 };
 
 export default function RootLayout({

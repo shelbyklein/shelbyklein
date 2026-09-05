@@ -1,3 +1,4 @@
+import { sitePath } from '@/lib/site-path';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
@@ -30,7 +31,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return <div id="top">
     <SiteHeader />
     <main id="main" className={`case-main case-detail wrap case-${project.id}`}>
-      <a className="back-link" href="/#work"><ArrowLeft size={16} aria-hidden="true" /> All work</a>
+      <a className="back-link" href={sitePath('/#work')}><ArrowLeft size={16} aria-hidden="true" /> All work</a>
 
       <header className="case-heading">
         <span className="eyebrow">{project.label}</span>
@@ -109,12 +110,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {study.article && <aside className="case-reading">
         <div><span className="eyebrow">FROM THE NOTEBOOK</span><h2>Creative work, fewer tools</h2><p>How these projects connect to a broader interest in making useful tools.</p></div>
-        <a href="/writing/creative-work-fewer-tools">Read the article <ArrowUpRight size={18} aria-hidden="true" /></a>
+        <a href={sitePath('/writing/creative-work-fewer-tools')}>Read the article <ArrowUpRight size={18} aria-hidden="true" /></a>
       </aside>}
 
       <section className="case-related" aria-labelledby="related-title">
-        <div className="case-section-heading"><h2 id="related-title">Keep exploring</h2><a className="text-link" href="/#work">All work <ArrowRight size={17} aria-hidden="true" /></a></div>
-        <div className="case-related-grid">{related.map(item => <a className="case-related-item" href={`/work/${item.id}`} key={item.id}>
+        <div className="case-section-heading"><h2 id="related-title">Keep exploring</h2><a className="text-link" href={sitePath('/#work')}>All work <ArrowRight size={17} aria-hidden="true" /></a></div>
+        <div className="case-related-grid">{related.map(item => <a className="case-related-item" href={sitePath(`/work/${item.id}`)} key={item.id}>
           <span className="eyebrow">{item.tags.join(' · ')}</span>
           <div><h3>{item.title}</h3><ArrowUpRight size={25} aria-hidden="true" /></div>
           <p>{item.summary}</p>

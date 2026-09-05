@@ -2,6 +2,14 @@
 
 A portfolio for Shelby Klein’s design and creative technology practice: 15 project pages, five articles including four from the archive, application references for Newton and Current, resumé/contact links, and redirects for the earlier WordPress portfolio URLs.
 
+## GitHub Pages
+
+Public site: [shelbyklein.github.io/shelbyklein](https://shelbyklein.github.io/shelbyklein/).
+
+Pushing to `main` runs `.github/workflows/pages.yml`, builds the static portfolio, and publishes `out/` to GitHub Pages. Run `npm ci` and `npm run build:pages` to create the same export locally. The export validates every content page and local link/asset, includes directory indexes for direct project and article URLs, and supplies a custom 404 page. Earlier portfolio URLs use small HTML redirect pages on this static host.
+
+The Pages build prefixes links and assets with `/shelbyklein`. `scripts/prepare-pages.mjs` arranges Vinext’s HTML and asset output for that GitHub mount. For browser verification, serve `out/` at `/shelbyklein/` and pass that complete base URL to `scripts/check-navigation.mjs`. The default `npm run build` retains the existing Sites/Cloudflare build and root-relative URLs.
+
 ## Development
 
 - `npm install`

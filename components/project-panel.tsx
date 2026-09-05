@@ -1,5 +1,7 @@
 'use client';
 
+import { sitePath } from '@/lib/site-path';
+
 import {
   createContext,
   useContext,
@@ -91,7 +93,7 @@ export function ProjectPanelProvider({
               </div>
             </div>
             <footer className="project-sheet-actions">
-              <a className="project-sheet-primary" href={`/work/${project.id}`} onClick={event => {
+              <a className="project-sheet-primary" href={sitePath(`/work/${project.id}`)} onClick={event => {
                 if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) setOpen(false);
               }}>
                 View full project <ArrowRight size={18} aria-hidden="true" />
@@ -116,7 +118,7 @@ export function ProjectLink({
   const panel = useContext(PanelContext);
   return <a
     {...props}
-    href={`/work/${projectId}`}
+    href={sitePath(`/work/${projectId}`)}
     aria-haspopup={panel ? 'dialog' : undefined}
     aria-controls={panel?.panelId}
     aria-expanded={panel ? panel.activeProject === projectId : undefined}

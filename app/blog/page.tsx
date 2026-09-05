@@ -1,2 +1,2 @@
-import { redirect } from 'next/navigation';
-export default function Blog(){redirect('/writing')}
+import { LegacyRedirect } from '@/components/legacy-redirect';
+export default function Blog(){return <LegacyRedirect href="/writing"/>}
