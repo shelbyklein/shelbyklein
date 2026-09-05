@@ -56,6 +56,7 @@ new=[
  dict(id='arcadia',title='Arcadia',originalTitle='Arcadia',summary='An exploration of AI coordination and interactive simulation.',label='Independent experiment',tags=['AI systems','Simulation & interaction'],cover=None,client='Independent exploration',url=None,paragraphs=['Arcadia explores the relationship between an AI workspace and a simulated world. It brings together an agent dashboard and a life simulation, asking how software activity can become something you can see and navigate as a place.','The work investigates agent coordination, persistent event history, character behavior, and spatial interaction. The agent system and simulation keep distinct responsibilities while contributing to the same experience.','This is an ongoing exploration in creative software and human–AI interaction. It sits alongside Newton and Current as part of my interest in building tools with a sense of presence and play.'],images=[],videos=[],source='Local Arcadia README, verified September 2026',legacySlug=None)
 ]
 projects+=new
+projects.append(json.loads((R/'content/vispix-project.json').read_text()))
 (R/'content/projects.json').write_text(json.dumps(projects,indent=2,ensure_ascii=False))
 
 allowed={'p','h2','h3','h4','ul','ol','li','strong','em','a','blockquote','code','pre','br','hr','figure','figcaption','img'}

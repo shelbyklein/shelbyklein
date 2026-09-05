@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import sharp from 'sharp';
 const projects=JSON.parse(await fs.readFile('content/projects.json','utf8'));
 const articles=JSON.parse(await fs.readFile('content/articles.json','utf8'));
-assert.equal(projects.length,14); assert.equal(articles.length,4);
+assert.equal(projects.length,15); assert.equal(articles.length,4);
 assert.equal(new Set(projects.map(p=>p.id)).size,projects.length);
 let images=new Set();
 for(const p of projects){

@@ -410,5 +410,33 @@
     "videos": [],
     "source": "Local Arcadia README, verified September 2026",
     "legacySlug": null
+  },
+  {
+    "id": "vispix",
+    "title": "Vispix",
+    "originalTitle": "Vispix",
+    "summary": "A shared photo library for teams to search, review, and select marketing images.",
+    "label": "Independent software",
+    "tags": [
+      "Product design",
+      "Asset management",
+      "AI integrations"
+    ],
+    "cover": "/images/vispix-logo.png",
+    "client": "Independent project",
+    "url": "https://vispix.dev",
+    "paragraphs": [
+      "Vispix is a collaborative photo workspace for marketing teams. It brings event albums, photo review, and shortlists into one place so teams can choose images together.",
+      "The product combines search based on image descriptions with team ratings, duplicate detection, and usage-rights information. It also connects the photo library to AI tools through MCP, making images available within broader creative workflows."
+    ],
+    "images": [
+      {
+        "src": "/images/vispix-logo.png",
+        "alt": "Vispix logo: a white eye and blue pixels within a viewfinder"
+      }
+    ],
+    "videos": [],
+    "source": "https://vispix.dev/ — public product description and branding, September 2026",
+    "legacySlug": null
   }
 ]

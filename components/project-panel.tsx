@@ -21,6 +21,7 @@ import {
 } from '@/components/ui/sheet';
 import type { Project } from '@/lib/portfolio';
 import { PlayCaseArt } from '@/components/playcase-art';
+import { VispixArt } from '@/components/vispix-art';
 
 type PanelContextValue = {
   panelId: string;
@@ -79,7 +80,7 @@ export function ProjectPanelProvider({
                 <SheetDescription className="project-sheet-summary">{project.summary}</SheetDescription>
               </header>
               {project.cover && <figure className={`project-sheet-image ${project.id}-panel-image`}>
-                {project.id === 'playcase' ? <PlayCaseArt eager/> : <img src={project.cover} alt={`${project.originalTitle} — project preview`} />}
+                {project.id === 'playcase' ? <PlayCaseArt eager/> : project.id === 'vispix' ? <VispixArt/> : <img src={project.cover} alt={`${project.originalTitle} — project preview`} />}
               </figure>}
               <dl className="project-sheet-meta">
                 <div><dt>Project</dt><dd>{project.client}</dd></div>
