@@ -19,7 +19,7 @@ const displayFont = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   title: 'Shelby Klein — Design & Creative Technology',
-  description: 'Independent designer and creative technologist in Orlando. Product design, software, brand identities, Olympic apparel, broadcast, and interactive experiences.',
+  description: 'Independent designer and creative technologist in Atlanta, Georgia. Product design, software, brand identities, Olympic apparel, broadcast, and interactive experiences.',
   icons: { icon: '/favicon.svg' },
 };
 
