@@ -136,3 +136,85 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
 .vispix-panel-image .vispix-name{font-size:44px}
 .vispix-panel-image .vispix-purpose{font-size:14px}
 @media(max-width:600px){.project-position-7 .project-visual{aspect-ratio:1.2}.vispix-art{padding:40px 20px;gap:5%}.vispix-art>img{width:33%}.vispix-name{font-size:42px}.vispix-purpose{font-size:14px;max-width:150px}.vispix-art>div{gap:10px}.vispix-cover>.vispix-art{min-height:270px;padding:32px 20px}.vispix-panel-image .vispix-name{font-size:36px}}
+
+/* Offset type and overprinted geometry stay inside the headline's blend group. */
+.hero h1.hero-title {
+  position: relative;
+  min-width: 0;
+  isolation: isolate;
+  padding-bottom: .08em;
+}
+.hero h1 > .hero-line {
+  display: block;
+  position: relative;
+  width: max-content;
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+  color: var(--foreground);
+  transform-origin: left center;
+}
+.hero h1 > .hero-line--creative {
+  color: #dc4b30;
+  transform: translate(.72em, .35em);
+  mix-blend-mode: multiply;
+}
+.hero h1 > .hero-line--technology {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: .91em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.065em;
+  color: #245bd1;
+  transform: translate(-.14em, -.28em);
+  mix-blend-mode: multiply;
+}
+.hero h1 > .hero-shapes {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  font: inherit;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-shape {
+  position: absolute;
+  display: block;
+}
+.hero-shape--disc {
+  top: 1.51em;
+  left: 3.65em;
+  width: .68em;
+  height: .68em;
+  border-radius: 50%;
+  background: #f4ce36;
+}
+.hero-shape--ring {
+  top: 1.89em;
+  left: .18em;
+  width: .65em;
+  height: .65em;
+  border: .025em solid #dc4b30;
+  border-radius: 50%;
+}
+.hero-shape--bar {
+  top: 2.35em;
+  left: 2.8em;
+  width: 1.05em;
+  height: .14em;
+  background: #245bd1;
+  transform: rotate(-14deg);
+}
+@media (max-width: 600px) {
+  .hero h1 > .hero-line--creative { transform: translate(.55em, .3em); }
+  .hero h1 > .hero-line--technology { font-size: .96em; transform: translate(-.07em, -.25em); }
+  .hero-shape--disc { left: 3.5em; top: 1.5em; width: .61em; height: .61em; }
+  .hero-shape--ring { left: .16em; top: 1.94em; border-width: 1.5px; }
+  .hero-shape--bar { top: 2.42em; left: 2.9em; }
+}
+@media (forced-colors: active) {
+  .hero h1 > .hero-line { color: CanvasText; mix-blend-mode: normal; transform: none; }
+  .hero-shapes { display: none !important; }
+}
