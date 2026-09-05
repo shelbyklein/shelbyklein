@@ -3,6 +3,7 @@ from html.parser import HTMLParser
 R=pathlib.Path(__file__).resolve().parents[1]
 (R/'content').mkdir(exist_ok=True)
 media=json.loads((R/'research/wp-media.json').read_text())
+playcase_visuals=json.loads((R/'content/playcase-visuals.json').read_text())
 
 def plain(s): return html.unescape(re.sub(r'<[^>]+>','',s)).strip()
 def local_image(url):
@@ -17,7 +18,7 @@ def local_image(url):
 
 # Concise summaries are new editorial copy. Detailed descriptions retain source wording.
 meta={
-547:('playcase','PlayCase','A gaming case that brings physical controls to the iPhone.','Independent product',['Product design','3D printing','Brand & marketing'],'playcase-card.png','https://playcase.gg','PlayCase'),
+547:('playcase','PlayCase','A gaming case that brings physical controls to the iPhone.','Independent product',['Product design','3D printing','Brand & marketing'],playcase_visuals['cover']['src'].removeprefix('/images/'),'https://playcase.gg','PlayCase'),
 660:('sea-education','Sea Education Association','Website design and development for ocean education.','Client project',['Web design','Web development'],'sea-card.webp','https://sea.edu','Sea Education Association'),
 550:('field-studies','The School for Field Studies','Website design and content systems for environmental field studies.','Client project',['Web design','Content architecture'],'sfs-card.webp','https://fieldstudies.org','School for Field Studies'),
 1049:('usa-archery-broadcast','USA Archery Live','Live broadcasts, motion graphics, and scoring systems for national archery events.','National events',['Live production','Motion & software'],'usaa-livestream-screenshot.webp',None,'USA Archery'),
@@ -42,6 +43,7 @@ for raw in json.loads((R/'research/wp-project.json').read_text()):
  for url_img in re.findall(r'<img[^>]*src="([^"]+)"',raw['content']['rendered']):
   src=local_image(url_img)
   if src and src not in [i['src'] for i in imgs]: imgs.append({'src':src,'alt':title+' — project artwork '+str(len(imgs)+1)})
+ if raw['id']==547: imgs=[{'src':i['src'],'alt':i['alt']} for i in playcase_visuals['images']]
  videos=[html.unescape(u) for u in re.findall(r'<iframe[^>]*src="([^"]+)"',raw['content']['rendered'])]
  # The homepage has three additional portfolio videos outside the post body.
  if raw['id']==114: videos.append('https://player.vimeo.com/video/864416195')

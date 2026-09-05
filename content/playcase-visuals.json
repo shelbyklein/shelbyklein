@@ -1,0 +1,76 @@
+{
+  "source": "https://playcase.gg/",
+  "retrieved": "2026-09-05",
+  "cover": {
+    "src": "/images/playcase/play.webp",
+    "alt": "PlayCase with its blue handheld faceplate attached to an iPhone",
+    "width": 1414,
+    "height": 2560,
+    "source": "https://playcase.gg/wp-content/uploads/play-scaled.webp"
+  },
+  "hero": {
+    "src": "/images/playcase/handheld-blue.webp",
+    "alt": "Front and back of the blue handheld faceplate",
+    "width": 1500,
+    "height": 1500,
+    "source": "https://playcase.gg/wp-content/uploads/Handheld-Blue.webp"
+  },
+  "alternate": {
+    "src": "/images/playcase/rear-controls.webp",
+    "alt": "Red PlayCase showing its rear triggers and faceplate storage",
+    "width": 1440,
+    "height": 1818,
+    "source": "https://playcase.gg/wp-content/uploads/faceplate-back-1.webp"
+  },
+  "images": [
+    {
+      "src": "/images/playcase/play.webp",
+      "alt": "PlayCase with its blue handheld faceplate attached to an iPhone",
+      "width": 1414,
+      "height": 2560,
+      "source": "https://playcase.gg/wp-content/uploads/play-scaled.webp"
+    },
+    {
+      "src": "/images/playcase/stow.webp",
+      "alt": "Blue PlayCase with the faceplate stored on the back",
+      "width": 1414,
+      "height": 2560,
+      "source": "https://playcase.gg/wp-content/uploads/stow-scaled.webp"
+    },
+    {
+      "src": "/images/playcase/handheld-blue.webp",
+      "alt": "Front and back of the blue handheld faceplate",
+      "width": 1500,
+      "height": 1500,
+      "source": "https://playcase.gg/wp-content/uploads/Handheld-Blue.webp"
+    },
+    {
+      "src": "/images/playcase/dual-screen-red.webp",
+      "alt": "Front and back of the red dual-screen faceplate",
+      "width": 1280,
+      "height": 1280,
+      "source": "https://playcase.gg/wp-content/uploads/ds-red.webp"
+    },
+    {
+      "src": "/images/playcase/classic-grey.webp",
+      "alt": "Front and back of the grey classic faceplate",
+      "width": 1280,
+      "height": 1280,
+      "source": "https://playcase.gg/wp-content/uploads/classic-grey.webp"
+    },
+    {
+      "src": "/images/playcase/assembly.webp",
+      "alt": "Exploded view of PlayCase’s printed components and button mechanisms",
+      "width": 908,
+      "height": 1198,
+      "source": "https://playcase.gg/wp-content/uploads/repairability-1.webp"
+    },
+    {
+      "src": "/images/playcase/rear-controls.webp",
+      "alt": "Red PlayCase showing its rear triggers and faceplate storage",
+      "width": 1440,
+      "height": 1818,
+      "source": "https://playcase.gg/wp-content/uploads/faceplate-back-1.webp"
+    }
+  ]
+}
