@@ -1,7 +1,12 @@
 import projectData from '@/content/projects.json';
 import articleData from '@/content/articles.json';
-export type Project = (typeof projectData)[number];
-export const projects = projectData;
+export type ProjectImage = { src: string; alt: string; caption?: string; width?: number; height?: number };
+export type Project = Omit<(typeof projectData)[number], 'images'> & {
+  images: ProjectImage[];
+  urlLabel?: string;
+  galleryLayout?: string;
+};
+export const projects: Project[] = projectData;
 export const articles = articleData;
 export const featuredIds = ['newton','current','playcase','olympic-jerseys','steam-deck-hq','usa-archery-broadcast','vispix'];
 export const featuredProjects = featuredIds.map(id=>projects.find(p=>p.id===id)!);

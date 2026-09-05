@@ -22,3 +22,5 @@ Project cards, titles, archive rows, and hero project links open a shared access
 PlayCase visuals were refreshed from playcase.gg on September 5, 2026. The homepage, project preview, and project page use the current product renders, with a gallery of faceplate variants, storage, rear controls, and assembly. Original-resolution WebP assets and their source URLs are recorded in `content/playcase-visuals.json`; the migration script preserves these selections.
 
 Vispix is included in Selected Work with its public product description, original logo from vispix.dev, project sidebar, and external link. Its source record is in `content/vispix-project.json` and is preserved by the migration script.
+
+Website project galleries include current desktop and mobile captures from Sea Education Association, The School for Field Studies, Steam Deck HQ, and Workplace Solutions, dated September 2026. Source URLs and curated project updates are retained in `content/project-overrides.json` and applied by the migration script. External actions use destination-specific labels, including Watch on Vimeo.

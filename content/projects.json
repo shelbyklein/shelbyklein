@@ -68,13 +68,38 @@
     ],
     "images": [
       {
+        "src": "/images/websites/sea-education-desktop.jpg",
+        "alt": "Sea Education Association website — desktop view, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Desktop view · September 2026",
+        "source": "https://sea.edu/programs/finder/"
+      },
+      {
+        "src": "/images/websites/sea-education-detail.jpg",
+        "alt": "Sea Education Association website — page content, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Page content · September 2026",
+        "source": "https://sea.edu/programs/finder/"
+      },
+      {
+        "src": "/images/websites/sea-education-mobile.jpg",
+        "alt": "Sea Education Association website — mobile view, September 2026",
+        "width": 390,
+        "height": 844,
+        "caption": "Mobile view · September 2026",
+        "source": "https://sea.edu/programs/finder/"
+      },
+      {
         "src": "/images/sea-page-2-scaled.webp",
         "alt": "Sea Education Association — project artwork 1"
       }
     ],
     "videos": [],
     "source": "https://shelbyklein.com/project/sea-edu/",
-    "legacySlug": "sea-edu"
+    "legacySlug": "sea-edu",
+    "galleryLayout": "website"
   },
   {
     "id": "field-studies",
@@ -94,6 +119,30 @@
     ],
     "images": [
       {
+        "src": "/images/websites/field-studies-desktop.jpg",
+        "alt": "The School for Field Studies website — desktop view, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Desktop view · September 2026",
+        "source": "https://fieldstudies.org/program-finder/"
+      },
+      {
+        "src": "/images/websites/field-studies-detail.jpg",
+        "alt": "The School for Field Studies website — page content, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Page content · September 2026",
+        "source": "https://fieldstudies.org/program-finder/"
+      },
+      {
+        "src": "/images/websites/field-studies-mobile.jpg",
+        "alt": "The School for Field Studies website — mobile view, September 2026",
+        "width": 390,
+        "height": 844,
+        "caption": "Mobile view · September 2026",
+        "source": "https://fieldstudies.org/program-finder/"
+      },
+      {
         "src": "/images/field-studies-website-examples.webp",
         "alt": "The School for Field Studies — project artwork 1"
       },
@@ -104,7 +153,8 @@
     ],
     "videos": [],
     "source": "https://shelbyklein.com/project/fieldstudies-org/",
-    "legacySlug": "fieldstudies-org"
+    "legacySlug": "fieldstudies-org",
+    "galleryLayout": "website"
   },
   {
     "id": "usa-archery-broadcast",
@@ -150,6 +200,30 @@
     ],
     "images": [
       {
+        "src": "/images/websites/steam-deck-hq-desktop.jpg",
+        "alt": "Steam Deck HQ website — desktop view, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Desktop view · September 2026",
+        "source": "https://steamdeckhq.com/"
+      },
+      {
+        "src": "/images/websites/steam-deck-hq-detail.jpg",
+        "alt": "Steam Deck HQ website — page content, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Page content · September 2026",
+        "source": "https://steamdeckhq.com/"
+      },
+      {
+        "src": "/images/websites/steam-deck-hq-mobile.jpg",
+        "alt": "Steam Deck HQ website — mobile view, September 2026",
+        "width": 390,
+        "height": 844,
+        "caption": "Mobile view · September 2026",
+        "source": "https://steamdeckhq.com/"
+      },
+      {
         "src": "/images/SDHQ-Website-Home-Page.webp",
         "alt": "Steam Deck HQ — project artwork 1"
       },
@@ -160,7 +234,8 @@
     ],
     "videos": [],
     "source": "https://shelbyklein.com/project/steamdeckhq/",
-    "legacySlug": "steamdeckhq"
+    "legacySlug": "steamdeckhq",
+    "galleryLayout": "website"
   },
   {
     "id": "national-event-identities",
@@ -240,6 +315,30 @@
     ],
     "images": [
       {
+        "src": "/images/websites/workplace-solutions-desktop.jpg",
+        "alt": "Workplace Solutions website — desktop view, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Desktop view · September 2026",
+        "source": "https://wpsolutions.com/our-work/"
+      },
+      {
+        "src": "/images/websites/workplace-solutions-detail.jpg",
+        "alt": "Workplace Solutions website — page content, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Page content · September 2026",
+        "source": "https://wpsolutions.com/our-work/"
+      },
+      {
+        "src": "/images/websites/workplace-solutions-mobile.jpg",
+        "alt": "Workplace Solutions website — mobile view, September 2026",
+        "width": 390,
+        "height": 844,
+        "caption": "Mobile view · September 2026",
+        "source": "https://wpsolutions.com/our-work/"
+      },
+      {
         "src": "/images/wpsolutions-1024x678.webp",
         "alt": "Workplace Solutions — project artwork 1"
       }
@@ -249,7 +348,8 @@
       "https://player.vimeo.com/video/562347637?dnt=1&app_id=122963"
     ],
     "source": "https://shelbyklein.com/project/workplace-solutions/",
-    "legacySlug": "workplace-solutions"
+    "legacySlug": "workplace-solutions",
+    "galleryLayout": "website"
   },
   {
     "id": "archery-is-for-everyone",
@@ -263,7 +363,7 @@
     ],
     "cover": "/images/Archery-is-for-Everyone.webp",
     "client": "USA Archery, in collaboration with Marvel Entertainment",
-    "url": null,
+    "url": "https://vimeo.com/864416195",
     "paragraphs": [
       "As the creative manager for USA Archery’s “Archery is for Everyone” campaign, I led efforts to showcase archery’s inclusivity through multiple touchpoints. I filmed and edited a 30-second video blending live-action and AI-generated cartoon sequences, featured as a preroll ad on marvel.com to engage Marvel fans. Additionally, I designed graphics, apparel, and marketing materials for club leaders and the usarchery.org store. I also coordinated the development of an “event finder” on usarchery.org, connecting users with participating clubs and events. This campaign was a collaboration between USA Archery and Marvel Entertainment."
     ],
@@ -291,7 +391,7 @@
     ],
     "cover": "/images/us-open-fan-experience-7.jpg",
     "client": "USTA",
-    "url": null,
+    "url": "https://vimeo.com/216589013",
     "paragraphs": [
       "Designed and developed an interactive installation for the 2016 US Open using Microsoft Kinect and C#. The experience engaged attendees through motion tracking and responsive visuals, blending real-time interactivity with principles of game design to create an immersive, intuitive experience. The project was built from the ground up, integrating hardware, software, and user-centered design."
     ],

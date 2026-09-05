@@ -20,6 +20,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 import type { Project } from '@/lib/portfolio';
+import { projectLinkLabel } from '@/lib/project-links';
 import { PlayCaseArt } from '@/components/playcase-art';
 import { VispixArt } from '@/components/vispix-art';
 
@@ -95,7 +96,7 @@ export function ProjectPanelProvider({
                 View full project <ArrowRight size={18} aria-hidden="true" />
               </Link>
               {project.url && <a className="project-sheet-secondary" href={project.url} target="_blank" rel="noreferrer">
-                Visit website <ArrowUpRight size={18} aria-hidden="true" />
+                {projectLinkLabel(project)} <ArrowUpRight size={18} aria-hidden="true" />
               </a>}
             </footer>
           </>}

@@ -1,0 +1,148 @@
+{
+  "archery-is-for-everyone": {
+    "url": "https://vimeo.com/864416195"
+  },
+  "us-open": {
+    "url": "https://vimeo.com/216589013"
+  },
+  "sea-education": {
+    "images": [
+      {
+        "src": "/images/websites/sea-education-desktop.jpg",
+        "alt": "Sea Education Association website — desktop view, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Desktop view · September 2026",
+        "source": "https://sea.edu/programs/finder/"
+      },
+      {
+        "src": "/images/websites/sea-education-detail.jpg",
+        "alt": "Sea Education Association website — page content, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Page content · September 2026",
+        "source": "https://sea.edu/programs/finder/"
+      },
+      {
+        "src": "/images/websites/sea-education-mobile.jpg",
+        "alt": "Sea Education Association website — mobile view, September 2026",
+        "width": 390,
+        "height": 844,
+        "caption": "Mobile view · September 2026",
+        "source": "https://sea.edu/programs/finder/"
+      },
+      {
+        "src": "/images/sea-page-2-scaled.webp",
+        "alt": "Sea Education Association — project artwork 1"
+      }
+    ],
+    "galleryLayout": "website"
+  },
+  "field-studies": {
+    "images": [
+      {
+        "src": "/images/websites/field-studies-desktop.jpg",
+        "alt": "The School for Field Studies website — desktop view, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Desktop view · September 2026",
+        "source": "https://fieldstudies.org/program-finder/"
+      },
+      {
+        "src": "/images/websites/field-studies-detail.jpg",
+        "alt": "The School for Field Studies website — page content, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Page content · September 2026",
+        "source": "https://fieldstudies.org/program-finder/"
+      },
+      {
+        "src": "/images/websites/field-studies-mobile.jpg",
+        "alt": "The School for Field Studies website — mobile view, September 2026",
+        "width": 390,
+        "height": 844,
+        "caption": "Mobile view · September 2026",
+        "source": "https://fieldstudies.org/program-finder/"
+      },
+      {
+        "src": "/images/field-studies-website-examples.webp",
+        "alt": "The School for Field Studies — project artwork 1"
+      },
+      {
+        "src": "/images/fieldstudies-iphone-mock-1-e1732174436490.webp",
+        "alt": "The School for Field Studies — project artwork 2"
+      }
+    ],
+    "galleryLayout": "website"
+  },
+  "steam-deck-hq": {
+    "images": [
+      {
+        "src": "/images/websites/steam-deck-hq-desktop.jpg",
+        "alt": "Steam Deck HQ website — desktop view, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Desktop view · September 2026",
+        "source": "https://steamdeckhq.com/"
+      },
+      {
+        "src": "/images/websites/steam-deck-hq-detail.jpg",
+        "alt": "Steam Deck HQ website — page content, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Page content · September 2026",
+        "source": "https://steamdeckhq.com/"
+      },
+      {
+        "src": "/images/websites/steam-deck-hq-mobile.jpg",
+        "alt": "Steam Deck HQ website — mobile view, September 2026",
+        "width": 390,
+        "height": 844,
+        "caption": "Mobile view · September 2026",
+        "source": "https://steamdeckhq.com/"
+      },
+      {
+        "src": "/images/SDHQ-Website-Home-Page.webp",
+        "alt": "Steam Deck HQ — project artwork 1"
+      },
+      {
+        "src": "/images/sdhq-sea-of-stars-game-review-copy.webp",
+        "alt": "Steam Deck HQ — project artwork 2"
+      }
+    ],
+    "galleryLayout": "website"
+  },
+  "workplace-solutions": {
+    "images": [
+      {
+        "src": "/images/websites/workplace-solutions-desktop.jpg",
+        "alt": "Workplace Solutions website — desktop view, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Desktop view · September 2026",
+        "source": "https://wpsolutions.com/our-work/"
+      },
+      {
+        "src": "/images/websites/workplace-solutions-detail.jpg",
+        "alt": "Workplace Solutions website — page content, September 2026",
+        "width": 1440,
+        "height": 1000,
+        "caption": "Page content · September 2026",
+        "source": "https://wpsolutions.com/our-work/"
+      },
+      {
+        "src": "/images/websites/workplace-solutions-mobile.jpg",
+        "alt": "Workplace Solutions website — mobile view, September 2026",
+        "width": 390,
+        "height": 844,
+        "caption": "Mobile view · September 2026",
+        "source": "https://wpsolutions.com/our-work/"
+      },
+      {
+        "src": "/images/wpsolutions-1024x678.webp",
+        "alt": "Workplace Solutions — project artwork 1"
+      }
+    ],
+    "galleryLayout": "website"
+  }
+}

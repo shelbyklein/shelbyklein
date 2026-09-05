@@ -57,6 +57,8 @@ new=[
 ]
 projects+=new
 projects.append(json.loads((R/'content/vispix-project.json').read_text()))
+overrides=json.loads((R/'content/project-overrides.json').read_text())
+for project in projects: project.update(overrides.get(project['id'],{}))
 (R/'content/projects.json').write_text(json.dumps(projects,indent=2,ensure_ascii=False))
 
 allowed={'p','h2','h3','h4','ul','ol','li','strong','em','a','blockquote','code','pre','br','hr','figure','figcaption','img'}
