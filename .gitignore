@@ -39,3 +39,5 @@ next-env.d.ts
 
 # Original site archive stays local; curated content lives in content/.
 /research/
+
+*.tsbuildinfo
