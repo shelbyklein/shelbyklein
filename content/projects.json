@@ -3,7 +3,7 @@
     "id": "playcase",
     "title": "PlayCase",
     "originalTitle": "PlayCase",
-    "summary": "A little nostalgia. A lot of real buttons.",
+    "summary": "A gaming case that brings physical controls to the iPhone.",
     "label": "Independent product",
     "tags": [
       "Product design",
@@ -30,7 +30,7 @@
     "id": "sea-education",
     "title": "Sea Education Association",
     "originalTitle": "sea.edu",
-    "summary": "Bringing ocean exploration to the web.",
+    "summary": "Website design and development for ocean education.",
     "label": "Client project",
     "tags": [
       "Web design",
@@ -56,7 +56,7 @@
     "id": "field-studies",
     "title": "The School for Field Studies",
     "originalTitle": "fieldstudies.org",
-    "summary": "A digital home for learning in the field.",
+    "summary": "Website design and content systems for environmental field studies.",
     "label": "Client project",
     "tags": [
       "Web design",
@@ -86,7 +86,7 @@
     "id": "usa-archery-broadcast",
     "title": "USA Archery Live",
     "originalTitle": "USA Archery Live Stream Production",
-    "summary": "From the first arrow to the final broadcast.",
+    "summary": "Live broadcasts, motion graphics, and scoring systems for national archery events.",
     "label": "National events",
     "tags": [
       "Live production",
@@ -111,7 +111,7 @@
     "id": "steam-deck-hq",
     "title": "Steam Deck HQ",
     "originalTitle": "Steam Deck HQ",
-    "summary": "Building a home for handheld gaming.",
+    "summary": "Brand identity and web development for a handheld gaming publication.",
     "label": "Independent platform",
     "tags": [
       "Brand identity",
@@ -142,7 +142,7 @@
     "id": "national-event-identities",
     "title": "National event identities",
     "originalTitle": "National Archery Event Logos",
-    "summary": "A shared identity. A new chapter, every year.",
+    "summary": "A series of identities for USA Archery’s national events.",
     "label": "USA Archery",
     "tags": [
       "Brand identity",
@@ -166,9 +166,9 @@
   },
   {
     "id": "olympic-jerseys",
-    "title": "On the world’s biggest stage.",
+    "title": "Team USA Olympic Jerseys",
     "originalTitle": "2020 & 2024 Olympic Games Jerseys",
-    "summary": "Team USA archery jerseys for Tokyo and Paris.",
+    "summary": "Team USA archery jerseys for the Tokyo and Paris Olympic Games.",
     "label": "2020 & 2024 Olympic Games",
     "tags": [
       "Apparel design",
@@ -202,7 +202,7 @@
     "id": "workplace-solutions",
     "title": "Workplace Solutions",
     "originalTitle": "Workplace Solutions",
-    "summary": "A fresh perspective on the places we work.",
+    "summary": "Website redesign, presentations, and video for a commercial interiors company.",
     "label": "Client project",
     "tags": [
       "Web design",
@@ -231,7 +231,7 @@
     "id": "archery-is-for-everyone",
     "title": "Archery is for Everyone",
     "originalTitle": "Archery is for Everyone Campaign",
-    "summary": "An invitation to discover your inner archer.",
+    "summary": "An inclusive archery campaign with USA Archery and Marvel Entertainment.",
     "label": "USA Archery × Marvel",
     "tags": [
       "Campaign direction",
@@ -259,7 +259,7 @@
     "id": "us-open",
     "title": "U.S. Open Fan Experience",
     "originalTitle": "U.S. Open Fan Experience",
-    "summary": "Turning spectators into participants.",
+    "summary": "A motion-tracking installation for the 2016 U.S. Open.",
     "label": "2016 U.S. Open",
     "tags": [
       "Interactive experience",
@@ -282,7 +282,7 @@
     "id": "sfs-brochure",
     "title": "SFS Recruitment Brochure",
     "originalTitle": "SFS Recruitment Brochure",
-    "summary": "An invitation to take your education outside.",
+    "summary": "Recruitment brochures for the School for Field Studies.",
     "label": "Client project",
     "tags": [
       "Editorial design",
@@ -312,7 +312,7 @@
     "id": "newton",
     "title": "Newton",
     "originalTitle": "Newton",
-    "summary": "A home for an AI team that stays with your work.",
+    "summary": "A desktop workspace for persistent AI teams.",
     "label": "Independent software · In development",
     "tags": [
       "Application design",
@@ -340,7 +340,7 @@
     "id": "current",
     "title": "Current",
     "originalTitle": "Current",
-    "summary": "Catch a word. Find your next rhyme.",
+    "summary": "A live rhyme studio with speech input and phrase suggestions.",
     "label": "Independent software · In development",
     "tags": [
       "Creative tools",
@@ -368,7 +368,7 @@
     "id": "arcadia",
     "title": "Arcadia",
     "originalTitle": "Arcadia",
-    "summary": "Exploring AI agents through a living, spatial interface.",
+    "summary": "An exploration of AI coordination and interactive simulation.",
     "label": "Independent experiment",
     "tags": [
       "AI systems",
