@@ -1,0 +1,390 @@
+[
+  {
+    "id": "playcase",
+    "title": "PlayCase",
+    "originalTitle": "PlayCase",
+    "summary": "A little nostalgia. A lot of real buttons.",
+    "label": "Independent product",
+    "tags": [
+      "Product design",
+      "3D printing",
+      "Brand & marketing"
+    ],
+    "cover": "/images/playcase-card.png",
+    "client": "PlayCase",
+    "url": "https://playcase.gg",
+    "paragraphs": [
+      "I designed and built PlayCase from concept to production, managing every aspect of the product lifecycle—from industrial design and prototyping to marketing and community engagement. The case features swappable faceplates with button layouts tailored for popular emulators like Delta and RetroArch, enabling users to play classic console games with real buttons on their iPhone."
+    ],
+    "images": [
+      {
+        "src": "/images/playcase-render.webp",
+        "alt": "PlayCase — project artwork 1"
+      }
+    ],
+    "videos": [],
+    "source": "https://shelbyklein.com/project/playcase/",
+    "legacySlug": "playcase"
+  },
+  {
+    "id": "sea-education",
+    "title": "Sea Education Association",
+    "originalTitle": "sea.edu",
+    "summary": "Bringing ocean exploration to the web.",
+    "label": "Client project",
+    "tags": [
+      "Web design",
+      "Web development"
+    ],
+    "cover": "/images/sea-card.webp",
+    "client": "Sea Education Association",
+    "url": "https://sea.edu",
+    "paragraphs": [
+      "Website design and development for Sea Education Association, an organization connecting students with ocean education and exploration. The original portfolio documents the work through desktop and mobile website imagery."
+    ],
+    "images": [
+      {
+        "src": "/images/sea-page-2-scaled.webp",
+        "alt": "Sea Education Association — project artwork 1"
+      }
+    ],
+    "videos": [],
+    "source": "https://shelbyklein.com/project/sea-edu/",
+    "legacySlug": "sea-edu"
+  },
+  {
+    "id": "field-studies",
+    "title": "The School for Field Studies",
+    "originalTitle": "fieldstudies.org",
+    "summary": "A digital home for learning in the field.",
+    "label": "Client project",
+    "tags": [
+      "Web design",
+      "Content architecture"
+    ],
+    "cover": "/images/sfs-card.webp",
+    "client": "School for Field Studies",
+    "url": "https://fieldstudies.org",
+    "paragraphs": [
+      "I designed and developed a new website for the School for Field Studies, restructuring content and systems architecture to make ongoing maintenance easier for the client. The project connects environmental field education with a clear, accessible digital experience."
+    ],
+    "images": [
+      {
+        "src": "/images/field-studies-website-examples.webp",
+        "alt": "The School for Field Studies — project artwork 1"
+      },
+      {
+        "src": "/images/fieldstudies-iphone-mock-1-e1732174436490.webp",
+        "alt": "The School for Field Studies — project artwork 2"
+      }
+    ],
+    "videos": [],
+    "source": "https://shelbyklein.com/project/fieldstudies-org/",
+    "legacySlug": "fieldstudies-org"
+  },
+  {
+    "id": "usa-archery-broadcast",
+    "title": "USA Archery Live",
+    "originalTitle": "USA Archery Live Stream Production",
+    "summary": "From the first arrow to the final broadcast.",
+    "label": "National events",
+    "tags": [
+      "Live production",
+      "Motion & software"
+    ],
+    "cover": "/images/usaa-livestream-screenshot.webp",
+    "client": "USA Archery",
+    "url": null,
+    "paragraphs": [
+      "As Live Stream Producer for USA Archery, I filled all key production roles using minimal staff and resources for their national events. I build and support the streaming A/V tech stack, create motion graphics, integrate real-time scoring with USAA data, execute on-site production, and develop custom software to support the broadcast."
+    ],
+    "images": [],
+    "videos": [
+      "https://www.youtube.com/embed/qqdaswrabYU?feature=oembed",
+      "https://www.youtube.com/embed/WVhDr5dYSPs?start=2&feature=oembed",
+      "https://www.youtube.com/embed/Iwr9XLw7r4g?start=1&feature=oembed"
+    ],
+    "source": "https://shelbyklein.com/project/usa-archery-live-stream-production/",
+    "legacySlug": "usa-archery-live-stream-production"
+  },
+  {
+    "id": "steam-deck-hq",
+    "title": "Steam Deck HQ",
+    "originalTitle": "Steam Deck HQ",
+    "summary": "Building a home for handheld gaming.",
+    "label": "Independent platform",
+    "tags": [
+      "Brand identity",
+      "Web development"
+    ],
+    "cover": "/images/sdhq-cover-image.webp",
+    "client": "Steam Deck HQ",
+    "url": "https://steamdeckhq.com",
+    "paragraphs": [
+      "Steam Deck HQ was created with the idea to find out the best ways to configure not only games, but everything related to the handheld gaming device, the Steam Deck. It is a resource for how to optimize your gaming experience and has built a community of passionate gamers.",
+      "The original portfolio reported more than one million monthly page views. This is a historical figure from the earlier site, not a current audience measurement."
+    ],
+    "images": [
+      {
+        "src": "/images/SDHQ-Website-Home-Page.webp",
+        "alt": "Steam Deck HQ — project artwork 1"
+      },
+      {
+        "src": "/images/sdhq-sea-of-stars-game-review-copy.webp",
+        "alt": "Steam Deck HQ — project artwork 2"
+      }
+    ],
+    "videos": [],
+    "source": "https://shelbyklein.com/project/steamdeckhq/",
+    "legacySlug": "steamdeckhq"
+  },
+  {
+    "id": "national-event-identities",
+    "title": "National event identities",
+    "originalTitle": "National Archery Event Logos",
+    "summary": "A shared identity. A new chapter, every year.",
+    "label": "USA Archery",
+    "tags": [
+      "Brand identity",
+      "Event design"
+    ],
+    "cover": "/images/logos-usaa-scaled.webp",
+    "client": "USA Archery",
+    "url": null,
+    "paragraphs": [
+      "Over the last seven years, I’ve had the privilege of designing the logos for USA Archery’s national events. Each year, I strive to innovate and evolve the brand while staying true to its core design motifs, ensuring consistency and growth in its visual identity."
+    ],
+    "images": [
+      {
+        "src": "/images/logos-examples-usaa.webp",
+        "alt": "National event identities — project artwork 1"
+      }
+    ],
+    "videos": [],
+    "source": "https://shelbyklein.com/project/national-event-logos/",
+    "legacySlug": "national-event-logos"
+  },
+  {
+    "id": "olympic-jerseys",
+    "title": "On the world’s biggest stage.",
+    "originalTitle": "2020 & 2024 Olympic Games Jerseys",
+    "summary": "Team USA archery jerseys for Tokyo and Paris.",
+    "label": "2020 & 2024 Olympic Games",
+    "tags": [
+      "Apparel design",
+      "Creative direction"
+    ],
+    "cover": "/images/olympic-jersey-card.webp",
+    "client": "USA Archery",
+    "url": null,
+    "paragraphs": [
+      "Designed of Team USA archery jerseys for the 2020 Tokyo and 2024 Paris Olympic Games. Responsible for concept development, visual direction, and production-ready artwork. Collaborated with athletes, USA Archery, and apparel manufacturers to create designs that balanced performance requirements with national identity and Olympic branding standards."
+    ],
+    "images": [
+      {
+        "src": "/images/jersey-1-1-1024x683.webp",
+        "alt": "On the world’s biggest stage. — project artwork 1"
+      },
+      {
+        "src": "/images/jersey-2-1-1024x683.webp",
+        "alt": "On the world’s biggest stage. — project artwork 2"
+      },
+      {
+        "src": "/images/jersey-3-1-1024x683.webp",
+        "alt": "On the world’s biggest stage. — project artwork 3"
+      }
+    ],
+    "videos": [],
+    "source": "https://shelbyklein.com/project/competition-jerseys-for-olympic-athletes-at-the-2020-2024-olympic-games/",
+    "legacySlug": "competition-jerseys-for-olympic-athletes-at-the-2020-2024-olympic-games"
+  },
+  {
+    "id": "workplace-solutions",
+    "title": "Workplace Solutions",
+    "originalTitle": "Workplace Solutions",
+    "summary": "A fresh perspective on the places we work.",
+    "label": "Client project",
+    "tags": [
+      "Web design",
+      "Video & presentations"
+    ],
+    "cover": "/images/q2-stadium-suite.webp",
+    "client": "Workplace Solutions",
+    "url": "https://wpsolutions.com",
+    "paragraphs": [
+      "Redesigned and launched a new website for Workplace Solutions, modernizing the company’s digital presence with a focus on clarity, professionalism, and user experience. In addition, contributed to the development of multiple pitch decks, elevating the delivery with engaging video content for prospective clients."
+    ],
+    "images": [
+      {
+        "src": "/images/wpsolutions-1024x678.webp",
+        "alt": "Workplace Solutions — project artwork 1"
+      }
+    ],
+    "videos": [
+      "https://player.vimeo.com/video/570761145",
+      "https://player.vimeo.com/video/562347637?dnt=1&app_id=122963"
+    ],
+    "source": "https://shelbyklein.com/project/workplace-solutions/",
+    "legacySlug": "workplace-solutions"
+  },
+  {
+    "id": "archery-is-for-everyone",
+    "title": "Archery is for Everyone",
+    "originalTitle": "Archery is for Everyone Campaign",
+    "summary": "An invitation to discover your inner archer.",
+    "label": "USA Archery × Marvel",
+    "tags": [
+      "Campaign direction",
+      "Film & design"
+    ],
+    "cover": "/images/Archery-is-for-Everyone.webp",
+    "client": "USA Archery, in collaboration with Marvel Entertainment",
+    "url": null,
+    "paragraphs": [
+      "As the creative manager for USA Archery’s “Archery is for Everyone” campaign, I led efforts to showcase archery’s inclusivity through multiple touchpoints. I filmed and edited a 30-second video blending live-action and AI-generated cartoon sequences, featured as a preroll ad on marvel.com to engage Marvel fans. Additionally, I designed graphics, apparel, and marketing materials for club leaders and the usarchery.org store. I also coordinated the development of an “event finder” on usarchery.org, connecting users with participating clubs and events. This campaign was a collaboration between USA Archery and Marvel Entertainment."
+    ],
+    "images": [
+      {
+        "src": "/images/Try-Archery-Para-Orange.webp",
+        "alt": "Archery is for Everyone — project artwork 1"
+      }
+    ],
+    "videos": [
+      "https://player.vimeo.com/video/864416195"
+    ],
+    "source": "https://shelbyklein.com/project/archery-is-for-everyone-campaign/",
+    "legacySlug": "archery-is-for-everyone-campaign"
+  },
+  {
+    "id": "us-open",
+    "title": "U.S. Open Fan Experience",
+    "originalTitle": "U.S. Open Fan Experience",
+    "summary": "Turning spectators into participants.",
+    "label": "2016 U.S. Open",
+    "tags": [
+      "Interactive experience",
+      "Game development"
+    ],
+    "cover": "/images/us-open-fan-experience-7.jpg",
+    "client": "USTA",
+    "url": null,
+    "paragraphs": [
+      "Designed and developed an interactive installation for the 2016 US Open using Microsoft Kinect and C#. The experience engaged attendees through motion tracking and responsive visuals, blending real-time interactivity with principles of game design to create an immersive, intuitive experience. The project was built from the ground up, integrating hardware, software, and user-centered design."
+    ],
+    "images": [],
+    "videos": [
+      "https://player.vimeo.com/video/216589013"
+    ],
+    "source": "https://shelbyklein.com/project/u-s-open-fan-experience/",
+    "legacySlug": "u-s-open-fan-experience"
+  },
+  {
+    "id": "sfs-brochure",
+    "title": "SFS Recruitment Brochure",
+    "originalTitle": "SFS Recruitment Brochure",
+    "summary": "An invitation to take your education outside.",
+    "label": "Client project",
+    "tags": [
+      "Editorial design",
+      "Print production"
+    ],
+    "cover": "/images/SFS-Brochure-card.webp",
+    "client": "School for Field Studies",
+    "url": null,
+    "paragraphs": [
+      "I designed the School for Field Studies recruitment brochures for 2023 and 2024, helping introduce its programs to students at colleges across the country. The work brings together photography, program information, and an editorial structure built for exploration."
+    ],
+    "images": [
+      {
+        "src": "/images/2023-SFS-Brochure-Page-1-1024x662.webp",
+        "alt": "SFS Recruitment Brochure — project artwork 1"
+      },
+      {
+        "src": "/images/2023-SFS-Brochure-Page-2-1024x662.webp",
+        "alt": "SFS Recruitment Brochure — project artwork 2"
+      }
+    ],
+    "videos": [],
+    "source": "https://shelbyklein.com/project/sfs-recruitment-brochure/",
+    "legacySlug": "school-for-field-studies"
+  },
+  {
+    "id": "newton",
+    "title": "Newton",
+    "originalTitle": "Newton",
+    "summary": "A home for an AI team that stays with your work.",
+    "label": "Independent software · In development",
+    "tags": [
+      "Application design",
+      "AI systems"
+    ],
+    "cover": "/images/newton.webp",
+    "client": "Independent project",
+    "url": null,
+    "paragraphs": [
+      "Newton is a local desktop workspace for persistent AI teammates. I’m building a place where projects, conversations, roles, and recurring work stay connected over time.",
+      "The app brings Codex CLI and Claude Code into one workspace, with separate project teams, saved conversations, scheduled routines, and handoffs between teammates. Illustrated characters give each role a recognizable presence.",
+      "The work spans interface design and the underlying system: a React and TypeScript front end, a Tauri desktop shell, and a Rust runtime that keeps track of work beyond the app window. Newton is an independent application in active development."
+    ],
+    "images": [
+      {
+        "src": "/images/newton.webp",
+        "alt": "Newton desktop app welcome screen with its apple mascot"
+      }
+    ],
+    "videos": [],
+    "source": "Local Newton project and screenshots, September 2026",
+    "legacySlug": null
+  },
+  {
+    "id": "current",
+    "title": "Current",
+    "originalTitle": "Current",
+    "summary": "Catch a word. Find your next rhyme.",
+    "label": "Independent software · In development",
+    "tags": [
+      "Creative tools",
+      "Language & audio"
+    ],
+    "cover": "/images/current.webp",
+    "client": "Independent project",
+    "url": null,
+    "paragraphs": [
+      "Current is a live rhyme studio for finding the next line while you rap. It connects spoken or typed words to rhyme suggestions, vowel matches, and phrase ideas in a single working surface.",
+      "I’m exploring how software can support a creative moment without interrupting it: keeping useful suggestions in view, grouping related sounds, and making the emerging rhyme scheme easy to follow.",
+      "The interface brings together your flow, phrase ideas, and a rhyme log. Session audio and transcript tools support revisiting the work. This is an independent project in active development; the screenshot documents its September 2026 interface."
+    ],
+    "images": [
+      {
+        "src": "/images/current.webp",
+        "alt": "Current live rhyme studio showing rhyme suggestions, phrase ideas, and an ABAB rhyme scheme"
+      }
+    ],
+    "videos": [],
+    "source": "Local Current application source and screenshot, September 2026",
+    "legacySlug": null
+  },
+  {
+    "id": "arcadia",
+    "title": "Arcadia",
+    "originalTitle": "Arcadia",
+    "summary": "Exploring AI agents through a living, spatial interface.",
+    "label": "Independent experiment",
+    "tags": [
+      "AI systems",
+      "Simulation & interaction"
+    ],
+    "cover": null,
+    "client": "Independent exploration",
+    "url": null,
+    "paragraphs": [
+      "Arcadia explores the relationship between an AI workspace and a simulated world. It brings together an agent dashboard and a life simulation, asking how software activity can become something you can see and navigate as a place.",
+      "The work investigates agent coordination, persistent event history, character behavior, and spatial interaction. The agent system and simulation keep distinct responsibilities while contributing to the same experience.",
+      "This is an ongoing exploration in creative software and human–AI interaction. It sits alongside Newton and Current as part of my interest in building tools with a sense of presence and play."
+    ],
+    "images": [],
+    "videos": [],
+    "source": "Local Arcadia README, verified September 2026",
+    "legacySlug": null
+  }
+]

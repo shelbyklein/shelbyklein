@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "web-analytics-is-power-demystifying-the-gtm-and-ga4-experience",
+    "title": "Web Analytics is Power – Demystifying the GTM and GA4 Experience",
+    "date": "2023-09-15",
+    "excerpt": "I’m going to be honest with you – I’ve never been a Google Analytics power user. But as I mature as a Wordpress expert/web developer/web designer, the more important it has become to have the capabilities to unlock the power of analytics.",
+    "html": "\n<p>I’m going to be honest with you – I’ve never been a Google Analytics power user. But as I mature as a WordPress expert/web developer/web designer, the more important it has become to have the capabilities to unlock the power of analytics. </p>\n\n\n\n<p>With the release of Google Analytics 4 (GA4), I’ve had clients and partners ask me to help them learn how to get the most out of it and help them demystify how to use the new tools. While I am not a data analysist and am not privy to the ways that professional marketers leverage the data that can be collected by GA4, I feel like I’ve gotten to the point where I can comfortably take in a task to create data.</p>\n\n\n\n<p>I wanted to record some of my disoveries in the hope that it may help anyone who comes across this post feel like they can get value out of GA4. </p>\n\n\n\n<p><em>This post is in progress. I will be updating it as I continue to learn more tips and tricks with Google Analytics and Google Tag Manager.</em></p>\n",
+    "source": "https://shelbyklein.com/web-analytics-is-power-demystifying-the-gtm-and-ga4-experience/"
+  },
+  {
+    "slug": "how-i-build-websites-september-2023",
+    "title": "How I Build Websites – September 2023",
+    "date": "2023-09-14",
+    "excerpt": "",
+    "html": "",
+    "source": "https://shelbyklein.com/how-i-build-websites-september-2023/"
+  },
+  {
+    "slug": "steamdeckhq-one-year-later",
+    "title": "Steam Deck HQ – One Year Later",
+    "date": "2023-08-14",
+    "excerpt": "",
+    "html": "",
+    "source": "https://shelbyklein.com/steamdeckhq-one-year-later/"
+  },
+  {
+    "slug": "new-year-new-me",
+    "title": "New Year, New Me",
+    "date": "2023-08-14",
+    "excerpt": "",
+    "html": "",
+    "source": "https://shelbyklein.com/new-year-new-me/"
+  }
+]
