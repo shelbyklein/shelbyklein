@@ -7,41 +7,5 @@
     "html": "<p>My projects cover a lot of ground: websites, identities, apparel, live broadcasts, interactive experiences, physical products, and software. Working on this portfolio has given me a reason to look at them together. A recurring interest has become clearer: I like making things, and I like improving the tools that help people make things.</p>\n\n<p>That second part is becoming a larger part of my work.</p>\n\n<p>Creative projects often come with a surprising amount of coordination. A conversation lives in one app, the files in another, and the useful reference somewhere in a browser tab. Before you can do the next piece of work, you have to find the right material and remember how it all fits together. Each tool might do its own job well, but moving between them becomes a job of its own.</p>\n\n<p>That is the kind of software bloat I’m interested in reducing. Overlapping features are part of it. So are repeated setup, duplicated information, and interfaces that require more attention than the task deserves. I want to build tools around a coherent activity and keep the things that belong together close enough to be useful.</p>\n\n<p><a href=\"/work/newton\">Newton</a> is one version of that idea. I’m building a desktop workspace for persistent AI teammates, bringing projects, conversations, roles, and recurring work into one place. It connects tools such as Codex CLI and Claude Code within a shared workspace. The design question is how to make that work easier to return to: what was happening, who was handling it, and what needs attention next? Keeping that context available is a big part of what I want Newton to do well.</p>\n\n<p><a href=\"/work/current\">Current</a> approaches the same problem on a much shorter timescale. It’s a live rhyme studio that connects spoken or typed words with rhyme suggestions, related sounds, and phrase ideas. When you’re working on a line, a useful suggestion has a very small window to be helpful. I’m exploring how to keep those suggestions nearby while leaving room for the person using it to follow their own train of thought. The rhyme log, audio, and transcript tools also give the session somewhere to go afterward.</p>\n\n<p><a href=\"/work/vispix\">Vispix</a> comes from another familiar part of creative work: choosing images. A photo library becomes more useful when you can search it, review options with a team, understand usage rights, and build a shortlist in the same place. Vispix brings those activities together. Its connection to AI tools extends access to the existing library, so the photos and their information can be useful within other workflows too.</p>\n\n<p>These projects share a design challenge. Every additional feature has to earn the space it takes up. Putting five disconnected tools inside one window would still leave a lot of coordination to the user. The useful work is deciding what should share context, what should happen automatically, and what needs a clear human decision. A focused tool needs boundaries, and maintaining those boundaries is part of building it.</p>\n\n<p>I can trace that interest through my earlier work as well. Producing live broadcasts for <a href=\"/work/usa-archery-broadcast\">USA Archery</a> involves graphics, scoring data, audio, video, and on-site production. I’ve built custom software to support that process and connect real-time scoring to the broadcast. In that setting, an interface has to make sense while an event is happening. The visual design and the underlying system have to work together under the same constraints.</p>\n\n<p><a href=\"/work/playcase\">PlayCase</a> brings the question into the physical world. It adds real controls to an iPhone for playing classic games, with swappable faceplates for different button layouts. The work spans industrial design, prototyping, production, and the way the product is presented. It’s another example of how much the experience can change when you reconsider the interface between a person and something they already use.</p>\n\n<p>There’s also room for exploration. With <a href=\"/work/arcadia\">Arcadia</a>, I’m investigating how an AI workspace and a simulated world might relate to each other—how software activity could become something you can see and navigate as a place. That gives me room to think about character, presence, and play alongside practical questions about coordination.</p>\n\n<p>Newton and Current are still in active development, and Arcadia is an ongoing experiment. I’m working through where consolidation helps and where a tool should stay small. Building the software creates its own maintenance work, so reducing friction has to remain something I evaluate, rather than something I assume.</p>\n\n<p>This is where creative work and technology meet for me. Understanding the activity helps me shape the interface; building the system lets me test whether that design actually helps. Across these projects, I want to make it easier to stay with an idea, find what it needs, and carry it through to something finished.</p>",
     "source": null,
     "archived": false
-  },
-  {
-    "slug": "web-analytics-is-power-demystifying-the-gtm-and-ga4-experience",
-    "title": "Web Analytics is Power – Demystifying the GTM and GA4 Experience",
-    "date": "2023-09-15",
-    "excerpt": "I’m going to be honest with you – I’ve never been a Google Analytics power user. But as I mature as a Wordpress expert/web developer/web designer, the more important it has become to have the capabilities to unlock the power of analytics.",
-    "html": "\n<p>I’m going to be honest with you – I’ve never been a Google Analytics power user. But as I mature as a WordPress expert/web developer/web designer, the more important it has become to have the capabilities to unlock the power of analytics. </p>\n\n\n\n<p>With the release of Google Analytics 4 (GA4), I’ve had clients and partners ask me to help them learn how to get the most out of it and help them demystify how to use the new tools. While I am not a data analysist and am not privy to the ways that professional marketers leverage the data that can be collected by GA4, I feel like I’ve gotten to the point where I can comfortably take in a task to create data.</p>\n\n\n\n<p>I wanted to record some of my disoveries in the hope that it may help anyone who comes across this post feel like they can get value out of GA4. </p>\n\n\n\n<p><em>This post is in progress. I will be updating it as I continue to learn more tips and tricks with Google Analytics and Google Tag Manager.</em></p>\n",
-    "source": "https://shelbyklein.com/web-analytics-is-power-demystifying-the-gtm-and-ga4-experience/",
-    "archived": true
-  },
-  {
-    "slug": "how-i-build-websites-september-2023",
-    "title": "How I Build Websites – September 2023",
-    "date": "2023-09-14",
-    "excerpt": "",
-    "html": "",
-    "source": "https://shelbyklein.com/how-i-build-websites-september-2023/",
-    "archived": true
-  },
-  {
-    "slug": "steamdeckhq-one-year-later",
-    "title": "Steam Deck HQ – One Year Later",
-    "date": "2023-08-14",
-    "excerpt": "",
-    "html": "",
-    "source": "https://shelbyklein.com/steamdeckhq-one-year-later/",
-    "archived": true
-  },
-  {
-    "slug": "new-year-new-me",
-    "title": "New Year, New Me",
-    "date": "2023-08-14",
-    "excerpt": "",
-    "html": "",
-    "source": "https://shelbyklein.com/new-year-new-me/",
-    "archived": true
   }
 ]

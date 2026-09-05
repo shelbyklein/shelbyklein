@@ -84,7 +84,9 @@ class Cleaner(HTMLParser):
 articles=[]
 for post in json.loads((R/'research/wp-posts.json').read_text()):
  c=Cleaner();c.feed(post['content']['rendered'])
- articles.append(dict(slug=post['slug'],title=html.unescape(post['title']['rendered']),date=post['date'][:10],excerpt=plain(post['excerpt']['rendered']),html=''.join(c.out),source=post['link']))
+ articles.append(dict(slug=post['slug'],title=html.unescape(post['title']['rendered']),date=post['date'][:10],excerpt=plain(post['excerpt']['rendered']),html=''.join(c.out),source=post['link'],archived=True))
  subprocess.run(['curl','-L','--fail','--silent','--show-error',post['link'],'-o',str(R/'research/pages'/(post['slug']+'.html'))],check=True)
+articles+=json.loads((R/'content/authored-articles.json').read_text())
+articles.sort(key=lambda article:article['date'],reverse=True)
 (R/'content/articles.json').write_text(json.dumps(articles,indent=2,ensure_ascii=False))
 print('Saved',len(projects),'projects and',len(articles),'articles.')

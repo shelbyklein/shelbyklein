@@ -218,6 +218,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
   .hero h1 > .hero-line { color: CanvasText; mix-blend-mode: normal; transform: none; }
   .hero-shapes { display: none !important; }
 }
+.writing-card>p{font-size:16px;line-height:1.65;margin:-12px 0 26px;color:var(--muted)}
 /* Website examples combine current desktop and mobile captures with prior work. */
 .website-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
 .website-gallery figure{min-width:0}

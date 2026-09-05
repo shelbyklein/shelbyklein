@@ -3,7 +3,9 @@ import assert from 'node:assert/strict';
 import sharp from 'sharp';
 const projects=JSON.parse(await fs.readFile('content/projects.json','utf8'));
 const articles=JSON.parse(await fs.readFile('content/articles.json','utf8'));
-assert.equal(projects.length,15); assert.equal(articles.length,4);
+assert.equal(projects.length,15); assert.equal(articles.length,5);
+assert.equal(articles.filter(a=>a.archived).length,4);
+assert.equal(new Set(articles.map(a=>a.slug)).size,articles.length);
 assert.equal(new Set(projects.map(p=>p.id)).size,projects.length);
 let images=new Set();
 for(const p of projects){
@@ -17,7 +19,7 @@ for(const a of articles){
  for(const m of a.html.matchAll(/src="(\/images\/[^"]+)"/g))images.add(m[1]);
 }
 for(const img of images){const f='public'+img;await fs.access(f);if(!img.endsWith('.svg')){const meta=await sharp(f).metadata();assert(meta.width&&meta.height,`Invalid image: ${img}`)}}
-console.log(`${projects.length} complete projects, ${articles.length} archived articles, ${images.size} valid image references.`);
+console.log(`${projects.length} complete projects, ${articles.length} articles, ${images.size} valid image references.`);
 const base=process.argv[2];
 if(base){
  const paths=['/','/writing',...projects.map(p=>'/work/'+p.id),...articles.map(a=>'/writing/'+a.slug),'/Shelby-Klein-Resume.pdf'];
