@@ -12,7 +12,7 @@ The Pages build uses root-relative links and assets for the custom domain. `scri
 
 The repository’s Pages custom domain is `shelbyklein.com`. Cloudflare manages both domains; `.com` points to GitHub Pages and `.design` uses a permanent redirect for the apex and `www` hostnames. The workflow publishes directly through GitHub Actions, so the custom domain is configured in Pages settings rather than a `CNAME` source file.
 
-The homepage uses the supplied alien-planet scene as a local, script-only sandboxed background. Its eight canvas layers, procedural terrain, moon, and stars are retained in `public/scenes/alien-planet.html`. The adaptation draws at up to 20 fps, yields during terrain generation, and reuses textures on resize. `components/hero-planet.tsx` provides a pause/play control, follows reduced-motion preferences, and suspends playback outside the viewport or in a hidden tab. `node scripts/check-hero-scene.mjs` checks drawing and playback lifecycle without external services; it also runs before Pages deployment.
+The homepage uses the light hero background with layered typography and project cards. The alien-planet background is currently disabled; its source remains in `public/scenes/alien-planet.html` and `components/hero-planet.tsx` for possible reuse. The retained scene includes a pause/play control, reduced-motion support, and playback suspension outside the viewport or in a hidden tab. `node scripts/check-hero-scene.mjs` checks its drawing and playback lifecycle without external services; it also runs before Pages deployment.
 
 ## Development
 

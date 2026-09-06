@@ -1,7 +1,6 @@
 import { sitePath } from '@/lib/site-path';
 import playcaseVisuals from '@/content/playcase-visuals.json';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
-import { HeroPlanet } from '@/components/hero-planet';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { ProjectArt } from '@/components/project-art';
@@ -12,8 +11,7 @@ export default function Home() {
   return <ProjectPanelProvider projects={projects}><div id="top">
     <SiteHeader/>
     <main id="main">
-      <section className="hero hero--space" aria-labelledby="intro-title">
-        <HeroPlanet/>
+      <section className="hero" aria-labelledby="intro-title">
         <div className="wrap hero-content">
         <div className="eyebrow"><span className="status-dot"/> SHELBY KLEIN · DESIGNER & CREATIVE TECHNOLOGIST</div>
         <div className="hero-composition"><h1 id="intro-title" className="hero-title"><span className="hero-line hero-line--design">Design &</span>{' '}<span className="hero-line hero-line--creative">creative</span>{' '}<span className="hero-line hero-line--technology">technology.</span><span className="hero-shapes" aria-hidden="true"><i className="hero-shape hero-shape--disc"/><i className="hero-shape hero-shape--ring"/><i className="hero-shape hero-shape--bar"/></span></h1><aside className="hero-aside"><span className="studio-note">Independent products<br/>& applications</span><div className="hero-objects"><ProjectLink projectId="playcase" className="object-card"><img src={sitePath(playcaseVisuals.hero.src)} alt={playcaseVisuals.hero.alt} width={playcaseVisuals.hero.width} height={playcaseVisuals.hero.height}/><span>PLAYCASE · PRODUCT DESIGN ↗</span></ProjectLink><ProjectLink projectId="newton" className="object-mascot" aria-label="Explore Newton"><img src={sitePath('/images/newton-logo.png')} alt="Newton’s apple mascot" width="130" height="130"/><span className="object-caption">NEWTON<br/>AI TEAM WORKSPACE</span></ProjectLink></div></aside></div>
