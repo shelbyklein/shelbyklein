@@ -83,10 +83,10 @@
       cap: [242, 205, 139]
     };
     const moonPalette = [
-      [79, 87, 101],
-      [103, 111, 124],
-      [132, 139, 150],
-      [164, 170, 179]
+      [184, 194, 211],
+      [210, 221, 236],
+      [233, 240, 248],
+      [252, 254, 255]
     ];
 
     function clamp(value, min = 0, max = 1) {
@@ -238,9 +238,10 @@
       planet.surfaceOffset = rng();
       planet.cloudOffset = rng();
 
-      moon.radius = Math.max(30, Math.floor(shortSide * 0.11));
-      moon.x = edge * 2 + moon.radius;
-      moon.y = edge * 2 + moon.radius;
+      const wideScene = viewWidth / viewHeight >= 1.3;
+      moon.radius = Math.max(36, Math.floor(shortSide * (wideScene ? 0.17 : 0.145)));
+      moon.x = wideScene ? viewWidth * 0.58 : viewWidth - moon.radius - edge;
+      moon.y = wideScene ? viewHeight * 0.23 : moon.radius + edge;
       moon.surfaceOffset = rng();
 
       stars.length = 0;
@@ -351,8 +352,8 @@
       const ctx = contexts.moon;
       const light = [-0.64, -0.3, 0.7];
       drawHalo(contexts["moon-glow"], moon, [
-        [0, "rgba(196,218,255,.2)"], [0.3, "rgba(128,171,230,.1)"], [1, "rgba(92,132,205,0)"]
-      ], 1.48);
+        [0, "rgba(224,237,255,.48)"], [0.3, "rgba(171,204,255,.22)"], [1, "rgba(120,163,228,0)"]
+      ], 1.65);
       layers.moon.data.fill(0);
       for (let py = -moon.radius; py <= moon.radius; py += 1) {
         for (let px = -moon.radius; px <= moon.radius; px += 1) {
@@ -364,7 +365,9 @@
           const u = Math.atan2(nx, nz) / (Math.PI * 2) + 0.5 + moon.surfaceOffset;
           const v = Math.asin(ny) / Math.PI + 0.5;
           const diffuse = clamp(nx * light[0] + ny * light[1] + nz * light[2]);
-          const color = shadeColor(paletteColor(sampleMap(moonMap, u, v), moonPalette), diffuse);
+          const tone = paletteColor(sampleMap(moonMap, u, v), moonPalette);
+          const brightness = lerp(0.7, 1, quantize(smoothstep(0, 1, diffuse)));
+          const color = tone.map(channel => Math.round(channel * brightness));
           writePixel(layers.moon, Math.round(moon.x + px), Math.round(moon.y + py), color);
         }
       }

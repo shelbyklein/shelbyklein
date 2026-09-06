@@ -242,7 +242,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
 }
 .hero-objects {
   width: 100%;
-  height: 276px;
+  height: 330px;
   margin: 0;
 }
 .object-card {
@@ -253,12 +253,24 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
 }
 .object-mascot {
   right: 0;
-  top: 148px;
-  width: 112px;
+  top: 144px;
+  width: 144px;
+  padding: 12px;
+  background: #fff;
+  color: #23291f;
+  box-shadow: 0 12px 35px #0005;
+  transform: rotate(8deg);
 }
-.object-caption {
-  top: 260px;
-  right: 0;
+.object-mascot .object-caption {
+  position: static;
+  display: block;
+  padding-top: 10px;
+  color: #23291f;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -.2px;
+  text-align: center;
+  transform: none;
 }
 .hero-bottom p {
   max-width: 625px;
@@ -274,8 +286,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
   .hero-aside { width: 270px; }
   .studio-note { font-size: 22px; }
   .object-card { left: 4px; width: 172px; }
-  .object-mascot { width: 100px; top: 140px; }
-  .object-caption { top: 244px; }
+  .object-mascot { width: 132px; top: 140px; }
   .hero-bottom p { max-width: 570px; }
 }
 @media (max-width: 800px) {
@@ -283,11 +294,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
   .hero h1.hero-title { font-size: 8vw; }
   .hero-aside { width: 210px; padding-top: 20px; }
   .studio-note { font-size: 20px; margin-bottom: 24px; }
-  .hero-objects { height: 230px; }
+  .hero-objects { height: 300px; }
   .object-card { left: 0; width: 148px; }
   .object-card span { font-size: 12px; line-height: 1.4; letter-spacing: 0; }
-  .object-mascot { width: 88px; top: 116px; right: -2px; }
-  .object-caption { top: 211px; font-size: 12px; }
+  .object-mascot { width: 120px; padding: 10px; top: 116px; right: -2px; }
   .hero-bottom p { max-width: 500px; }
 }
 @media (max-width: 600px) {
@@ -407,7 +417,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
 .hero--space .status-dot { background: #ff8968; }
 .hero--space .studio-note { color: #ffad94; }
 .hero--space .object-card { color: #23291f; box-shadow: 0 12px 35px #0005; }
-.hero--space .object-caption { color: #e0e5ed; }
+.hero--space .object-caption { color: #23291f; }
 .hero--space .hero-bottom p { color: #e2e5ec; }
 .hero--space .round-link .circle { background: #f4f5ef; border-color: #f4f5ef; color: #23291f; }
 .hero--space .round-link:hover .circle { background: #ffad94; border-color: #ffad94; }
