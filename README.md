@@ -4,11 +4,13 @@ A portfolio for Shelby Klein’s design and creative technology practice: 15 pro
 
 ## GitHub Pages
 
-Public site: [shelbyklein.github.io/shelbyklein](https://shelbyklein.github.io/shelbyklein/).
+Public site: [shelbyklein.com](https://shelbyklein.com/). The alternate domain [shelbyklein.design](https://shelbyklein.design/) redirects to the same page on the primary domain, preserving the path and query string.
 
 Pushing to `main` runs `.github/workflows/pages.yml`, builds the static portfolio, and publishes `out/` to GitHub Pages. Run `npm ci` and `npm run build:pages` to create the same export locally. The export validates every content page and local link/asset, includes directory indexes for direct project and article URLs, and supplies a custom 404 page. Earlier portfolio URLs use small HTML redirect pages on this static host.
 
-The Pages build prefixes links and assets with `/shelbyklein`. `scripts/prepare-pages.mjs` arranges Vinext’s HTML and asset output for that GitHub mount. For browser verification, serve `out/` at `/shelbyklein/` and pass that complete base URL to `scripts/check-navigation.mjs`. The default `npm run build` retains the existing Sites/Cloudflare build and root-relative URLs.
+The Pages build uses root-relative links and assets for the custom domain. `scripts/prepare-pages.mjs` arranges Vinext’s output into static directory indexes and verifies all local destinations. Static export is independent of a URL prefix, so legacy redirect pages also work at the domain root. To build for a project mount instead, use `GITHUB_PAGES_BASE_PATH=/shelbyklein npm run build:pages`. The default `npm run build` retains the existing Sites/Cloudflare server build.
+
+The repository’s Pages custom domain is `shelbyklein.com`. Cloudflare manages both domains; `.com` points to GitHub Pages and `.design` uses a permanent redirect for the apex and `www` hostnames. The workflow publishes directly through GitHub Actions, so the custom domain is configured in Pages settings rather than a `CNAME` source file.
 
 The homepage uses the supplied alien-planet scene as a local, script-only sandboxed background. Its eight canvas layers, procedural terrain, moon, and stars are retained in `public/scenes/alien-planet.html`. The adaptation draws at up to 20 fps, yields during terrain generation, and reuses textures on resize. `components/hero-planet.tsx` provides a pause/play control, follows reduced-motion preferences, and suspends playback outside the viewport or in a hidden tab. `node scripts/check-hero-scene.mjs` checks drawing and playback lifecycle without external services; it also runs before Pages deployment.
 

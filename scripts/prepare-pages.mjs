@@ -3,11 +3,15 @@ import assert from 'node:assert/strict';
 import path from 'node:path';
 
 const root = 'out';
+const basePath = process.env.GITHUB_PAGES_BASE_PATH ?? '';
+assert(basePath === '' || /^\/[a-zA-Z0-9_-]+$/.test(basePath), 'Pages base path must be empty or a single path segment');
 await fs.rm(root, { recursive: true, force: true });
 await fs.cp('dist/client', root, { recursive: true });
-// The Pages mount supplies /shelbyklein; remove Vinext's on-disk asset prefix.
-await fs.rename(path.join(root, 'shelbyklein/_next'), path.join(root, '_next'));
-await fs.rmdir(path.join(root, 'shelbyklein'));
+// With an optional project mount, remove Vinext's on-disk asset prefix.
+if (basePath) {
+  await fs.rename(path.join(root, basePath.slice(1), '_next'), path.join(root, '_next'));
+  await fs.rmdir(path.join(root, basePath.slice(1)));
+}
 const projects = JSON.parse(await fs.readFile('content/projects.json', 'utf8'));
 const articles = JSON.parse(await fs.readFile('content/articles.json', 'utf8'));
 const publicHTML = new Set((await fs.readdir('public', { recursive: true })).filter(file => file.endsWith('.html')));
@@ -31,10 +35,10 @@ for (const file of htmlFiles) {
   const html = await fs.readFile(path.join(root, file), 'utf8');
   for (const match of html.matchAll(/(?:href|src)="(\/(?!\/)[^"]*)"/g)) {
     const url = match[1];
-    assert(url.startsWith('/shelbyklein/'), `Unprefixed URL in ${file}: ${url}`);
+    assert(url.startsWith(`${basePath}/`), `Incorrect Pages mount in ${file}: ${url}`);
     if (checked.has(url)) continue;
-    const pathname = new URL(url, 'https://shelbyklein.github.io').pathname;
-    const relative = decodeURIComponent(pathname.slice('/shelbyklein/'.length));
+    const pathname = new URL(url, 'https://shelbyklein.com').pathname;
+    const relative = decodeURIComponent(pathname.slice(basePath.length + 1));
     const destination = path.join(root, relative, pathname.endsWith('/') ? 'index.html' : '');
     await fs.access(destination);
     checked.add(url);

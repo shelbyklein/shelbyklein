@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation';
-import { siteBasePath, sitePath } from '@/lib/site-path';
+import { staticExport, sitePath } from '@/lib/site-path';
 
 export function LegacyRedirect({ href }: { href: string }) {
-  if (!siteBasePath) redirect(href);
+  if (!staticExport) redirect(href);
   const destination = sitePath(href);
   return <main className="wrap article-main">
     <meta httpEquiv="refresh" content={`0;url=${destination}`} />
