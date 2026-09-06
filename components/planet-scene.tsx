@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Pause, Play } from 'lucide-react';
 import { sitePath } from '@/lib/site-path';
 
-export function HeroPlanet() {
+export function PlanetScene() {
   const frame = useRef<HTMLIFrameElement>(null);
-  const visible = useRef(true);
+  const visible = useRef(false);
   const pausedRef = useRef(true);
   const [paused, setPaused] = useState(true);
 
@@ -51,11 +51,11 @@ export function HeroPlanet() {
   }
 
   return <>
-    <div className="hero-scene" aria-hidden="true">
-      <iframe ref={frame} src={sitePath('/scenes/alien-planet.html')} title="Alien pixel planet"
-        tabIndex={-1} sandbox="allow-scripts" onLoad={syncPlayback}/>
+    <div className="planet-scene" aria-hidden="true">
+      <iframe ref={frame} src={sitePath('/scenes/alien-planet.html')} title="Animated planet background"
+        loading="lazy" tabIndex={-1} sandbox="allow-scripts" onLoad={syncPlayback}/>
     </div>
-    <button type="button" className="hero-scene-toggle" onClick={togglePlayback}
+    <button type="button" className="planet-scene-toggle" onClick={togglePlayback}
       aria-label={paused ? 'Play background animation' : 'Pause background animation'}>
       {paused ? <Play size={14} aria-hidden="true"/> : <Pause size={14} aria-hidden="true"/>}
       <span>{paused ? 'Play animation' : 'Pause animation'}</span>

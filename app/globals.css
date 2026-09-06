@@ -391,16 +391,16 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
 @media(max-width:1000px){.case-overview{grid-template-columns:1fr 3fr;gap:35px}.case-scope>li{padding:25px 22px}.case-approach{gap:38px}.case-facts{gap:28px}.case-detail .playcase-gallery figure>a{height:380px}.case-detail .playcase-gallery img{max-height:330px}}
 @media(max-width:700px){.case-facts{grid-template-columns:1fr;gap:22px;padding:24px 0}.case-facts>div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:18px}.case-facts dt{margin-top:4px}.case-facts dd{font-size:16px}.case-hero>figcaption{font-size:13px;gap:18px}.case-navigation{gap:16px 24px;padding:18px 0}.case-overview{grid-template-columns:1fr;gap:22px;padding:48px 0}.case-overview h2{font-size:35px}.case-overview p{font-size:18px}.case-section-heading{align-items:flex-start;gap:18px}.case-section-heading>h2{font-size:27px}.case-section-heading>.eyebrow{font-size:11px;padding-top:5px}.case-scope{grid-template-columns:1fr}.case-scope>li{padding:25px}.case-scope>li+li{border-left:0;border-top:1px solid #c8d0bb}.case-item-number{margin-bottom:20px}.case-scope h3{font-size:25px}.case-approach{grid-template-columns:1fr;gap:35px;padding:48px 0}.case-chapter h2{font-size:29px}.case-chapter p{font-size:17px}.case-detail .playcase-gallery,.case-detail .olympic-jerseys-gallery{grid-template-columns:1fr;gap:26px}.case-detail .playcase-gallery figure>a{height:360px;padding:20px}.case-detail .playcase-gallery img{max-height:320px}.case-reading{display:block;padding:27px;margin-top:45px}.case-reading h2{font-size:29px}.case-reading>a{margin-top:18px}.case-related{padding:55px 0}.case-related-grid{grid-template-columns:1fr;gap:25px}.case-related-item h3{font-size:29px}.case-detail .case-videos{padding-top:45px}.case-section-intro{font-size:16px}.case-detail .case-gallery figcaption{font-size:13px}}
 
-/* The supplied planet scene sits behind the existing hero composition. */
+/* Shared planet background and playback control. */
 .hero--space {
   isolation: isolate;
   overflow: hidden;
   background: #040611;
   color: #f4f5ef;
 }
-.hero-scene { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.hero-scene iframe { display: block; width: 100%; height: 100%; border: 0; }
-.hero-scene::after {
+.planet-scene { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.planet-scene iframe { display: block; width: 100%; height: 100%; border: 0; }
+.planet-scene::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -422,7 +422,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
 .hero--space .round-link .circle { background: #f4f5ef; border-color: #f4f5ef; color: #23291f; }
 .hero--space .round-link:hover .circle { background: #ffad94; border-color: #ffad94; }
 .hero--space .hero-foot { color: #b6bfcd; border-color: #ffffff30; }
-.hero-scene-toggle {
+.planet-scene-toggle {
   position: absolute;
   z-index: 2;
   top: 34px;
@@ -440,18 +440,50 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
   font: 12px var(--font-geist-mono), monospace;
   cursor: pointer;
 }
-.hero-scene-toggle:hover { background: #162238; border-color: #ffffff80; }
-.hero--space a:focus-visible, .hero-scene-toggle:focus-visible { outline-color: #ffad94; }
+.planet-scene-toggle:hover { background: #162238; border-color: #ffffff80; }
+.hero--space a:focus-visible, .planet-scene-toggle:focus-visible { outline-color: #ffad94; }
 @media (max-width: 900px) {
-  .hero-scene-toggle { right: 28px; }
+  .planet-scene-toggle { right: 28px; }
 }
 @media (max-width: 600px) {
   .hero--space .hero-content > .eyebrow { padding-right: 24px; }
-  .hero-scene-toggle { top: 26px; right: 18px; width: 44px; padding: 0; }
-  .hero-scene-toggle span { display: none; }
-  .hero-scene::after { background: linear-gradient(90deg, #040611a6, #04061133), linear-gradient(0deg, #040611e6, transparent 65%); }
+  .planet-scene-toggle { top: 26px; right: 18px; width: 44px; padding: 0; }
+  .planet-scene-toggle span { display: none; }
+  .planet-scene::after { background: linear-gradient(90deg, #040611a6, #04061133), linear-gradient(0deg, #040611e6, transparent 65%); }
 }
 @media (forced-colors: active) {
-  .hero-scene { display: none; }
+  .planet-scene { display: none; }
   .hero--space h1 > .hero-line { color: CanvasText; mix-blend-mode: normal; }
+}
+
+/* The contact invitation closes each page with the supplied space scene. */
+.footer--space {
+  --accent: #ffad94;
+  --border: #ffffff30;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #040611;
+  color: #f4f5ef;
+}
+.footer--space .footer-content {
+  position: relative;
+  border-top: 0;
+  padding-top: 72px;
+}
+.footer--space .footer-bottom { color: #e2e5ec; }
+.footer--space .footer-brand .brand-mark { background: #de472b; }
+.footer--space a:hover { color: #ffad94; }
+.footer--space .planet-scene::after {
+  background: linear-gradient(90deg, #040611db 0%, #04061199 42%, #04061114 80%), linear-gradient(0deg, #040611ed, transparent 65%);
+}
+@media (max-width: 600px) {
+  .footer--space .footer-content { padding-top: 82px; }
+  .footer--space .planet-scene::after {
+    background: linear-gradient(90deg, #040611b3, #04061159), linear-gradient(0deg, #040611ed, #04061140 80%);
+  }
+}
+@media (forced-colors: active) {
+  .footer--space { --accent: LinkText; --border: CanvasText; background: Canvas; color: CanvasText; }
+  .footer--space .footer-bottom { color: CanvasText; }
 }
