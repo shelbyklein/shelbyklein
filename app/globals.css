@@ -477,6 +477,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid v
 .footer--space .planet-scene::after {
   background: linear-gradient(90deg, #040611db 0%, #04061199 42%, #04061114 80%), linear-gradient(0deg, #040611ed, transparent 65%);
 }
+@media (min-width: 901px) {
+  .footer--space .planet-scene::after {
+    --footer-gutter: max(56px, calc((100% - 1440px) / 2));
+    background: linear-gradient(90deg, #04061114 0, #04061114 calc(var(--footer-gutter) - 16px), #040611db var(--footer-gutter), #04061199 42%, #04061114 80%), linear-gradient(0deg, #040611ed, transparent 65%);
+  }
+}
 @media (max-width: 600px) {
   .footer--space .footer-content { padding-top: 82px; }
   .footer--space .planet-scene::after {

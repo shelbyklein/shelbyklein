@@ -242,6 +242,13 @@
       moon.radius = Math.max(36, Math.floor(shortSide * (wideScene ? 0.17 : 0.145)));
       moon.x = wideScene ? viewWidth * 0.58 : viewWidth - moon.radius - edge;
       moon.y = wideScene ? viewHeight * 0.23 : moon.radius + edge;
+      if (innerWidth > 900) {
+        // Match the footer's .wrap gutter. Keep the full-size moon outside the
+        // text column; narrow desktop gutters crop it naturally at the edge.
+        const scale = viewWidth / innerWidth;
+        const gutter = Math.max(56, (innerWidth - 1440) / 2) * scale;
+        moon.x = Math.min(gutter / 2, gutter - moon.radius - 12 * scale);
+      }
       moon.surfaceOffset = rng();
 
       stars.length = 0;
