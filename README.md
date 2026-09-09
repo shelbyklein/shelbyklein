@@ -1,6 +1,6 @@
 # Shelby Klein portfolio
 
-A portfolio for Shelby Klein’s design and creative technology practice: 15 project pages, five articles including four from the archive, application references for Newton and Current, resumé/contact links, and redirects for the earlier WordPress portfolio URLs.
+A portfolio for Shelby Klein’s design and creative technology practice: 15 project pages, three articles including two from the archive, application references for Newton and Current, resumé/contact links, and redirects for the earlier WordPress portfolio URLs.
 
 ## GitHub Pages
 
@@ -28,7 +28,7 @@ Original publicly accessible source data is archived locally in `research/`, wit
 
 Newton, Current, and Arcadia are clearly described as independent work in development or exploration. Original articles retain their dates. Historical audience numbers are not presented as current. No generated project artwork, client testimonials, or invented outcomes were added.
 
-Validation: production build and TypeScript check passed. Content check verifies 15 unique complete projects, five articles (including four sanitized archived articles), and all referenced images. HTTP checks cover 23 pages/resources, 19 redirects, and a missing-project 404. Production browser checks cover all 15 project-preview-to-page paths, return links, keyboard activation, related projects, writing links, browser Back, and the mobile full-project action. No JavaScript errors occurred in the navigation checks. The site is a reading/navigation portfolio; WebMCP is not applicable.
+Validation: production build and TypeScript check passed. Content check verifies 15 unique complete projects, three articles (including two sanitized archived articles), and all referenced images. HTTP checks cover 23 pages/resources, 19 redirects, and a missing-project 404. Production browser checks cover all 15 project-preview-to-page paths, return links, keyboard activation, related projects, writing links, browser Back, and the mobile full-project action. No JavaScript errors occurred in the navigation checks. The site is a reading/navigation portfolio; WebMCP is not applicable.
 
 “Creative work, fewer tools” appears first on the homepage and Writing index, with a dedicated article page and links to its six referenced projects. New writing does not display the historical archive notice.
 
@@ -43,3 +43,5 @@ PlayCase visuals were refreshed from playcase.gg on September 5, 2026. The homep
 Vispix is included in Selected Work with its public product description, original logo from vispix.dev, project sidebar, and external link. Its source record is in `content/vispix-project.json` and is preserved by the migration script.
 
 Website project galleries include current desktop and mobile captures from Sea Education Association, The School for Field Studies, Steam Deck HQ, and Workplace Solutions, dated September 2026. Source URLs and curated project updates are retained in `content/project-overrides.json` and applied by the migration script. External actions use destination-specific labels, including Watch on Vimeo.
+
+“How I Build Websites – September 2023” and “Web Analytics is Power – Demystifying the GTM and GA4 Experience” were removed at Shelby’s request on September 9, 2026. `content/excluded-articles.json` prevents the WordPress import from restoring them. Original research archives are not published.

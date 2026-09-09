@@ -81,8 +81,10 @@ class Cleaner(HTMLParser):
   if not self.skip and tag in allowed and tag not in {'img','br','hr'}:self.out.append('</'+tag+'>')
  def handle_data(self,data):
   if not self.skip:self.out.append(html.escape(data))
+excluded_articles=set(json.loads((R/'content/excluded-articles.json').read_text()))
 articles=[]
 for post in json.loads((R/'research/wp-posts.json').read_text()):
+ if post['slug'] in excluded_articles:continue
  c=Cleaner();c.feed(post['content']['rendered'])
  articles.append(dict(slug=post['slug'],title=html.unescape(post['title']['rendered']),date=post['date'][:10],excerpt=plain(post['excerpt']['rendered']),html=''.join(c.out),source=post['link'],archived=True))
  subprocess.run(['curl','-L','--fail','--silent','--show-error',post['link'],'-o',str(R/'research/pages'/(post['slug']+'.html'))],check=True)
