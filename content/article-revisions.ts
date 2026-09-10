@@ -35,6 +35,10 @@ export const articleRevisions: Record<string, { excerpt?: string; html: string }
 
 <p>Together, those pieces let the work stay logically organized while still being flexible enough for the task at hand. The bots can act, the projects can hold the context, and the dashboard can give me a useful way to direct and review what is happening.</p>
 
+<p>Appleseed gives this system an important boundary. It is a way to develop the app without needing to develop it inside the app itself. Newton can be a useful place to organize and direct work, but it should not force every kind of work through its own abstraction.</p>
+
+<p>When the work is better served by native coding, I can step outside Newton and develop directly with the tools that make sense for the app. That keeps the system from becoming a closed loop: the workspace can support the work without becoming a requirement for making changes to the workspace itself.</p>
+
 <h2>Making it work for me</h2>
 
 <p>For a while, I think I treated the interface and the AI as more or less the same product. You open ChatGPT and talk to the AI. You open a coding agent and build with the AI. The software is basically the window through which you access the intelligence.</p>
