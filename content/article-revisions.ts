@@ -39,6 +39,8 @@ export const articleRevisions: Record<string, { excerpt?: string; html: string }
 
 <p>When the work is better served by native coding, I can step outside Newton and develop directly with the tools that make sense for the app. That keeps the system from becoming a closed loop: the workspace can support the work without becoming a requirement for making changes to the workspace itself.</p>
 
+<p>At the same time, I’m experimenting with integrating AI directly into Newton’s development space. The aim is to give development a place where it can move slowly, steadily, linearly, and with focus. Instead of getting disjointed across unrelated conversations, tools, and partial attempts, the work can stay connected to the project while it takes shape.</p>
+
 <h2>Making it work for me</h2>
 
 <p>For a while, I think I treated the interface and the AI as more or less the same product. You open ChatGPT and talk to the AI. You open a coding agent and build with the AI. The software is basically the window through which you access the intelligence.</p>
