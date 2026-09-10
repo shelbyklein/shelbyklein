@@ -1,5 +1,14 @@
 [
   {
+    "slug": "a-working-tools-log",
+    "title": "A Working Tools Log",
+    "date": "2026-09-10",
+    "excerpt": "A short, living reference of the tools I keep returning to across AI, coding, creative work, and publishing.",
+    "html": "<p>This is a living reference for me and for anyone who wants to understand the tools behind my work. Each note is intentionally brief: what the tool does, and why I keep returning to it.</p>\n\n<h2>AI and coding</h2>\n\n<ul>\n<li><strong>ChatGPT</strong> — A flexible place to think through ideas, shape copy, research a direction, and get a project moving.</li>\n<li><strong>Codex</strong> — My hands-on coding partner for building, maintaining, and shipping software in a real codebase.</li>\n<li><strong>Claude Code</strong> — A useful native coding workflow for longer-term development work, especially when the task calls for direct work in an IDE or terminal.</li>\n</ul>\n\n<h2>Creative production</h2>\n\n<ul>\n<li><strong>Adobe InDesign</strong> — My tool for editorial layouts, print-ready documents, and work where page structure matters.</li>\n<li><strong>Canva</strong> — A quick, approachable way to make social graphics, working templates, and collaborative design materials.</li>\n</ul>\n\n<h2>Websites and publishing</h2>\n\n<ul>\n<li><strong>WordPress</strong> — Still a practical platform for content-rich websites that need an approachable publishing workflow.</li>\n<li><strong><a href=\"https://github.com/shelbyklein\" target=\"_blank\" rel=\"noreferrer\">GitHub</a></strong> — Where I publish code, prototypes, and the projects I am comfortable sharing publicly.</li>\n</ul>\n\n<h2>How I use this list</h2>\n\n<p>These tools fit different modes of work. Some help make a fast, one-shot artifact; others support a long-running software project; others help with the diverse tasks that make up a creative practice. I’ll add to this list when a tool earns a durable place in that work.</p>",
+    "source": null,
+    "archived": false
+  },
+  {
     "slug": "the-space-between-work-and-ai",
     "title": "The Space Between Work and AI",
     "date": "2026-09-10",
