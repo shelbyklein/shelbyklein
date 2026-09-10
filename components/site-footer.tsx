@@ -8,11 +8,11 @@ export function SiteFooter() {
     <PlanetScene/>
     <div className="wrap footer footer-content">
       <span className="eyebrow">HAVE A PROJECT IN MIND?</span>
-      <a className="footer-invitation" href="mailto:sklein91@gmail.com">
+      <a className="footer-invitation" href="mailto:shelbykleindesign@gmail.com">
         Let’s work<br/><span>together.</span><ArrowUpRight/>
       </a>
       <div className="contact-options">
-        <a href="mailto:sklein91@gmail.com">sklein91@gmail.com <ArrowUpRight size={16}/></a>
+        <a href="mailto:shelbykleindesign@gmail.com">shelbykleindesign@gmail.com <ArrowUpRight size={16}/></a>
         <a href="https://fantastical.app/shelbyklein/skd-meeting" target="_blank" rel="noreferrer">Schedule a conversation <ArrowUpRight size={16}/></a>
       </div>
       <div className="footer-bottom">
