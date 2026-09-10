@@ -49,4 +49,50 @@ export const articleRevisions: Record<string, { excerpt?: string; html: string }
 
 <p>Newton is what I’ve been building in that space. It is not about replacing ChatGPT, coding agents, or artifacts. I still use all of them. It is about letting those tools, the projects around them, and the way I need to execute work start working together for me.</p>`,
   },
+  'a-working-tools-log': {
+    excerpt: 'A short, living reference of the tools and projects I keep returning to across AI, coding, creative work, and publishing.',
+    html: `<aside class="article-reference-card">
+<span class="eyebrow">GITHUB</span>
+<h2>Code, experiments, and references</h2>
+<p>My GitHub is where I share public code and keep a growing collection of projects that inform my own work.</p>
+<a href="https://github.com/shelbyklein?tab=stars" target="_blank" rel="noreferrer">Explore my starred repositories →</a>
+</aside>
+
+<p>This is a living reference for me and for anyone who wants to understand the tools behind my work. Each note is intentionally brief: what the tool does, and why I keep returning to it.</p>
+
+<h2>AI and coding</h2>
+
+<div class="article-tool-grid">
+<a class="article-tool-card" href="https://chatgpt.com/" target="_blank" rel="noreferrer"><span class="article-tool-logo article-tool-monogram">AI</span><span><strong>ChatGPT</strong><small>Ideas, copy, research, and getting a project moving.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://openai.com/codex/" target="_blank" rel="noreferrer"><span class="article-tool-logo article-tool-monogram">CX</span><span><strong>Codex</strong><small>Building, maintaining, and shipping work in a real codebase.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://cdn.simpleicons.org/anthropic" alt=""/></span><span><strong>Claude Code</strong><small>Native coding for longer-term development work.</small></span><b>↗</b></a>
+</div>
+
+<h2>Creative production</h2>
+
+<div class="article-tool-grid">
+<a class="article-tool-card" href="https://www.adobe.com/products/indesign.html" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://www.adobe.com/favicon.ico" alt=""/></span><span><strong>Adobe InDesign</strong><small>Editorial layouts, print-ready documents, and page structure.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://www.canva.com/" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://www.canva.com/favicon.ico" alt=""/></span><span><strong>Canva</strong><small>Social graphics, working templates, and collaborative materials.</small></span><b>↗</b></a>
+</div>
+
+<h2>Websites and publishing</h2>
+
+<div class="article-tool-grid">
+<a class="article-tool-card" href="https://wordpress.org/" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://cdn.simpleicons.org/wordpress" alt=""/></span><span><strong>WordPress</strong><small>Content-rich sites with an approachable publishing workflow.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://github.com/shelbyklein" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://cdn.simpleicons.org/github" alt=""/></span><span><strong>GitHub</strong><small>Public code, prototypes, and projects I can share.</small></span><b>↗</b></a>
+</div>
+
+<h2>Ideas I’m watching</h2>
+
+<div class="article-tool-grid">
+<a class="article-tool-card" href="https://github.com/kgoedecke/doop" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://cdn.simpleicons.org/github" alt=""/></span><span><strong>doop</strong><small>People and AI agents designing together in real time.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://github.com/CopilotKit/OpenBot" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://cdn.simpleicons.org/github" alt=""/></span><span><strong>OpenBot</strong><small>AI coworkers with their own browser, files, tools, and action record.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://github.com/zep-ia/pixel-agent-desk" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://cdn.simpleicons.org/github" alt=""/></span><span><strong>pixel-agent-desk</strong><small>An inspiration for agent-centered desktop thinking.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://github.com/brobertsaz/claude-os" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://cdn.simpleicons.org/github" alt=""/></span><span><strong>claude-os</strong><small>An inspiration for an organized AI operating environment.</small></span><b>↗</b></a>
+</div>
+
+<h2>How I use this list</h2>
+
+<p>These tools fit different modes of work. Some help make a fast, one-shot artifact; others support a long-running software project; others help with the diverse tasks that make up a creative practice. I’ll add to this list when a tool or project earns a durable place in that work.</p>`,
+  },
 };
