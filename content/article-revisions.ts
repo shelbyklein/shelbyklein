@@ -73,8 +73,12 @@ export const articleRevisions: Record<string, { excerpt?: string; html: string }
 <h2>Creative production</h2>
 
 <div class="article-tool-grid">
-<a class="article-tool-card" href="https://www.adobe.com/products/indesign.html" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://www.adobe.com/favicon.ico" alt=""/></span><span><strong>Adobe InDesign</strong><small>Editorial layouts, print-ready documents, and page structure.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://www.adobe.com/products/illustrator.html" target="_blank" rel="noreferrer"><span class="article-tool-logo article-tool-monogram">AI</span><span><strong>Adobe Illustrator</strong><small>Vector drawing, marks, and scalable graphics.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://www.adobe.com/products/indesign.html" target="_blank" rel="noreferrer"><span class="article-tool-logo article-tool-monogram">ID</span><span><strong>Adobe InDesign</strong><small>Editorial layouts, print-ready documents, and page structure.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noreferrer"><span class="article-tool-logo article-tool-monogram">PS</span><span><strong>Adobe Photoshop</strong><small>Image editing, compositing, and fast visual iteration.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://www.adobe.com/products/premiere.html" target="_blank" rel="noreferrer"><span class="article-tool-logo article-tool-monogram">PR</span><span><strong>Adobe Premiere</strong><small>Video editing, motion, and finishing.</small></span><b>↗</b></a>
 <a class="article-tool-card" href="https://www.canva.com/" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://www.canva.com/favicon.ico" alt=""/></span><span><strong>Canva</strong><small>Social graphics, working templates, and collaborative materials.</small></span><b>↗</b></a>
+<a class="article-tool-card" href="https://www.aseprite.org/" target="_blank" rel="noreferrer"><span class="article-tool-logo article-tool-monogram">AS</span><span><strong>Aseprite</strong><small>Pixel art, animation, and sprites.</small></span><b>↗</b></a>
 </div>
 
 <h2>Websites and publishing</h2>
