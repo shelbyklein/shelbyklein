@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { sitePath } from '@/lib/site-path';
 import { notFound } from 'next/navigation';
 import { articles } from '@/lib/portfolio';
@@ -83,6 +84,7 @@ export default async function Article({ params }: { params: Promise<{ slug: stri
   if (!article) notFound();
   const paragraphs = article.html.split('\n\n');
   const visuals: Record<number, ProjectVisual[]> = slug === 'creative-work-fewer-tools' ? creativeWorkVisuals : {};
+  const nextArticle = articles.find((item) => item.slug !== article.slug);
 
   return <div id="top">
     <SiteHeader />
@@ -101,6 +103,14 @@ export default async function Article({ params }: { params: Promise<{ slug: stri
           </Fragment>)}
         </div>
       </article>
+      <section className="article-next-steps" aria-label="Keep exploring">
+        <span className="eyebrow">KEEP EXPLORING</span>
+        <div>
+          <a href={sitePath('/#work')}><span>View work</span><ArrowUpRight aria-hidden="true" /></a>
+          <a href="mailto:shelbykleindesign@gmail.com"><span>Start a conversation</span><ArrowUpRight aria-hidden="true" /></a>
+          {nextArticle && <a href={sitePath(`/writing/${nextArticle.slug}`)}><span>Read: {nextArticle.title}</span><ArrowUpRight aria-hidden="true" /></a>}
+        </div>
+      </section>
     </main>
     <SiteFooter />
   </div>;
