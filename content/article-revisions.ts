@@ -81,6 +81,12 @@ export const articleRevisions: Record<string, { excerpt?: string; html: string }
 <a class="article-tool-card" href="https://www.aseprite.org/" target="_blank" rel="noreferrer"><span class="article-tool-logo article-tool-monogram">AS</span><span><strong>Aseprite</strong><small>Pixel art, animation, and sprites.</small></span><b>↗</b></a>
 </div>
 
+<h2>Design research</h2>
+
+<div class="article-tool-grid">
+<a class="article-tool-card" href="https://mobbin.com/" target="_blank" rel="noreferrer"><span class="article-tool-logo article-tool-monogram">MB</span><span><strong>Mobbin</strong><small>Real-world app and web patterns, screens, and flows for design reference.</small></span><b>↗</b></a>
+</div>
+
 <h2>Websites and publishing</h2>
 
 <div class="article-tool-grid">
