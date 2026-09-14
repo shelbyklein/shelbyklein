@@ -19,12 +19,35 @@ const appIcons: Record<string, string> = {
   vispix: '/images/vispix-logo.png',
   flogg: '/images/apps/flogg-icon.png',
   'playcase-editor': '/images/apps/playcase-editor-icon.png',
+  appleseed: '/images/apps/appleseed-icon.png',
+};
+
+type AppDirectoryEntry = {
+  id: string;
+  label: string;
+  name: string;
+  summary: string;
+  href: string;
 };
 
 export default function AppsPage() {
-  const apps = appIds
+  const apps: AppDirectoryEntry[] = appIds
     .map(getProject)
-    .filter((project): project is Project => project !== undefined);
+    .filter((project): project is Project => project !== undefined)
+    .map((project) => ({
+      id: project.id,
+      label: project.label,
+      name: appNames[project.id] ?? project.title,
+      summary: project.summary,
+      href: sitePath('/work/' + project.id),
+    }));
+  apps.splice(1, 0, {
+    id: 'appleseed',
+    label: 'Newton mobile companion · In development',
+    name: 'Appleseed',
+    summary: 'A focused mobile companion that keeps Newton projects and work close at hand.',
+    href: sitePath('/work/newton'),
+  });
 
   return (
     <div id="top">
@@ -40,19 +63,16 @@ export default function AppsPage() {
         </header>
 
         <section className="apps-directory" aria-label="App directory">
-          {apps.map((app) => {
-            const name = appNames[app.id] ?? app.title;
-            return (
-              <a className="apps-card" href={sitePath('/work/' + app.id)} key={app.id}>
+          {apps.map((app) => (
+              <a className="apps-card" href={app.href} key={app.id}>
                 <img className="apps-icon" src={sitePath(appIcons[app.id])} alt="" width="512" height="512" />
                 <span className="apps-card-content">
                   <span className="eyebrow">{app.label}</span>
-                  <strong>{name}</strong>
+                  <strong>{app.name}</strong>
                   <span>{app.summary}</span>
                 </span>
               </a>
-            );
-          })}
+          ))}
         </section>
       </main>
       <SiteFooter />
