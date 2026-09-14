@@ -549,38 +549,52 @@
       "3D printing",
       "Process tools"
     ],
-    "cover": null,
+    "cover": "/images/apps/flogg.png",
     "client": "Independent project",
     "url": "https://flogg.shelbyklein.com/",
     "paragraphs": [
       "Flogg is a personal log for 3D-print settings, built while I was working with 70A TPU. The material is volatile enough that small changes can make a meaningful difference, so I needed a more intimate way to see what I had changed and what each change was doing.",
       "The tool keeps a history of prints, settings, notes, and photos in one place. Its comparison view makes the differences between attempts visible, so the next adjustment can come from an actual record instead of memory."
     ],
-    "images": [],
+    "images": [
+      {
+        "src": "/images/apps/flogg.png",
+        "alt": "Flogg’s dark landing screen showing its print-settings log, comparison, photo, and filament-history features",
+        "width": 1440,
+        "height": 1000
+      }
+    ],
     "videos": [],
     "source": "https://flogg.shelbyklein.com/ — public application, verified September 2026",
     "legacySlug": null
   },
   {
     "id": "playcase-editor",
-    "title": "PlayCase Editor",
-    "originalTitle": "PlayCase Editor",
+    "title": "Deltaskin Editor",
+    "originalTitle": "Deltaskin Editor",
     "summary": "A visual editor for the simple JSON configurations behind PlayCase.",
     "label": "PlayCase companion tool",
     "tags": [
       "Tool design",
       "AI-assisted development"
     ],
-    "cover": null,
+    "cover": "/images/apps/playcase-editor.png",
     "client": "PlayCase",
-    "url": null,
+    "url": "https://editor.playcase.gg/",
     "paragraphs": [
-      "PlayCase Editor turns the simple JSON behind PlayCase configurations into a direct, visual interface. There was no good GUI editor for the job, even though the underlying data was straightforward, so I built the tool that the workflow needed.",
+      "Deltaskin Editor turns the simple JSON behind PlayCase configurations into a direct, visual interface. There was no good GUI editor for the job, even though the underlying data was straightforward, so I built the tool that the workflow needed.",
       "It is also a record of an evolving way of making software. The first version began before coding agents were part of the picture, then continued through GPT-4 and into the early stages of agentic development. The project became a practical experiment in how AI could support a small, focused application over time."
     ],
-    "images": [],
+    "images": [
+      {
+        "src": "/images/apps/playcase-editor.png",
+        "alt": "Deltaskin Editor’s dark start screen with options to create a new skin, use a template, or import an existing skin",
+        "width": 1440,
+        "height": 1000
+      }
+    ],
     "videos": [],
-    "source": "PlayCase Editor — independent development project",
+    "source": "https://editor.playcase.gg/ — public application, verified September 2026",
     "legacySlug": null
   },
   {
@@ -593,14 +607,21 @@
       "Interaction design",
       "Configuration tools"
     ],
-    "cover": null,
+    "cover": "/images/apps/playpad-editor.png",
     "client": "PlayCase",
     "url": "https://playpad.shelbyklein.com/",
     "paragraphs": [
       "PlayPad Editor is a browser-based interface for creating and editing on-screen gamepads for RetroArch. It takes a configuration that would otherwise live across images and text files and gives it a visual working surface.",
       "Like PlayCase Editor, it came from a specific problem with no satisfying GUI solution. Building the right small tool made the configuration easier to understand, test, and change."
     ],
-    "images": [],
+    "images": [
+      {
+        "src": "/images/apps/playpad-editor.png",
+        "alt": "PlayPad Editor showing the controls and visual layout of an on-screen RetroArch gamepad",
+        "width": 1440,
+        "height": 1000
+      }
+    ],
     "videos": [],
     "source": "https://playpad.shelbyklein.com/ — public application, verified September 2026",
     "legacySlug": null

@@ -594,7 +594,7 @@
   },
   "playcase-editor": {
     "headline": "A GUI for configuration data that should be easy to change.",
-    "intro": "PlayCase Editor turns simple JSON configurations into a focused visual interface. It exists because the underlying data was approachable, but there was no good GUI for the work of seeing, editing, and testing it.",
+    "intro": "Deltaskin Editor turns simple JSON configurations into a focused visual interface. It exists because the underlying data was approachable, but there was no good GUI for the work of seeing, editing, and testing it.",
     "role": "Product design & development",
     "format": "PlayCase configuration tool",
     "scope": [
@@ -614,7 +614,7 @@
     "sections": [
       {
         "title": "Simple data still needs the right interface",
-        "body": "The configuration itself is simple JSON, but a raw file is not always the right place to make a decision. PlayCase Editor gives the data a visual form so it can be understood, adjusted, and tested without treating every change as text manipulation."
+        "body": "The configuration itself is simple JSON, but a raw file is not always the right place to make a decision. Deltaskin Editor gives the data a visual form so it can be understood, adjusted, and tested without treating every change as text manipulation."
       },
       {
         "title": "A record of changing development tools",
