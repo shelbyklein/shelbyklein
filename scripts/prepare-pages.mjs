@@ -24,7 +24,7 @@ for (const file of await fs.readdir(root, { recursive: true })) {
   await fs.mkdir(path.dirname(destination), { recursive: true });
   await fs.rename(path.join(root, file), destination);
 }
-const routes = ['', 'writing', ...projects.map(project => `work/${project.id}`), ...articles.map(article => `writing/${article.slug}`)];
+const routes = ['', 'apps', 'writing', ...projects.map(project => `work/${project.id}`), ...articles.map(article => `writing/${article.slug}`)];
 for (const route of routes) {
   const html = await fs.readFile(path.join(root, route, 'index.html'), 'utf8');
   assert(html.includes('<html'), `Missing HTML for ${route || '/'}`);
