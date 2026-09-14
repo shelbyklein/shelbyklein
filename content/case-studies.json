@@ -557,5 +557,107 @@
       "field-studies",
       "sea-education"
     ]
+  },
+  "flogg": {
+    "headline": "A more intimate feedback loop for an unforgiving material.",
+    "intro": "Flogg is a personal 3D-printing log and comparison tool I built while dialing in 70A TPU. It turns a sequence of settings, photos, and observations into a record I can actually use for the next print.",
+    "role": "Product design & development",
+    "format": "Personal 3D-printing tool",
+    "scope": [
+      {
+        "title": "Print history",
+        "body": "Recording each attempt with the details that matter when a material behaves unpredictably."
+      },
+      {
+        "title": "Settings comparison",
+        "body": "Showing the specific differences between prints instead of relying on memory or scattered files."
+      },
+      {
+        "title": "Visual feedback",
+        "body": "Keeping print photos and notes beside the settings that produced them."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Small changes need a visible record",
+        "body": "70A TPU can react strongly to small changes in print settings. I needed a way to follow those changes closely enough to understand the relationship between a decision and the physical result. Flogg brings the settings, notes, and photos for each attempt into one personal history."
+      },
+      {
+        "title": "Comparison is the point",
+        "body": "The tool is designed around the question that comes after a print: what changed? A comparison view makes the differences between attempts explicit, giving the next adjustment a clearer starting point. It is a small piece of software built around a real feedback loop in making."
+      }
+    ],
+    "related": [
+      "playcase",
+      "playcase-editor"
+    ]
+  },
+  "playcase-editor": {
+    "headline": "A GUI for configuration data that should be easy to change.",
+    "intro": "PlayCase Editor turns simple JSON configurations into a focused visual interface. It exists because the underlying data was approachable, but there was no good GUI for the work of seeing, editing, and testing it.",
+    "role": "Product design & development",
+    "format": "PlayCase configuration tool",
+    "scope": [
+      {
+        "title": "Editor design",
+        "body": "Making configuration data legible and editable through a direct visual interface."
+      },
+      {
+        "title": "Workflow problem-solving",
+        "body": "Building a specific tool where the available editors did not match the actual need."
+      },
+      {
+        "title": "AI development experiment",
+        "body": "Using the project to explore an evolving development workflow from GPT-4 through early agentic work."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Simple data still needs the right interface",
+        "body": "The configuration itself is simple JSON, but a raw file is not always the right place to make a decision. PlayCase Editor gives the data a visual form so it can be understood, adjusted, and tested without treating every change as text manipulation."
+      },
+      {
+        "title": "A record of changing development tools",
+        "body": "The first version began before coding agents were part of the workflow. Its later iterations became an experiment in AI development, beginning with GPT-4 assistance and continuing into the earliest agentic approaches. The goal stayed grounded: make a small application that solves a particular problem well."
+      }
+    ],
+    "related": [
+      "playcase",
+      "playpad"
+    ]
+  },
+  "playpad": {
+    "headline": "A visual workspace for editing an on-screen gamepad.",
+    "intro": "PlayPad Editor is a browser-based tool for creating and editing RetroArch on-screen gamepads. It gives a direct GUI to a configuration that otherwise spans images and text files.",
+    "role": "Interaction design & development",
+    "format": "PlayCase companion tool",
+    "scope": [
+      {
+        "title": "Visual editing",
+        "body": "Giving an on-screen gamepad configuration a direct graphical interface."
+      },
+      {
+        "title": "Configuration workflow",
+        "body": "Making a set of images and text settings easier to understand and revise."
+      },
+      {
+        "title": "Focused problem-solving",
+        "body": "Building a small tool around a workflow that did not have a satisfying existing editor."
+      }
+    ],
+    "sections": [
+      {
+        "title": "See the configuration while you change it",
+        "body": "On-screen gamepads are more than a text configuration: their layout has to be seen and adjusted as an interface. PlayPad Editor makes that relationship immediate, giving the configuration a visual working surface instead of leaving it spread across files."
+      },
+      {
+        "title": "A companion tool with its own value",
+        "body": "The project sits alongside PlayCase, but it also stands as an example of a useful small application. A focused problem deserved a focused interface, and the result makes creating and revising RetroArch gamepads more direct."
+      }
+    ],
+    "related": [
+      "playcase",
+      "playcase-editor"
+    ]
   }
 }
