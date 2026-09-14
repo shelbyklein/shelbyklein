@@ -31,6 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Self-hosted Umami analytics */}
+        <script
+          defer
+          src="https://analytics.shelbyklein.com/script.js"
+          data-website-id="2216e34c-d685-48de-996c-b19e4c9d0df7"
+          data-domains="shelbyklein.com"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} antialiased`}
       >
