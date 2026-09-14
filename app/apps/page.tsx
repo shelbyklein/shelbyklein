@@ -18,7 +18,7 @@ const appIcons: Record<string, string> = {
   current: '/images/apps/current-icon.png',
   vispix: '/images/vispix-logo.png',
   flogg: '/images/apps/flogg-icon.png',
-  'playcase-editor': '/images/apps/playcase-editor-icon.png',
+  'playcase-editor': '/images/apps/playcase-editor-icon.svg',
   appleseed: '/images/apps/appleseed-icon.png',
 };
 
