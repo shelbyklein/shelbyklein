@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
-import { ArrowUpRight } from 'lucide-react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { getProject, type Project } from '@/lib/portfolio';
-import { projectLinkLabel } from '@/lib/project-links';
 import { sitePath } from '@/lib/site-path';
 
 export const metadata: Metadata = {
@@ -14,6 +12,13 @@ export const metadata: Metadata = {
 const appIds = ['newton', 'current', 'vispix', 'flogg', 'playcase-editor'];
 const appNames: Record<string, string> = {
   'playcase-editor': 'PlayCase Editor',
+};
+const appIcons: Record<string, string> = {
+  newton: '/images/newton-logo.png',
+  current: '/images/apps/current-icon.png',
+  vispix: '/images/vispix-logo.png',
+  flogg: '/images/apps/flogg-icon.png',
+  'playcase-editor': '/images/apps/playcase-editor-icon.png',
 };
 
 export default function AppsPage() {
@@ -35,41 +40,17 @@ export default function AppsPage() {
         </header>
 
         <section className="apps-directory" aria-label="App directory">
-          {apps.map((app, index) => {
+          {apps.map((app) => {
             const name = appNames[app.id] ?? app.title;
             return (
-              <article className={'apps-card apps-card--' + app.id} key={app.id}>
-                <a
-                  className="apps-preview"
-                  href={sitePath('/work/' + app.id)}
-                  aria-label={'View ' + name + ' project'}
-                >
-                  {app.cover && (
-                    <img
-                      src={app.cover}
-                      alt={name + ' interface'}
-                      width="1440"
-                      height="1000"
-                      loading={index < 2 ? 'eager' : 'lazy'}
-                    />
-                  )}
-                </a>
-                <div className="apps-card-content">
-                  <span className="eyebrow">APP {String(index + 1).padStart(2, '0')}</span>
-                  <h2><a href={sitePath('/work/' + app.id)}>{name}</a></h2>
-                  <p>{app.summary}</p>
-                  <div className="apps-card-actions">
-                    <a href={sitePath('/work/' + app.id)}>
-                      View project <ArrowUpRight size={17} aria-hidden="true" />
-                    </a>
-                    {app.url && (
-                      <a href={app.url} target="_blank" rel="noreferrer">
-                        {projectLinkLabel(app)} <ArrowUpRight size={17} aria-hidden="true" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </article>
+              <a className="apps-card" href={sitePath('/work/' + app.id)} key={app.id}>
+                <img className="apps-icon" src={sitePath(appIcons[app.id])} alt="" width="512" height="512" />
+                <span className="apps-card-content">
+                  <span className="eyebrow">{app.label}</span>
+                  <strong>{name}</strong>
+                  <span>{app.summary}</span>
+                </span>
+              </a>
             );
           })}
         </section>
