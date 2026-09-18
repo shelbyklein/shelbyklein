@@ -20,6 +20,7 @@ const appIcons: Record<string, string> = {
   flogg: '/images/apps/flogg-icon.png',
   'playcase-editor': '/images/apps/playcase-editor-icon.svg',
   appleseed: '/images/apps/appleseed-icon.png',
+  'tracker-trapper': '/images/apps/tracker-trapper-icon.webp',
 };
 
 type AppDirectoryEntry = {
@@ -49,6 +50,14 @@ export default function AppsPage() {
     href: sitePath('/work/newton'),
   });
 
+  apps.splice(2, 0, {
+    id: 'tracker-trapper',
+    label: 'macOS · Agent progress tracker',
+    name: 'Tracker Trapper',
+    summary: 'A menu-bar companion that keeps local plans, GitHub checklists, and coding-agent progress in view—so you can see what’s done, blocked, and next.',
+    href: 'https://trackertrapper.shelbyklein.com/',
+  });
+
   return (
     <div id="top">
       <SiteHeader />
@@ -64,7 +73,7 @@ export default function AppsPage() {
 
         <section className="apps-directory" aria-label="App directory">
           {apps.map((app) => (
-              <a className="apps-card" href={app.href} key={app.id}>
+              <a className="apps-card" href={app.href} key={app.id} aria-label={`Explore ${app.name}`}>
                 <img className="apps-icon" src={sitePath(appIcons[app.id])} alt="" width="512" height="512" />
                 <span className="apps-card-content">
                   <span className="eyebrow">{app.label}</span>
