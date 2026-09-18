@@ -3,6 +3,7 @@ import playcaseVisuals from '@/content/playcase-visuals.json';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { InkSplitViewer } from '@/components/inksplit-viewer';
 import { ProjectArt } from '@/components/project-art';
 import { ProjectPanelProvider, ProjectLink } from '@/components/project-panel';
 import { projects, featuredProjects, archiveProjects, articles } from '@/lib/portfolio';
@@ -18,6 +19,16 @@ export default function Home() {
         <div className="hero-bottom"><p>I’m Shelby Klein, a designer and developer based in Atlanta, Georgia. My work spans brand identities, digital tools, physical products, and live experiences.</p><a className="round-link" href="#work"><span>Explore my work</span><span className="circle"><ArrowDown size={23}/></span></a></div>
         <div className="hero-foot"><span>BASED IN ATLANTA, GA</span><span>BRAND · DIGITAL · PRODUCT · MOTION</span></div>
         </div>
+      </section>
+      <section className="featured-article wrap" aria-labelledby="featured-article-title">
+        <div className="featured-article-copy">
+          <span className="eyebrow">FEATURED ARTICLE · DESIGN & AI</span>
+          <h2 id="featured-article-title">An image is finished.<br/>Its structure is hidden.</h2>
+          <p>Type, masks, textures, and decisions—all flattened into one picture. What happens when AI tries to turn it back into something we can edit?</p>
+          <p>Try these InkSplit experiments: build a poster layer by layer, then inspect what sits underneath. They’re a starting point for a bigger question about translating what we see into knowledge an AI can use.</p>
+          <a className="featured-article-link" href={sitePath('/writing/turning-visual-knowledge-into-llm-knowledge')}><span>Read the story<strong>Turning Visual Knowledge into LLM Knowledge</strong></span><ArrowUpRight aria-hidden="true" size={24}/></a>
+        </div>
+        <InkSplitViewer />
       </section>
       <section id="work" className="work-section wrap" aria-labelledby="work-title">
         <div className="section-heading"><h2 id="work-title">Selected work<span>01 — {String(featuredProjects.length).padStart(2,'0')}</span></h2><span>DESIGN, DEVELOPMENT & CREATIVE DIRECTION</span></div>
