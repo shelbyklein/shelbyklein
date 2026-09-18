@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { InkSplitViewer } from '@/components/inksplit-viewer';
 import { ArrowUpRight } from 'lucide-react';
 import { sitePath } from '@/lib/site-path';
 import { notFound } from 'next/navigation';
@@ -98,6 +99,7 @@ export default async function Article({ params }: { params: Promise<{ slug: stri
         </header>
         <div className="article-body">
           {paragraphs.map((paragraph, index) => <Fragment key={paragraph}>
+            {slug === 'turning-visual-knowledge-into-llm-knowledge' && paragraph.includes('<h2>The human part does not disappear</h2>') && <InkSplitViewer />}
             <div dangerouslySetInnerHTML={{ __html: paragraph }} />
             {visuals[index] && <ProjectVisuals items={visuals[index]} />}
           </Fragment>)}

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "nextplay-v2",
+    "title": "NextPlay",
+    "note": "Live type and vector graphics sit above masked photo elements. The players include generated replacements; this is an interpretation, not recovered source artwork.",
+    "layers": [
+      {
+        "name": "Base canvas",
+        "build": "/images/inksplit/nextplay-v2/build-0.png",
+        "image": "/images/inksplit/nextplay-v2/layer-0.png"
+      },
+      {
+        "name": "Background / field",
+        "build": "/images/inksplit/nextplay-v2/build-1.png",
+        "image": "/images/inksplit/nextplay-v2/layer-1.png"
+      },
+      {
+        "name": "Masked players and ball",
+        "build": "/images/inksplit/nextplay-v2/build-2.png",
+        "image": "/images/inksplit/nextplay-v2/layer-2.png"
+      },
+      {
+        "name": "Ribbons, panel and CTA",
+        "build": "/images/inksplit/nextplay-v2/build-3.png",
+        "image": "/images/inksplit/nextplay-v2/layer-3.png"
+      },
+      {
+        "name": "Grass edge overlap",
+        "build": "/images/inksplit/nextplay-v2/build-4.png",
+        "image": "/images/inksplit/nextplay-v2/layer-4.png"
+      },
+      {
+        "name": "Editable crest and football",
+        "build": "/images/inksplit/nextplay-v2/build-5.png",
+        "image": "/images/inksplit/nextplay-v2/layer-5.png"
+      },
+      {
+        "name": "Live copy",
+        "build": "/images/inksplit/nextplay-v2/build-6.png",
+        "image": "/images/inksplit/nextplay-v2/layer-6.png"
+      },
+      {
+        "name": "Archive group (no visible artwork)",
+        "build": "/images/inksplit/nextplay-v2/build-7.png",
+        "image": "/images/inksplit/nextplay-v2/layer-7.png"
+      }
+    ],
+    "original": "/images/inksplit/nextplay-v2/original.png",
+    "complete": "/images/inksplit/nextplay-v2/complete.png"
+  },
+  {
+    "id": "ghost-frequency-v2",
+    "title": "Ghost Frequency",
+    "note": "The performer, microphone, auditorium, moon, and paper are independently generated assets. Masks and overlays restore their relationships; photographic details differ from the reference.",
+    "layers": [
+      {
+        "name": "Black substrate",
+        "build": "/images/inksplit/ghost-frequency-v2/build-0.png",
+        "image": "/images/inksplit/ghost-frequency-v2/layer-0.png"
+      },
+      {
+        "name": "Independent photos and masks",
+        "build": "/images/inksplit/ghost-frequency-v2/build-1.png",
+        "image": "/images/inksplit/ghost-frequency-v2/layer-1.png"
+      },
+      {
+        "name": "Vector graphics",
+        "build": "/images/inksplit/ghost-frequency-v2/build-2.png",
+        "image": "/images/inksplit/ghost-frequency-v2/layer-2.png"
+      },
+      {
+        "name": "Display typography",
+        "build": "/images/inksplit/ghost-frequency-v2/build-3.png",
+        "image": "/images/inksplit/ghost-frequency-v2/layer-3.png"
+      },
+      {
+        "name": "Event and marginal copy",
+        "build": "/images/inksplit/ghost-frequency-v2/build-4.png",
+        "image": "/images/inksplit/ghost-frequency-v2/layer-4.png"
+      }
+    ],
+    "original": "/images/inksplit/ghost-frequency-v2/original.png",
+    "complete": "/images/inksplit/ghost-frequency-v2/complete.png"
+  },
+  {
+    "id": "velvet-voltage",
+    "title": "Velvet Voltage",
+    "note": "Masked source artwork is combined with live text and vector accents. The fonts, distress, and lightning are approximations; some cutout edges retain the original background.",
+    "layers": [
+      {
+        "name": "Base canvas",
+        "build": "/images/inksplit/velvet-voltage/build-0.png",
+        "image": "/images/inksplit/velvet-voltage/layer-0.png"
+      },
+      {
+        "name": "Paper and stage texture",
+        "build": "/images/inksplit/velvet-voltage/build-1.png",
+        "image": "/images/inksplit/velvet-voltage/layer-1.png"
+      },
+      {
+        "name": "Filmstrip",
+        "build": "/images/inksplit/velvet-voltage/build-2.png",
+        "image": "/images/inksplit/velvet-voltage/layer-2.png"
+      },
+      {
+        "name": "Cable segments",
+        "build": "/images/inksplit/velvet-voltage/build-3.png",
+        "image": "/images/inksplit/velvet-voltage/layer-3.png"
+      },
+      {
+        "name": "Singer",
+        "build": "/images/inksplit/velvet-voltage/build-4.png",
+        "image": "/images/inksplit/velvet-voltage/layer-4.png"
+      },
+      {
+        "name": "Amplifier",
+        "build": "/images/inksplit/velvet-voltage/build-5.png",
+        "image": "/images/inksplit/velvet-voltage/layer-5.png"
+      },
+      {
+        "name": "Label",
+        "build": "/images/inksplit/velvet-voltage/build-6.png",
+        "image": "/images/inksplit/velvet-voltage/layer-6.png"
+      },
+      {
+        "name": "Subtitle paper",
+        "build": "/images/inksplit/velvet-voltage/build-7.png",
+        "image": "/images/inksplit/velvet-voltage/layer-7.png"
+      },
+      {
+        "name": "Headline letters",
+        "build": "/images/inksplit/velvet-voltage/build-8.png",
+        "image": "/images/inksplit/velvet-voltage/layer-8.png"
+      },
+      {
+        "name": "Event copy",
+        "build": "/images/inksplit/velvet-voltage/build-9.png",
+        "image": "/images/inksplit/velvet-voltage/layer-9.png"
+      },
+      {
+        "name": "Torn backing paper",
+        "build": "/images/inksplit/velvet-voltage/build-10.png",
+        "image": "/images/inksplit/velvet-voltage/layer-10.png"
+      },
+      {
+        "name": "Vector accents",
+        "build": "/images/inksplit/velvet-voltage/build-11.png",
+        "image": "/images/inksplit/velvet-voltage/layer-11.png"
+      }
+    ],
+    "original": "/images/inksplit/velvet-voltage/original.png",
+    "complete": "/images/inksplit/velvet-voltage/complete.png"
+  }
+]
