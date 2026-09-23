@@ -1,5 +1,23 @@
 [
   {
+    "slug": "my-own-control-rooms",
+    "title": "Building My Own Control Rooms",
+    "date": "2026-09-23",
+    "excerpt": "SKDStudio, SKDWorkbench, and Newton: three dashboards for managing sites, building projects, and seeing the whole picture, built with LLMs as my hands.",
+    "html": "<p>Three dashboards I built to manage my work: SKDStudio for WordPress sites, SKDWorkbench for dev projects, and Newton for the whole picture.</p>\n\n<h2>SKDStudio: the sites, without the fluff</h2>\n\n<p>Thanks to WordPress Studio, one quiet place to keep every site up to date.</p>\n\n<h2>SKDWorkbench: a bench for dev projects</h2>\n\n<p>Repositories, servers, and next steps in one place.</p>\n\n<h2>Newton: the whole picture</h2>\n\n<p>Project-based context for thinking and working with AI.</p>\n\n<h2>Now they have to prove it</h2>\n\n<p>The tools keep expanding. Next, they have to earn their place.</p>",
+    "source": null,
+    "archived": false
+  },
+  {
+    "slug": "html5-experiments",
+    "title": "HTML5 Experiments",
+    "date": "2026-09-20",
+    "excerpt": "Three studies in bringing illustration to life: a hand-drawn fantasy map, Newton’s springy branch, and a moonlit workshop.",
+    "html": "<p>Three small experiments in making illustrated scenes feel alive in the browser.</p>\n\n<h2>A map drawn more than once</h2>\n\n<p>Six illustrated frames loop at four frames per second, giving a simple ink-and-parchment fantasy map a hand-drawn flicker.</p>\n\n<h2>A branch with a little weight</h2>\n\n<p>The Newton homepage branch uses a deforming mesh and spring motion. Drag the apple to see the branch respond.</p>\n\n<h2>A workshop with depth</h2>\n\n<p>Separate illustration layers create a moonlit workshop with pointer-driven parallax, lighting controls, and small animated details.</p>",
+    "source": null,
+    "archived": false
+  },
+  {
     "slug": "turning-visual-knowledge-into-llm-knowledge",
     "title": "Turning Visual Knowledge into LLM Knowledge",
     "date": "2026-09-18",

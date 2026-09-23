@@ -7,7 +7,11 @@ import { WorkAiEssay, workAiSections } from './essays/work-ai';
 import { CreativeEssay, creativeSections } from './essays/creative';
 import { WordPressEssay, wordpressSections } from './essays/wordpress';
 import { ToolsEssay, toolsSections } from './essays/tools';
+import { Html5Essay, html5Sections } from './essays/html5';
+import { DashboardsEssay, dashboardsSections } from './essays/dashboards';
 const essays = {
+  'my-own-control-rooms': { Body: DashboardsEssay, sections: dashboardsSections },
+  'html5-experiments': { Body: Html5Essay, sections: html5Sections },
   'turning-visual-knowledge-into-llm-knowledge': {
     Body: VisualEssay,
     sections: visualSections,

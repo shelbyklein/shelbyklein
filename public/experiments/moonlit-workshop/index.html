@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Geekify · A little wonder, made real</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<section class="hero" aria-label="The enchanted Geekify workshop">
+<div class="scene" aria-hidden="true">
+<img class="layer landscape" data-depth="6" src="assets/01-background-moonlit-landscape.png" alt="" fetchpriority="high">
+<img class="layer bookcase" data-depth="11" src="assets/07-bookcase.png" alt="">
+<div class="layer workshop" data-depth="15"><img class="room dark" src="assets/08-midground-workshop-midnight.png" alt=""><div class="firelight" aria-hidden="true"></div><img class="room light" src="assets/06-midground-workshop-light.png" alt=""></div>
+<div class="reading-shade"></div>
+<div class="layer treasures" data-depth="25">
+<img class="props-base" src="assets/12-books-lantern-dark.png" alt="">
+<img class="props-warm" src="assets/11-books-lantern-warm.png" alt="">
+<div class="dragon-wings"><img src="assets/09-dragon-wings.png" alt=""><canvas></canvas></div>
+<img class="dragon-body" src="assets/10-dragon-body.png" alt="">
+</div>
+<img class="layer map" data-depth="34" src="assets/04-foreground-map-dice.png" alt="">
+<img class="layer vines" data-depth="42" src="assets/02-vines-and-flowers.png" alt="">
+</div>
+<header><a class="brand" href="../../writing/html5-experiments/" aria-label="Geekify concept gallery"><img src="assets/geekify-hero-logo.png" alt="Geekify"></a><nav aria-label="Main"><a href="https://geekifyinc.com/shop/">Shop treasures</a><a href="#makers">Our workshop</a></nav><span class="header-note">For wonderfully curious people.</span></header>
+<div class="copy"><p class="eyebrow">A little out of the ordinary</p><h1>A little wonder.<br><em>Made real.</em></h1><p class="intro">For the stories you love<br>and the treasures you keep.</p><div class="actions"><a class="primary" href="https://geekifyinc.com/shop/">Find your treasure <span>↗</span></a><a class="secondary" href="#makers">Meet the makers <span>→</span></a></div><p class="aside">Curious people. Brighter worlds.</p></div>
+<div class="hero-caption"><span>✧</span> Step a little closer. There’s magic in the details.</div>
+</section>
+<section class="below" id="makers"><p class="eyebrow">From our workshop to your world</p><h2>Which world feels like yours?</h2><p>Different paths. The same curiosity.</p><div class="subjects"><a href="https://geekifyinc.com/shop/">For the lore keepers <span>↗</span></a><a href="https://geekifyinc.com/shop/">For the dice goblins <span>↗</span></a><a href="https://geekifyinc.com/shop/">For the daydreamers <span>↗</span></a></div></section>
+<aside class="test-panel" aria-label="Prototype controls"><div><strong>Workshop study</strong><span id="motion-status" role="status">Move your mouse across the scene</span></div><fieldset><legend>Room lighting</legend><button type="button" data-room="dark" aria-pressed="true">Moonlit</button><button type="button" data-room="light" aria-pressed="false">Sunlit</button></fieldset><label class="strength">Depth <input id="strength" type="range" min="0" max="150" value="75"><output for="strength">75%</output></label><button id="motion" type="button" aria-pressed="true">Pause motion</button></aside>
+</main><script src="water.js"></script><script src="vines.js"></script><script src="dragon-body.js"></script><script src="dragon.js"></script><script src="glass-buttons.js"></script><script src="stars.js"></script><script src="script.js"></script></body></html>

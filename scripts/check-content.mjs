@@ -1,12 +1,15 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import sharp from 'sharp';
+import { articleRevisions } from '../content/article-revisions.ts';
 const projects=JSON.parse(await fs.readFile('content/projects.json','utf8'));
 const articles=JSON.parse(await fs.readFile('content/articles.json','utf8'));
+const authored=JSON.parse(await fs.readFile('content/authored-articles.json','utf8'));
 const studies=JSON.parse(await fs.readFile('content/case-studies.json','utf8'));
-assert.equal(projects.length,15); assert.equal(articles.length,3);
-assert.equal(articles.filter(a=>a.archived).length,2);
+assert.equal(projects.length,15);
 assert.equal(new Set(articles.map(a=>a.slug)).size,articles.length);
+for(const a of authored)assert(articles.some(x=>x.slug===a.slug),`Authored article missing from articles.json: ${a.slug}`);
+for(const slug of Object.keys(articleRevisions))assert(articles.some(a=>a.slug===slug),`Revision for unknown article: ${slug}`);
 assert.equal(new Set(projects.map(p=>p.id)).size,projects.length);
 assert.deepEqual(Object.keys(studies).sort(),projects.map(p=>p.id).sort(),'Case studies must cover every project');
 for(const [id,study] of Object.entries(studies)){
@@ -16,7 +19,7 @@ for(const [id,study] of Object.entries(studies)){
  assert(study.related.length && new Set(study.related).size===study.related.length,`Invalid related projects: ${id}`);
  for(const related of study.related)assert(related!==id && projects.some(p=>p.id===related),`Broken related project: ${id} -> ${related}`);
 }
-let images=new Set();
+const images=new Set();
 for(const p of projects){
  assert(p.title && p.paragraphs.length && p.tags.length,`Incomplete project: ${p.id}`);
  if(p.cover)images.add(p.cover);
@@ -24,8 +27,11 @@ for(const p of projects){
  for(const v of p.videos){const u=new URL(v);assert(['www.youtube.com','player.vimeo.com'].includes(u.hostname));}
 }
 for(const a of articles){
- assert(!/<(?:script|form|style)\b|\bon\w+\s*=|javascript:/i.test(a.html),`Unsafe article: ${a.slug}`);
- for(const m of a.html.matchAll(/src="(\/images\/[^"]+)"/g))images.add(m[1]);
+ // Revisions replace the stored HTML at render time (lib/portfolio.ts), so check what actually ships.
+ const html=articleRevisions[a.slug]?.html??a.html;
+ assert(a.title && /^\d{4}-\d{2}-\d{2}$/.test(a.date) && html,`Incomplete article: ${a.slug}`);
+ assert(!/<(?:script|form|style)\b|\bon\w+\s*=|javascript:/i.test(html),`Unsafe article: ${a.slug}`);
+ for(const m of html.matchAll(/src="(\/images\/[^"]+)"/g))images.add(m[1]);
 }
 for(const img of images){const f='public'+img;await fs.access(f);if(!img.endsWith('.svg')){const meta=await sharp(f).metadata();assert(meta.width&&meta.height,`Invalid image: ${img}`)}}
 console.log(`${projects.length} complete case studies, ${articles.length} articles, ${images.size} valid image references.`);

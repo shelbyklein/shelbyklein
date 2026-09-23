@@ -2,6 +2,8 @@ export const essayMeta: Record<
   string,
   { cover: string; image: string; alt: string; subtitle: string; lead: string }
 > = {
+  'my-own-control-rooms': { cover: 'A room for every kind of work.', image: '/images/newton.webp', alt: 'Newton desktop workspace', subtitle: 'Three dashboards for sites, dev projects, and the whole picture.', lead: 'Over the past few months I have built my own set of control rooms: one for the websites I manage, one for the software I build, and one for seeing how it all fits together.' },
+  'html5-experiments': { cover: 'A little motion. A different feeling.', image: '/experiments/duotone-map/assets/duotone/frame-01.png', alt: 'Hand-drawn Geekify fantasy map in brown ink on parchment', subtitle: 'Three studies in bringing illustration to life in the browser.', lead: 'I have been experimenting with the space between a still illustration and an interactive scene. These three studies take different routes: alternate drawings, a branch with weight, and a workshop built in layers.' },
   'turning-visual-knowledge-into-llm-knowledge': {
     cover: 'Beneath the finished image.',
     image: '/images/inksplit/ghost-frequency-v2/original.png',

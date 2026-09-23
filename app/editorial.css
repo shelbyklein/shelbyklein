@@ -312,3 +312,13 @@
   .editorial-article .ra-article-layout { padding-inline: 0; }
   .editorial-article .essay-tool-link { gap: var(--ra-space-3); padding: var(--ra-space-3); }
 }
+
+/* Click-to-load experiments keep three interactive scenes from competing. */
+.html5-demo{margin:28px 0;width:100%;overflow:hidden}
+.html5-demo iframe,.html5-demo-start{display:block;width:100%;aspect-ratio:3/2;border:0;background:#17231c}
+.html5-demo-start{position:relative;padding:0;cursor:pointer;overflow:hidden}
+.html5-demo-start img{display:block;width:100%;height:100%;object-fit:contain}
+.html5-demo-start span{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:#f4ead8;color:#24251f;padding:12px 22px;border-radius:3px;white-space:nowrap}
+.html5-demo figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:13px/1.5 system-ui;padding:12px 0}
+.html5-demo figcaption button{background:none;border:1px solid currentColor;color:inherit;padding:3px 10px;cursor:pointer}
+.html5-demo button:focus-visible{outline:3px solid #b48445;outline-offset:-4px}

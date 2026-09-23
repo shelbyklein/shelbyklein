@@ -1,0 +1,1 @@
+document.querySelector('#pause').onclick=e=>{const r=document.querySelector('.hero-art'),paused=r.dataset.userPaused!=='true';r.dataset.userPaused=String(paused);e.target.textContent=paused?'Play':'Pause';e.target.setAttribute('aria-pressed',String(paused));};
