@@ -52,7 +52,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <div className={`case-cover ${project.id}-cover`}><ProjectArt project={project} detail /></div>
         <figcaption>
           <span>{study.coverCaption}</span>
-          {project.id !== 'vispix' && <a href={project.cover} target="_blank" rel="noreferrer">View image <ArrowUpRight size={15} aria-hidden="true" /></a>}
+          {!['vispix', 'tracker-trapper'].includes(project.id) && <a href={project.cover} target="_blank" rel="noreferrer">View image <ArrowUpRight size={15} aria-hidden="true" /></a>}
         </figcaption>
       </figure>}
 

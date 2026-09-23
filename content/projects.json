@@ -625,5 +625,56 @@
     "videos": [],
     "source": "https://playpad.shelbyklein.com/ — public application, verified September 2026",
     "legacySlug": null
+  },
+  {
+    "id": "tracker-trapper",
+    "title": "Tracker Trapper",
+    "originalTitle": "Tracker Trapper",
+    "summary": "A menu-bar companion that keeps coding-agent progress, blockers, and the next step in view.",
+    "label": "Independent software · Early preview",
+    "tags": [
+      "Agent tooling",
+      "Product design"
+    ],
+    "cover": "/images/apps/tracker-trapper-icon.webp",
+    "client": "Independent project",
+    "url": "https://trackertrapper.com/",
+    "paragraphs": [
+      "Tracker Trapper is a macOS menu-bar app for following coding agents while they work. Codex and Claude Code report progress against a checklist, either a local plan or a GitHub issue, so I can see what’s done, what’s blocked, and what’s next without digging through conversations.",
+      "The Mac app, a command-line tool, and a local MCP server share one store. An invite-only iPhone companion mirrors the Mac with widgets and notifications, and stays read-only: the phone shows progress but never edits tasks or approves agent actions."
+    ],
+    "images": [
+      {
+        "src": "/images/tracker-trapper/ios-plans-light.webp",
+        "alt": "The Plans tab: every Active issue from the Mac, with progress, the next step, and which agent is working",
+        "width": 603,
+        "height": 1311,
+        "caption": "Plans: Active issues mirrored from the Mac"
+      },
+      {
+        "src": "/images/tracker-trapper/ios-needs-you-light.webp",
+        "alt": "The Needs you tab: an agent’s open question comes first, with a nudge to answer it",
+        "width": 603,
+        "height": 1311,
+        "caption": "Needs you: questions only you can answer, first"
+      },
+      {
+        "src": "/images/tracker-trapper/ios-home-widgets-light.webp",
+        "alt": "Small and medium Home Screen widgets showing Active issues and progress",
+        "width": 603,
+        "height": 1311,
+        "caption": "Small and medium Home Screen widgets"
+      },
+      {
+        "src": "/images/tracker-trapper/ios-notification-light.webp",
+        "alt": "A notification when a plan finishes or an agent needs input",
+        "width": 603,
+        "height": 1311,
+        "caption": "A nudge when work lands or needs you"
+      }
+    ],
+    "videos": [],
+    "source": "https://trackertrapper.com/ — public site and Mac preview, verified September 2026",
+    "legacySlug": null
   }
 ]

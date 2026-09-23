@@ -6,7 +6,7 @@ const projects=JSON.parse(await fs.readFile('content/projects.json','utf8'));
 const articles=JSON.parse(await fs.readFile('content/articles.json','utf8'));
 const authored=JSON.parse(await fs.readFile('content/authored-articles.json','utf8'));
 const studies=JSON.parse(await fs.readFile('content/case-studies.json','utf8'));
-assert.equal(projects.length,15);
+assert.equal(projects.length,19);
 assert.equal(new Set(articles.map(a=>a.slug)).size,articles.length);
 for(const a of authored)assert(articles.some(x=>x.slug===a.slug),`Authored article missing from articles.json: ${a.slug}`);
 for(const slug of Object.keys(articleRevisions))assert(articles.some(a=>a.slug===slug),`Revision for unknown article: ${slug}`);

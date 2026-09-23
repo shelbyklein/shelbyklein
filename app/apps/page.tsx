@@ -55,7 +55,7 @@ export default function AppsPage() {
     label: 'macOS · Agent progress tracker',
     name: 'Tracker Trapper',
     summary: 'A menu-bar companion that keeps local plans, GitHub checklists, and coding-agent progress in view—so you can see what’s done, blocked, and next.',
-    href: 'https://trackertrapper.shelbyklein.com/',
+    href: sitePath('/work/tracker-trapper'),
   });
 
   return (

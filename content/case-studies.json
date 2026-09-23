@@ -659,5 +659,44 @@
       "playcase",
       "playcase-editor"
     ]
+  },
+  "tracker-trapper": {
+    "headline": "Your agents are building. Stay in the loop.",
+    "intro": "Tracker Trapper gives agent work a place to land. When Codex or Claude Code is working through an issue, each task, blocker, and question shows up in one checklist in the menu bar, so the work stays visible even when the conversation has moved on.",
+    "role": "Product design & development",
+    "format": "macOS menu-bar app & iPhone companion",
+    "period": "2026",
+    "coverCaption": "Tracker Trapper on the iPhone companion",
+    "galleryTitle": "The iPhone companion",
+    "galleryIntro": "The Mac app is where tracking happens. The iPhone beta mirrors it for a quick glance: Active issues, what needs you, widgets, and notifications you choose.",
+    "scope": [
+      {
+        "title": "A checklist for agent work",
+        "body": "Local plans or GitHub issue checklists become one list that agents report against as they start, finish, or get stuck on each task."
+      },
+      {
+        "title": "Reporting built into the tools",
+        "body": "A command-line tool and local MCP server let Codex and Claude Code update progress directly, sharing the same store as the menu-bar app."
+      },
+      {
+        "title": "What needs you, first",
+        "body": "When an agent stops with a question, it rises to the top on the Mac and the iPhone companion instead of getting buried in a transcript."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Busy isn’t the same as on track",
+        "body": "Working with several agents at once, one task becomes three, a blocker gets buried, and a question waits in a window I’m not looking at. Tracker Trapper started as a way to see all of that at a glance. The menu bar felt right: always nearby, and quiet until something changes."
+      },
+      {
+        "title": "Local first, then in your pocket",
+        "body": "Plans live on the Mac and need no account; GitHub sync is optional. The Mac app is a free, signed and notarized early preview. An invite-only iPhone beta pairs with it by QR code and relays progress privately, with Home Screen widgets and notifications. It is early software, and I use it daily on my own projects."
+      }
+    ],
+    "related": [
+      "newton",
+      "flogg"
+    ],
+    "article": false
   }
 }
