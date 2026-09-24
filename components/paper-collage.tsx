@@ -33,7 +33,7 @@ const scenes: Record<string, Piece[]> = {
   ],
   about: [
     { asset: 'red-torn-circle', x: '85%', y: '58%', size: 'clamp(140px,19vw,260px)', angle: -25, travel: -30 },
-    { asset: 'gold-dot', x: '54%', y: '87%', size: '34px', angle: 0, travel: 42 },
+    { asset: 'gold-dot', x: '56%', y: '40%', size: '34px', angle: 0, travel: 42 },
     { asset: 'charcoal-stroke', x: '79%', y: '2%', size: '155px', angle: -35, travel: 22, opacity: .6 },
   ],
   writing: [
