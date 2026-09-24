@@ -1,3 +1,4 @@
+import { HalftoneField } from '@/components/halftone-field';
 import { sitePath } from '@/lib/site-path';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
@@ -10,7 +11,7 @@ import { projects, featuredProjects, archiveProjects, articles } from '@/lib/por
 export default function Home() {
   return <ProjectPanelProvider projects={projects}><div id="top" className="comic-home"><SiteHeader/>
     <main id="main"><CollageMotion/><PrintHero/><AtelierBand/>
-      <section id="work" className="work-section wrap" aria-labelledby="work-title">
+      <section id="work" className="work-section wrap" aria-labelledby="work-title"><HalftoneField/>
         <div className="print-section-heading" data-reveal><div><span className="chapter-label">01 / THE WORK</span><h2 id="work-title">Different worlds.<br/><em>Same curious streak.</em></h2></div><p>From Olympic competition apparel to independent software. Ideas made real, in whatever form they need.</p></div>
         <div className="project-grid">{featuredProjects.map((project, i) => <article className={`project-card project-position-${i + 1}`} key={project.id} data-reveal>
           <div className="panel-masthead"><span>FIELD NOTES / {String(i + 1).padStart(2, '0')}</span><span>{project.tags[0]}</span></div>
@@ -27,7 +28,7 @@ export default function Home() {
         ['03', 'Motion & experiences', 'Video, live broadcasts, and interactive installations.'],
         ['04', 'Tools & experiments', 'AI workspaces, creative software, and interactive systems.'],
       ].map(([n, title, body]) => <div key={n}><span className="eyebrow">{n}</span><h3>{title}</h3><p>{body}</p></div>)}</section>
-      <section className="writing-section wrap" aria-labelledby="writing-title"><div className="print-section-heading" data-reveal><div><span className="chapter-label">04 / FROM THE NOTEBOOK</span><h2 id="writing-title">Thinking out loud.</h2></div><a className="text-link" href={sitePath('/writing')}>All writing <ArrowUpRight size={18}/></a></div><div className="writing-grid">{articles.filter(article => !article.archived).slice(0, 3).map((article, i) => <a className="writing-card" href={sitePath(`/writing/${article.slug}`)} key={article.slug} data-reveal><div className="writing-card-top"><span>NOTE / {String(i + 1).padStart(2, '0')}</span><time dateTime={article.date}>{new Date(article.date + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}</time></div><h3>{article.title}</h3><span>Read the story <ArrowRight size={18}/></span></a>)}</div></section>
+      <section className="writing-section wrap" aria-labelledby="writing-title"><HalftoneField/><div className="print-section-heading" data-reveal><div><span className="chapter-label">04 / FROM THE NOTEBOOK</span><h2 id="writing-title">Thinking out loud.</h2></div><a className="text-link" href={sitePath('/writing')}>All writing <ArrowUpRight size={18}/></a></div><div className="writing-grid">{articles.filter(article => !article.archived).slice(0, 3).map((article, i) => <a className="writing-card" href={sitePath(`/writing/${article.slug}`)} key={article.slug} data-reveal><div className="writing-card-top"><span>NOTE / {String(i + 1).padStart(2, '0')}</span><time dateTime={article.date}>{new Date(article.date + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}</time></div><h3>{article.title}</h3><span>Read the story <ArrowRight size={18}/></span></a>)}</div></section>
     </main><SiteFooter/>
   </div></ProjectPanelProvider>;
 }

@@ -20,3 +20,15 @@ body::before{opacity:.09}.site-header{height:96px}.brand-mark img{transform:tran
 @media(max-width:600px){.collage-hero-grid{width:calc(100% - 30px);padding:25px 17px 20px;margin-block:18px 25px;box-shadow:5px 5px 0 var(--ink);gap:23px}.collage-copy h1{font-size:clamp(48px,14vw,80px);letter-spacing:-3px;margin:29px 0}.curiosity{letter-spacing:-3px;text-shadow:2px 2px 0 #fffaf0,4px 4px 0 var(--ink)}.collage-copy>p{padding:12px;font-size:14px}.collage-copy .cut-label{font-size:7px;padding:6px}.collage-actions{gap:18px}.collage-actions .print-button{padding:12px 10px;font-size:11px}.collage-about-link{font-size:11px;gap:3px}.collage-about-link svg{width:14px}.collage-stage{width:100%;height:380px;margin-top:0}.hero-cutout{height:320px;inset:-10px -10px auto}.collage-logo-sheet{left:3%;width:94%;bottom:52px;padding:9px;box-shadow:5px 6px 0 #282823}.collage-impression{font-size:6px;padding:5px;bottom:0}.collage-replay{font-size:8px;padding:5px}.logo-sheet-caption{font-size:6px}.collage-ticker{margin-bottom:18px}.atelier-band{gap:20px}.atelier-copy h2{font-size:32px}.chapter-label{font-size:8px}.print-section-heading h2{font-size:32px}.collage-ticker span{font-size:11px}.collage-ticker i{font-size:15px}}
 @media(max-width:360px){.collage-stage{height:325px}.hero-cutout{height:275px}.collage-actions{gap:10px}.collage-about-link{font-size:10px}.collage-copy .cut-label{font-size:6px}.collage-ticker span{font-size:9px}}
 .collage-logo-sheet::after{inset:auto -15px -17px 8px;height:11px;z-index:0;pointer-events:none}.collage-logo-sheet{box-shadow:5px 6px 0 var(--ink)}
+
+/* Shared blue screen. The static grid remains visible without JavaScript. */
+.halftone-field{--halftone-ink:rgba(72,104,134,.48);position:absolute;pointer-events:none;z-index:-1;background:radial-gradient(circle at center,#48688655 .8px,transparent 1px) 0 0/5px 5px}
+.halftone-field canvas{display:block;width:100%;height:100%}
+.halftone-field--hero{inset:0 0 0 52%;clip-path:polygon(15% 0,100% 0,100% 100%,0 100%)}
+.collage-hero-grid::before{background:repeating-conic-gradient(from 17deg at 70% 43%,#507da31a 0deg 2deg,transparent 2deg 13deg)}
+.work-section,.writing-section{position:relative;isolation:isolate}
+.halftone-field--edge{width:min(42%,420px);height:180px;right:0;top:0;mask-image:linear-gradient(to bottom,#000,transparent 95%);clip-path:polygon(18% 0,100% 0,100% 100%,0 80%);opacity:.65}
+.writing-section .halftone-field--edge{right:auto;left:0;width:35%;height:100px;top:0;}
+.halftone-field--footer{--halftone-ink:rgba(156,188,218,.65);right:0;top:0;width:48%;height:100%;background-image:radial-gradient(circle at center,#8aabc355 .8px,transparent 1px);mask-image:linear-gradient(110deg,transparent 8%,#000 100%)}
+.print-footer::before{display:none}
+@media(max-width:800px){.halftone-field--hero{inset:48% 0 0;clip-path:polygon(0 15%,100% 0,100% 100%,0 100%)}.halftone-field--edge{height:100px;opacity:.4}.halftone-field--footer{width:65%}}
