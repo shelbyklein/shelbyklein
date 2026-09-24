@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useId, useRef, useState, type Rea
 import { ArrowDown, ArrowUpRight, Pause, Play, RotateCcw, Eye, Brain, Bot, Code2, Cpu } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { PaperCollage } from '@/components/paper-collage';
 import { HalftoneField } from '@/components/halftone-field';
 import { sitePath } from '@/lib/site-path';
 const PrintContext = createContext({ paused: false, reduced: false, toggleMotion: () => {} });
@@ -74,7 +75,7 @@ export function PrintHero() {
   }, [paused, replay]);
   return <section ref={root} className="collage-hero" aria-labelledby="intro-title">
     <div className="collage-register wrap"><span>INDEPENDENT DESIGNER & CREATIVE TECHNOLOGIST</span><span>ATLANTA, GEORGIA / OPEN TO THE UNEXPECTED</span></div>
-    <div className="collage-hero-grid wrap"><HalftoneField variant="hero" density="dense"/>
+    <div className="collage-hero-grid wrap"><HalftoneField variant="hero" density="dense"/><PaperCollage scene="hero"/>
       <div className="collage-copy"><span className="cut-label">SHELBY KLEIN / DESIGN & DEVELOPMENT</span>
         <h1 id="intro-title"><span className="collage-title-line">Good things.</span><span className="collage-title-line curiosity">Made together.</span></h1>
         <p>The best ideas grow when we build on each other’s. I’m Shelby—a designer and developer bringing curious people, thoughtful design, and useful technology together.</p>
@@ -92,7 +93,7 @@ export function PrintHero() {
   </section>;
 }
 export function AtelierBand() {
-  return <section className="atelier-band wrap" aria-labelledby="atelier-title"><HalftoneField density="sparse"/><div className="atelier-image"><MaskedCollage variant="poster" src="/images/flow/imagination-machine-code.png" alt="Brain, robot and code emblems linked by ribbons, gears and circuit traces"/></div><div className="atelier-copy" data-reveal><span className="cut-label">THE THREAD THROUGH IT ALL</span><h2 id="atelier-title">Different perspectives.<br/><em>Shared possibilities.</em></h2><p>Design gets more interesting when different minds meet. I bring the craft, curiosity, and technical know-how; you bring your world. Together, we can make something neither of us would have made alone.</p><a href="#work">Follow the thread <ArrowDown size={17}/></a></div></section>;
+  return <section className="atelier-band wrap" aria-labelledby="atelier-title"><HalftoneField density="sparse"/><PaperCollage scene="atelier"/><div className="atelier-image"><MaskedCollage variant="poster" src="/images/flow/imagination-machine-code.png" alt="Brain, robot and code emblems linked by ribbons, gears and circuit traces"/></div><div className="atelier-copy" data-reveal><span className="cut-label">THE THREAD THROUGH IT ALL</span><h2 id="atelier-title">Different perspectives.<br/><em>Shared possibilities.</em></h2><p>Design gets more interesting when different minds meet. I bring the craft, curiosity, and technical know-how; you bring your world. Together, we can make something neither of us would have made alone.</p><a href="#work">Follow the thread <ArrowDown size={17}/></a></div></section>;
 }
 
 const circuitNodes = [

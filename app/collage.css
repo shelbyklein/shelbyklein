@@ -37,3 +37,11 @@ body::before{opacity:.09}.site-header{height:96px}.brand-mark img{transform:tran
 .halftone-field--footer{--halftone-ink:rgba(156,188,218,.65);inset:0;background-image:radial-gradient(circle at center,#8aabc355 .8px,transparent 1px);mask-image:linear-gradient(110deg,#0003,#000 100%)}
 .print-footer::before{display:none}
 @media(max-width:800px){.halftone-field--hero{inset:48% 0 0;clip-path:polygon(0 15%,100% 0,100% 100%,0 100%)}.halftone-field--section{opacity:.4}}
+
+/* Physical cutouts sit above the blue screen and below all reading surfaces. */
+.paper-collage{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;contain:layout paint}
+.paper-piece{position:absolute;display:block;pointer-events:none}
+.paper-piece img{display:block;width:100%;height:auto;max-width:none;pointer-events:none}
+@media(max-width:600px){.paper-collage--hero{opacity:.72}.paper-collage--archive,.paper-collage--work,.paper-collage--writing{opacity:.6}.paper-collage--atelier .paper-piece:first-child{left:-22%!important}.paper-collage--about .paper-piece:first-child{left:88%!important}}
+
+@media(max-width:600px){.paper-collage--atelier .paper-piece:nth-child(2){opacity:.12!important}}
