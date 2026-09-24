@@ -4,6 +4,9 @@ import { Geist, Geist_Mono, Bricolage_Grotesque } from 'next/font/google';
 import 'reacticle/styles.css';
 import './globals.css';
 import './editorial.css';
+import './print.css';
+import './collage.css';
+import { PrintStudio } from '@/components/print-studio';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -46,7 +49,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} antialiased`}
       >
-        {children}
+        <PrintStudio>{children}</PrintStudio>
       </body>
     </html>
   );
