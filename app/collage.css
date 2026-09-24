@@ -21,14 +21,19 @@ body::before{opacity:.09}.site-header{height:96px}.brand-mark img{transform:tran
 @media(max-width:360px){.collage-stage{height:325px}.hero-cutout{height:275px}.collage-actions{gap:10px}.collage-about-link{font-size:10px}.collage-copy .cut-label{font-size:6px}.collage-ticker span{font-size:9px}}
 .collage-logo-sheet::after{inset:auto -15px -17px 8px;height:11px;z-index:0;pointer-events:none}.collage-logo-sheet{box-shadow:5px 6px 0 var(--ink)}
 
-/* Shared blue screen. The static grid remains visible without JavaScript. */
-.halftone-field{--halftone-ink:rgba(72,104,134,.48);position:absolute;pointer-events:none;z-index:-1;background:radial-gradient(circle at center,#48688655 .8px,transparent 1px) 0 0/5px 5px}
-.halftone-field canvas{display:block;width:100%;height:100%}
+/* Section screens share their spacing with the cursor's canvas overlay. */
+.halftone-field{--halftone-ink:rgba(72,104,134,.48);--halftone-gap:9px;position:absolute;pointer-events:none;z-index:-1;overflow:hidden;background:radial-gradient(circle at center,#48688655 .8px,transparent 1px) 0 0/var(--halftone-gap) var(--halftone-gap)}
+.halftone-density--dense{--halftone-gap:5px}
+.halftone-density--medium{--halftone-gap:9px}
+.halftone-density--sparse{--halftone-gap:14px}
+.halftone-field canvas{position:absolute;display:block;width:300px;height:300px;max-width:none}
 .halftone-field--hero{inset:0 0 0 52%;clip-path:polygon(15% 0,100% 0,100% 100%,0 100%)}
 .collage-hero-grid::before{background:repeating-conic-gradient(from 17deg at 70% 43%,#507da31a 0deg 2deg,transparent 2deg 13deg)}
-.work-section,.writing-section{position:relative;isolation:isolate}
-.halftone-field--edge{width:min(42%,420px);height:180px;right:0;top:0;mask-image:linear-gradient(to bottom,#000,transparent 95%);clip-path:polygon(18% 0,100% 0,100% 100%,0 80%);opacity:.65}
-.writing-section .halftone-field--edge{right:auto;left:0;width:35%;height:100px;top:0;}
-.halftone-field--footer{--halftone-ink:rgba(156,188,218,.65);right:0;top:0;width:48%;height:100%;background-image:radial-gradient(circle at center,#8aabc355 .8px,transparent 1px);mask-image:linear-gradient(110deg,transparent 8%,#000 100%)}
+.atelier-band,.work-section,.archive-section,.print-lab,.about-section,.practice-section,.writing-section{position:relative;isolation:isolate}
+.halftone-field--section{inset:0;opacity:.65;mask-image:linear-gradient(180deg,transparent,#000 7%,#000 93%,transparent)}
+.atelier-band>.halftone-field,.archive-section>.halftone-field,.about-section>.halftone-field,.practice-section>.halftone-field{opacity:.42}
+.print-lab>.halftone-field{opacity:.4}
+.writing-section>.halftone-field{opacity:.55}
+.halftone-field--footer{--halftone-ink:rgba(156,188,218,.65);inset:0;background-image:radial-gradient(circle at center,#8aabc355 .8px,transparent 1px);mask-image:linear-gradient(110deg,#0003,#000 100%)}
 .print-footer::before{display:none}
-@media(max-width:800px){.halftone-field--hero{inset:48% 0 0;clip-path:polygon(0 15%,100% 0,100% 100%,0 100%)}.halftone-field--edge{height:100px;opacity:.4}.halftone-field--footer{width:65%}}
+@media(max-width:800px){.halftone-field--hero{inset:48% 0 0;clip-path:polygon(0 15%,100% 0,100% 100%,0 100%)}.halftone-field--section{opacity:.4}}

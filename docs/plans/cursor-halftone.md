@@ -52,3 +52,22 @@ Preserve artwork, content, hero reveal, existing dark ink decorations and unrela
 - HALO-04 blocker: full lint already fails on print-studio effect/SVG rules, legacy export JSX and public experiments. HEAD print-studio produces the same three errors. Content check rejects archived steamdeckhq-one-year-later with empty HTML, also confirmed in HEAD. These unrelated files/data were not changed.
 - Local preview: http://localhost:4178. Work remains on codex/comic-halftone; no main merge or production deployment.
 - Tracker plan: C764600D-E2CD-4997-9DB1-EDFE6497ADB8. Implementation tasks HALO-01 through HALO-03 complete; HALO-04 blocked as above.
+
+## Follow-up: section backgrounds and density — 2026-09-24
+The user requested expanding the effect into section backgrounds with varying densities. Current fields cover only small work/writing edges and use fixed 5px spacing. Extend the same effect across section interiors with dense (5px), medium (9px), and sparse (14px) dot grids, using lower ink strength behind text.
+
+Before: [current hero](assets/halftone-before.png). Target: [section layout sketch](assets/halftone-layout.txt).
+
+- [x] HALO-05: Expand responsive section backgrounds with three dot densities
+  - Pass: Homepage sections have full-area blue dot backgrounds with 5px, 9px and 14px spacing; CSS resting dots and cursor strokes share the same grid; cursor canvas allocation stays bounded independent of section height.
+- [x] HALO-06: Verify varied densities and section-wide behavior
+  - Pass: Inspect desktop/mobile section renders; verify cursor ink aligns with each density, changes across section interiors, resets, respects touch/reduced-motion/pause and introduces no overflow; TypeScript, scoped lint and build pass with earlier unrelated failures recorded separately.
+
+Success criteria: (1) visible section-wide density variation in inspected local desktop/mobile screenshots; (2) canvas pixel checks confirm resting/hover alignment for each density; (3) preference and overflow browser assertions pass; (4) production build, TypeScript and scoped lint pass. Existing HALO-04 baseline blockers remain separate.
+Deliverables: committed component/CSS/section integration, updated plan and tracker, local rendered evidence; production deployment remains excluded. Preserve content/artwork and all unrelated untracked assets. No blocking design questions.
+Execution: linear, gpt-6-astra, medium effort (verified from this session turn_context); no delegation. Readiness: R1–R11 and R13 pass with this addendum; R12 n/a, no stored data/deployment change. Scope authorized directly by the user's follow-up. Test entry: http://localhost:4178; browser density/section checks, npx tsc --noEmit, scoped oxlint, npm run build:pages. Existing HALO-04 failures are not waived or marked complete.
+
+Follow-up Tracker plan: local:6D11DABD-3F94-4581-ADF7-BED7D84D65D3, todos HALO-05/HALO-06. The original Tracker plan rejects appended todo IDs, so this linked extension retains the completed original tasks and HALO-04 blocker unchanged. GitHub issue #1 contains both checklists.
+
+### Density follow-up results
+HALO-05 and HALO-06 complete. Nine layers now cover hero, atelier, work, archive, lab, about, practice, writing and shared footer. Three spacings (5/9/14px) share exact CSS/canvas alignment. Cursor canvases remain 300 CSS pixels square rather than growing with sections. Chrome pixel assertions found no off-grid strokes in six section interiors; coverage, pointer reset, motion preferences, touch and overflow checks pass. Desktop work/about/lab and mobile about screenshots inspected. TypeScript, scoped lint, diff check and production export pass; HALO-04 baseline blockers remain unchanged. No deployment or push.
