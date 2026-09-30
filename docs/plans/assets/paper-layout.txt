@@ -1,0 +1,9 @@
+HERO: existing monogram above blue circle / organic screen / gold dot
+ATELIER: red circle on left, round screen on right, angled charcoal stroke
+WORK: triangle screen and small red/gold dots along the heading gutter
+ARCHIVE: oval screen at right with a thin angled stroke
+LAB: blue circle partly cropped at far right; arch screen behind artwork edge
+ABOUT: red circle near portrait edge; gold dot above lower edge
+WRITING: organic screen and small red dot at section boundary
+Each assembly stays behind content, clipped to its section; layers drift
+at different restrained scroll rates and reset to static when motion is off.

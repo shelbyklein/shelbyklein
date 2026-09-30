@@ -1,0 +1,13 @@
+SECTION BACKGROUND SKETCH (dot spacing exaggerated)
+Hero artwork: dense 5px grid; preserve existing rays and clip.
+Work / cards: medium 9px grid fills section, cards opaque above it.
+.  .  .  .  .  .  .  .  .  .
+.  [ CARD ] .  [ CARD ] .  .  .
+.  .  .  .  .  .  .  .  .  .
+Archive / reading / about: sparse 14px grid, low ink strength.
+.     .     .     .     .     .
+.     Reading text remains clear
+.     .     .     .     .     .
+Lab: dense 5px blue print, low strength behind panels.
+Writing: medium 9px grid. Footer: medium 9px with existing fade.
+All sections: stationary dots; circular cursor halo thickens nearby dots.

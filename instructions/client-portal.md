@@ -161,3 +161,7 @@ Shelby authorized fixing the existing validation failures before deployment. CP-
 - All four required checks exit 0: lint, content, hero scene, and production export. Route checks verified 31 resources, 23 redirects, and the missing-project 404.
 - Real Chrome checks passed for the affected animations, reduced motion, the archive notice, and the live Stripe link. Visually reviewed desktop/mobile portal captures: [1440px](assets/client-portal/clients-ready-1440.png), [390px](assets/client-portal/clients-ready-390.png); no horizontal overflow or runtime errors.
 - CP-08 remains pending deployment approval and public-page/live-customer login verification. No push is authorized yet.
+
+## Publication approved (2026-09-30)
+
+Shelby explicitly said "publish it". Integrated current main's collage redesign, preserving its footer and adding Clients. Fixed three new-main lint diagnostics while preserving inline SVG mask semantics; motion initialization now runs in a cancellable browser frame. Combined lint, content/routes, hero-scene and static export pass. Reviewed updated mobile portal with the collage footer; browser checks cover motion preference persistence and reduced motion.
