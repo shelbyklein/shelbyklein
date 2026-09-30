@@ -56,6 +56,12 @@
   },
   "overrides": [
     {
+      "files": ["scripts/export-inksplit.jsx"],
+      "rules": {
+        "no-var": "off"
+      }
+    },
+    {
       "files": ["components/ui/**", "hooks/**"],
       "rules": {
         "jsx-a11y/anchor-has-content": "off",

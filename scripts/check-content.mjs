@@ -29,7 +29,9 @@ for(const p of projects){
 for(const a of articles){
  // Revisions replace the stored HTML at render time (lib/portfolio.ts), so check what actually ships.
  const html=articleRevisions[a.slug]?.html??a.html;
- assert(a.title && /^\d{4}-\d{2}-\d{2}$/.test(a.date) && html,`Incomplete article: ${a.slug}`);
+ assert(a.title && /^\d{4}-\d{2}-\d{2}$/.test(a.date),`Incomplete article metadata: ${a.slug}`);
+ // Archive records render a title/date notice instead of the unavailable original body.
+ assert(a.archived===true || html,`Incomplete article: ${a.slug}`);
  assert(!/<(?:script|form|style)\b|\bon\w+\s*=|javascript:/i.test(html),`Unsafe article: ${a.slug}`);
  for(const m of html.matchAll(/src="(\/images\/[^"]+)"/g))images.add(m[1]);
 }
@@ -45,6 +47,10 @@ if(base){
    for(const id of ['overview','contribution','approach','related-title'])assert(body.includes(`id="${id}"`),`${path}: missing ${id}`);
    assert.equal(body.includes('id="gallery"'),project.images.some(i=>i.src!==project.cover),`${path}: gallery visibility`);
    assert.equal(body.includes('id="video"'),project.videos.length>0,`${path}: video visibility`);
+  }
+  if(path.startsWith('/writing/')){
+   const article=articles.find(a=>path==='/writing/'+a.slug);
+   if(article.archived)assert(body.includes('class="archive-record"'),`${path}: missing archive notice`);
   }
  }
  const redirects=[...projects.filter(p=>p.legacySlug).map(p=>['/project/'+p.legacySlug,'/work/'+p.id]),...articles.map(a=>['/'+a.slug,'/writing/'+a.slug]),['/projects','/#work'],['/blog','/writing'],['/project/sfs-recruitment-brochure','/work/sfs-brochure']];

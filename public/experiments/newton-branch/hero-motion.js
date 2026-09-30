@@ -57,9 +57,11 @@
     window.addEventListener('pageshow', endDrag);
     placeHandle();
   }
-  let raf = 0, ready = false, initializing = false, visible = true, disposed = false, last = 0, scrollY = window.scrollY, scrollAt = performance.now();
+  const disposed = false;
+  let raf = 0, ready = false, initializing = false, visible = true, last = 0, scrollY = window.scrollY, scrollAt = performance.now();
   let wind = 0, pendingWind = 0, inputAt = 0, time = 0, appleAngle = 0, bend = 0, bendVelocity = 0, accumulator = 0;
-  let canvas, gl, drawMesh, resize, fruits = [], points = [], leaves = [];
+  const points = [];
+  let canvas, gl, drawMesh, resize, fruits = [], leaves = [];
   const stop = () => { endDrag(); if(handle)handle.hidden=true; cancelAnimationFrame(raf); raf = 0; last = 0; nextFrameAt = 0; accumulator = 0; };
   const allowed = () => ready && visible && !document.hidden && !reduced.matches && region.dataset.userPaused !== 'true' && !disposed;
   function wake() { if (allowed() && !raf) raf = requestAnimationFrame(frame); else if (!allowed()) stop(); }
@@ -173,7 +175,7 @@
       drawMesh=()=>{points.forEach(([x,y],i)=>{const p=warp(x,y,bindings[i]);positions[i*2]=p[0];positions[i*2+1]=p[1];});gl.bindBuffer(gl.ARRAY_BUFFER,pb);gl.bufferSubData(gl.ARRAY_BUFFER,0,positions);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.drawElements(gl.TRIANGLES,index.length,gl.UNSIGNED_SHORT,0);};
       fruits=pieces.map((element,i)=>({element,anchor:anchors[i],mass:[.55,.4,2.4][i],x:anchors[i][0],y:anchors[i][1],vx:0,vy:0,previous:[...anchors[i]],length:1,scale:1,center:i<2}));
       resize=()=>{const scale=image.clientWidth/W,dpr=Math.min(2,devicePixelRatio||1);if(!scale)return;canvas.style.width=`${renderWidth*scale}px`;const cw=Math.round(renderWidth*scale*dpr),ch=Math.round(image.clientHeight*dpr);if(canvas.width!==cw||canvas.height!==ch){canvas.width=cw;canvas.height=ch;}gl.viewport(0,0,canvas.width,canvas.height);
-        fruits.forEach((f,i)=>{if(!f.element){const length=280;f.y+=length-f.length;f.length=length;f.scale=scale;return;}const width=f.element.offsetWidth,styles=getComputedStyle(f.element),length=((parseFloat(styles.getPropertyValue('--stem-length'))||22)+width*.4)/scale;const delta=length-f.length;f.y+=delta;f.length=length;f.scale=scale;});if(ready)drawMesh();};
+        fruits.forEach(f=>{if(!f.element){const length=280;f.y+=length-f.length;f.length=length;f.scale=scale;return;}const width=f.element.offsetWidth,styles=getComputedStyle(f.element),length=((parseFloat(styles.getPropertyValue('--stem-length'))||22)+width*.4)/scale;const delta=length-f.length;f.y+=delta;f.length=length;f.scale=scale;});if(ready)drawMesh();};
       holder.append(canvas);resize();for(let i=0;i<240;i++)simulate(1/120);
       // Start at the same upward bend limit as dragging, then release under gravity.
       bend = -.14; bendVelocity = 0;
@@ -193,7 +195,7 @@
   const io=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;hero.dataset.branchVisible=String(visible);wake();},{threshold:0});io.observe(hero);
   new MutationObserver(wake).observe(region,{attributes:true,attributeFilter:['data-user-paused']});
   document.addEventListener('visibilitychange',wake);
-  reduced.addEventListener('change',()=>{if(reduced.matches){restore();}else if(ready){hero.classList.add('hero-physics-ready');wake();}else initialize();});
+  reduced.addEventListener('change',()=>{if(reduced.matches){restore();}else if(ready){hero.classList.add('hero-physics-ready');wake();}else void initialize();});
   window.addEventListener('pagehide',stop);window.addEventListener('pageshow',wake);
-  initialize();
+  void initialize();
 })();

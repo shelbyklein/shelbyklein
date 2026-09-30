@@ -151,3 +151,13 @@ sequenceDiagram
 ## Test payment verified (2026-09-30)
 
 CP-03 passed: refreshed Dashboard invoice `AEZ0QVLO-0001` (`in_1ULPWvBhFKEUT5cx5Iqzwxrf`) shows **Paid**, **Succeeded**, and **$0.00 remaining**. Refreshed authenticated test portal shows the $1 `Client portal test` invoice as **Paid** in invoice history, with the test Visa ending 4242 saved. Previous Open/unpaid entries above describe earlier state and are superseded by this check. No real-money charge was made.
+
+## Validation cleanup completed (2026-09-30)
+
+Shelby authorized fixing the existing validation failures before deployment. CP-06 now passes; prior lint/content failure entries above are superseded.
+
+- Preserved Photoshop ExtendScript's ES3 `var` syntax with a narrowly scoped lint override. Corrected experiment variable declarations, intentional handled async startup calls, and the motion-status variable name.
+- The content checker now accepts the existing archived article placeholder and verifies its rendered archive notice. Article data remains unchanged. Temporary fixtures confirmed that an ordinary article without a body and an archive record without a title still fail.
+- All four required checks exit 0: lint, content, hero scene, and production export. Route checks verified 31 resources, 23 redirects, and the missing-project 404.
+- Real Chrome checks passed for the affected animations, reduced motion, the archive notice, and the live Stripe link. Visually reviewed desktop/mobile portal captures: [1440px](assets/client-portal/clients-ready-1440.png), [390px](assets/client-portal/clients-ready-390.png); no horizontal overflow or runtime errors.
+- CP-08 remains pending deployment approval and public-page/live-customer login verification. No push is authorized yet.

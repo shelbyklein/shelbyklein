@@ -3,7 +3,7 @@ const layers = [...document.querySelectorAll('[data-depth]')];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const pointer = matchMedia('(hover: hover) and (pointer: fine)');
 const motionButton = document.querySelector('#motion');
-const status = document.querySelector('#motion-status');
+const motionStatus = document.querySelector('#motion-status');
 const slider = document.querySelector('#strength');
 const FRAME_MS = 1000 / 24;
 let lastPaint = 0;
@@ -168,7 +168,7 @@ function sync() {
   motionButton.disabled = !available;
   motionButton.setAttribute('aria-pressed', String(enabled && available));
   motionButton.textContent = enabled && available ? 'Pause motion' : 'Enable motion';
-  status.textContent = reduced.matches ? 'Static scene · reduced motion preference' : !pointer.matches ? 'Touch-friendly scene · ambient candlelight' : enabled ? 'Point at a treasure to bring its depth into focus' : 'Motion paused';
+  motionStatus.textContent = reduced.matches ? 'Static scene · reduced motion preference' : !pointer.matches ? 'Touch-friendly scene · ambient candlelight' : enabled ? 'Point at a treasure to bring its depth into focus' : 'Motion paused';
   if (!canMove()) reset();
 }
 motionButton.addEventListener('click', () => { enabled = !enabled; sync(); });

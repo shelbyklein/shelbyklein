@@ -35,4 +35,4 @@ new ResizeObserver(draw).observe(canvas);
 reduced.addEventListener('change',playback);
 document.addEventListener('visibilitychange',playback);
 document.querySelector('#retry').onclick=init;
-init();
+void init();

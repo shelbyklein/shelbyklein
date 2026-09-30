@@ -1,4 +1,5 @@
 // Run through Photoshop MCP. Works on duplicates; never saves the source PSDs.
+// Photoshop ExtendScript uses ES3; the file-specific lint override permits var.
 var root = Folder('~/.photoshop-mcp/exports/inksplit'); root.create();
 var input = '/Users/shelbyklein/Vibes/inksplit/output/';
 var names = ['nextplay-v2', 'ghost-frequency-v2', 'velvet-voltage'];
