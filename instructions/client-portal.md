@@ -79,7 +79,7 @@ sequenceDiagram
 
 | ID | Owner | Task | Acceptance check |
 |---|---|---|---|
-| CP-01 | human | Set up a Stripe account Shelby controls directly: check whether the Wave-linked account gives full Dashboard access to Invoicing and Settings → Billing → Customer portal. If it doesn't, create a standalone account, then finish business verification and payouts. | In the Stripe Dashboard, Settings → Billing → Customer portal opens, and the account shows payouts enabled. |
+| CP-01 | agent + human review | Set up a Stripe account Shelby controls directly: check whether the Wave-linked account gives full Dashboard access to Invoicing and Settings → Billing → Customer portal. If it doesn't, create a standalone account, then finish business verification and payouts. | In the Stripe Dashboard, Settings → Billing → Customer portal opens, and the account shows payouts enabled. |
 | CP-02 | agent | In **test mode**, set branding, enable invoice history and payment-method updates in the customer portal, and activate the no-code login link. Share the test link URL. | A `https://billing.stripe.com/p/login/test_…` URL is recorded in this plan. |
 | CP-03 | agent + human | Test-mode dry run: create a test customer with a real inbox email, send a one-off invoice, log in through the test link, and pay with test card 4242 4242 4242 4242. | The test invoice shows **Paid** in the Dashboard and appears in the portal's invoice history. |
 | CP-04 | agent | Build `app/clients/page.tsx` to match the mockup, using existing tokens and classes, `sitePath()` for internal links, and the login and Drive URLs as constants at the top of the file (test link for now). | With `npm run dev`, `/clients` renders the two cards and the four steps. Screenshots at 1440 and 390 show no overflow. Both buttons open the expected URLs in a new tab. |
@@ -132,3 +132,10 @@ sequenceDiagram
 - Attempting to open the live dashboard redirects to test mode. The portal explicitly reports the account is unactivated; live readiness remains pending.
 - Validation: static export, hero-scene check, changed-file oxlint, and `git diff --check` pass. Full lint still reports 25 unrelated existing errors; content check still reports the existing incomplete `steamdeckhq-one-year-later` article.
 - Live activation can reuse existing verified business/payout details from Vispix or Buy Me a Coffee, or accept new details. Shelby must choose the source; no bank details are copied into this repository.
+
+## Freelance business details (2026-09-30)
+
+- Products/services description saved and read back: "I provide freelance website design, web development, and custom software programming services for businesses and individual clients. Clients pay invoices for agreed project work, including website builds, redesigns, and custom coding."
+- Category: Software. Account-specific business website: https://shelbyklein.com. Statement descriptor: `SHELBYKLEIN.COM`; shortened prefix: `SHELBY`. Final review shows these values and no invalid descriptor warning.
+- Selected included Radar Lite; skipped optional automatic tax setup and Climate contributions. Shared legal identity and imported payout details were not edited.
+- Stripe activation is ready for final review. Its "Agree and submit" action certifies that all personal, legal, and payout information is complete and correct and agrees to Stripe's terms. Shelby must confirm these details before submission. CP-01 stays incomplete until activation and payout readiness are verified.
