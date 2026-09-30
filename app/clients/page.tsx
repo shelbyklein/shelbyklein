@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 };
 
 // Stripe no-code customer portal login link (Dashboard → Settings → Billing → Customer portal).
-// Test mode only. CP-08 must replace this with the live link before deployment.
-const billingPortalURL = 'https://billing.stripe.com/p/login/test_cNidR89dBc1l7p59R7ffy00';
+const billingPortalURL = 'https://billing.stripe.com/p/login/cNidR89dBc1l7p59R7ffy00';
 const sharedFilesURL = 'https://drive.google.com/drive/shared-with-me';
 const contactEmail = 'shelbykleindesign@gmail.com';
 

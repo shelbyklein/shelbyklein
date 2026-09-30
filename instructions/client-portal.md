@@ -86,7 +86,7 @@ sequenceDiagram
 | CP-05 | agent | Add a "Clients" link to the footer nav, and add `'clients'` to `routes` in `scripts/prepare-pages.mjs`. | The footer shows "Clients" on every page, and `npm run build:pages` reports the route count including `clients`. |
 | CP-06 | agent | Run every check. | `npm run lint`, `node scripts/check-content.mjs`, `node scripts/check-hero-scene.mjs`, and `npm run build:pages` all exit 0. |
 | CP-07 | agent | Write `instructions/client-portal-operations.md`: onboarding a client (Stripe customer with the exact email, Drive folder shared with that email, proposal PDF), invoicing, what to send the client, and how to finish outstanding Wave invoices. | The file exists and covers every step in the flow diagram. |
-| CP-08 | human gate | **Shelby switches Stripe to live mode and activates the live login link.** The agent swaps in the live URL, re-runs CP-06, and commits. **Shelby approves the push to `main`** (deploy), then checks the live page. | Live `/clients` returns 200 and links to a non-`test_` login URL, and a login email arrives for a live customer email. |
+| CP-08 | agent + human deploy gate | **Shelby switches Stripe to live mode and activates the live login link.** The agent swaps in the live URL, re-runs CP-06, and commits. **Shelby approves the push to `main`** (deploy), then checks the live page. | Live `/clients` returns 200 and links to a non-`test_` login URL, and a login email arrives for a live customer email. |
 
 ## Scope boundaries
 
@@ -139,3 +139,11 @@ sequenceDiagram
 - Category: Software. Account-specific business website: https://shelbyklein.com. Statement descriptor: `SHELBYKLEIN.COM`; shortened prefix: `SHELBY`. Final review shows these values and no invalid descriptor warning.
 - Selected included Radar Lite; skipped optional automatic tax setup and Climate contributions. Shared legal identity and imported payout details were not edited.
 - Stripe activation is ready for final review. Its "Agree and submit" action certifies that all personal, legal, and payout information is complete and correct and agrees to Stripe's terms. Shelby must confirm these details before submission. CP-01 stays incomplete until activation and payout readiness are verified.
+
+## Live account connection (2026-09-30)
+
+- Shelby submitted account activation. Verified authenticated live Dashboard and live customer-portal settings are accessible. Balances shows automatic daily payouts to the linked payout bank; balance is $0 and no actual payout has been made.
+- Activated live portal login link: https://billing.stripe.com/p/login/cNidR89dBc1l7p59R7ffy00. Replaced the test URL in `app/clients/page.tsx`.
+- Live login page responds HTTP 200 with Shelby Klein branding; exported `/clients/index.html` contains the live URL and no test portal URL.
+- Rechecked: `build:pages`, hero scene, changed-file oxlint, and diff checks pass. Full lint and content retain their previously recorded unrelated failures.
+- Test invoice `AEZ0QVLO-0001` still shows Open ($1 remaining). Live client email login and public site deployment remain unverified. No push to main is authorized yet.

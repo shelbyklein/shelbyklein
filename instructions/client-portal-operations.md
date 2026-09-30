@@ -7,7 +7,7 @@ How to run a client engagement through the `/clients` page. It follows the flow 
 1. **Stripe account.** Use an account you control directly, not the Wave-managed one, unless it gives full Dashboard access to Invoicing and **Settings → Billing → Customer portal**.
 2. **Branding.** Go to **Settings → Branding** and add the SK mark, `#de472b` as the accent color, and your public business name.
 3. **Customer portal.** In **Settings → Billing → Customer portal**, turn on invoice history and let customers update payment methods. Click **Activate link** in "Ways to get started".
-4. **Put the link on the site.** Paste the login link into `billingPortalURL` in `app/clients/page.tsx`. Use the `test_` link while testing and the live link when you go live, then run the checks and deploy.
+4. **Billing link.** The activated live login link is https://billing.stripe.com/p/login/cNidR89dBc1l7p59R7ffy00 and is configured as `billingPortalURL` in `app/clients/page.tsx`. The test link adds `test_` before the same identifier. Site deployment still needs the checks to pass and Shelby's go-ahead.
 5. **Drive.** Create a top-level `Clients/` folder in Google Drive. Never share that top folder itself.
 
 ## Onboarding a new client
