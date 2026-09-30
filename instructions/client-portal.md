@@ -80,7 +80,7 @@ sequenceDiagram
 | ID | Owner | Task | Acceptance check |
 |---|---|---|---|
 | CP-01 | human | Set up a Stripe account Shelby controls directly: check whether the Wave-linked account gives full Dashboard access to Invoicing and Settings → Billing → Customer portal. If it doesn't, create a standalone account, then finish business verification and payouts. | In the Stripe Dashboard, Settings → Billing → Customer portal opens, and the account shows payouts enabled. |
-| CP-02 | human | In **test mode**, set branding, enable invoice history and payment-method updates in the customer portal, and activate the no-code login link. Share the test link URL. | A `https://billing.stripe.com/p/login/test_…` URL is recorded in this plan. |
+| CP-02 | agent | In **test mode**, set branding, enable invoice history and payment-method updates in the customer portal, and activate the no-code login link. Share the test link URL. | A `https://billing.stripe.com/p/login/test_…` URL is recorded in this plan. |
 | CP-03 | agent + human | Test-mode dry run: create a test customer with a real inbox email, send a one-off invoice, log in through the test link, and pay with test card 4242 4242 4242 4242. | The test invoice shows **Paid** in the Dashboard and appears in the portal's invoice history. |
 | CP-04 | agent | Build `app/clients/page.tsx` to match the mockup, using existing tokens and classes, `sitePath()` for internal links, and the login and Drive URLs as constants at the top of the file (test link for now). | With `npm run dev`, `/clients` renders the two cards and the four steps. Screenshots at 1440 and 390 show no overflow. Both buttons open the expected URLs in a new tab. |
 | CP-05 | agent | Add a "Clients" link to the footer nav, and add `'clients'` to `routes` in `scripts/prepare-pages.mjs`. | The footer shows "Clients" on every page, and `npm run build:pages` reports the route count including `clients`. |
@@ -115,7 +115,20 @@ sequenceDiagram
 - **Scope:** confirmed by Shelby on 2026-09-30 (the settled decisions above).
 - **Plan:** `instructions/client-portal.md`
 - **Mode:** `linear`. It's a small, mostly sequential change to about four files, gated by Stripe setup, so parallel lanes wouldn't save time.
-- **Models:** linear executor is Opus 5.5 (`claude-opus-5-5`), at this session's effort setting.
+- **Models:** resumed linear executor is Codex `gpt-6.1-sol`, effort `medium` (verified from this session's runtime metadata). Previous executor: Opus 5.5 (`claude-opus-5-5`).
 - **Handoff:** n/a (linear).
-- **Now/later:** not decided yet.
+- **Now/later:** now; Shelby authorized implementation and dashboard setup.
 - **Readiness:** pass · 2026-09-30 · R1–R13 pass; R3 current screenshot + mockup + flow diagram; R12 site revert + Stripe link deactivation
+
+## Stripe setup progress (2026-09-30)
+
+- Existing authenticated account: `acct_1EEgNGBhFKEUT5cx`, currently named "New business". Test customer-portal settings are accessible. Live business verification and payout readiness are not yet verified.
+- Test portal login link activated: https://billing.stripe.com/p/login/test_cNidR89dBc1l7p59R7ffy00
+- Invoice history and payment-method updates are enabled in test mode. This link is for testing only and must be replaced before deployment.
+- Shelby authorized the agent to configure Stripe; CP-02 is now agent-owned. CP-01 account readiness and CP-03 test payment remain pending.
+- Branding saved: existing SK favicon exported as a 256px PNG icon; brand and accent colors set to `#de472b`.
+- Account display name set to `Shelby Klein` when Stripe required a name before creating an invoice.
+- Created only a dedicated test customer (`cus_VM7mg19S4QvuZA`) with Shelby's email and a $1 test invoice (`in_1ULPWvBhFKEUT5cx5Iqzwxrf`, number `AEZ0QVLO-0001`). Invoice email and portal login email both arrived in the Work inbox. The authenticated portal lists this invoice and opens its hosted test payment page. Test payment remains unverified.
+- Attempting to open the live dashboard redirects to test mode. The portal explicitly reports the account is unactivated; live readiness remains pending.
+- Validation: static export, hero-scene check, changed-file oxlint, and `git diff --check` pass. Full lint still reports 25 unrelated existing errors; content check still reports the existing incomplete `steamdeckhq-one-year-later` article.
+- Live activation can reuse existing verified business/payout details from Vispix or Buy Me a Coffee, or accept new details. Shelby must choose the source; no bank details are copied into this repository.
