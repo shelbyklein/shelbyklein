@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant S as Shelby
+    participant D as Google Drive
+    participant C as Client
+    participant P as shelbyklein.com/clients
+    participant St as Stripe
+    S->>D: Create project folder, share with client email
+    S->>D: Upload proposal PDF
+    C->>D: Review proposal
+    C->>S: Approve by email
+    S->>St: Create customer + invoice, send
+    St->>C: Invoice email with hosted pay link
+    C->>P: Visit client portal
+    P->>St: "Open billing portal" (no-code login link)
+    St->>C: Emailed one-time login link
+    C->>St: Pay, download invoice/receipt, manage card
+    St->>S: Payout
+    S->>D: Upload deliverables
+    P->>D: "Open files shared with you"

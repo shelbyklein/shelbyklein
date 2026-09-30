@@ -21,6 +21,7 @@ export function SiteFooter() {
         </a>
         <nav aria-label="Footer navigation">
           <a href={sitePath('/writing')}>Writing</a>
+          <a href={sitePath('/clients')}>Clients</a>
           <a href={sitePath('/Shelby-Klein-Resume.pdf')} target="_blank" rel="noreferrer">Resumé ↗</a>
           <a href="https://www.linkedin.com/in/shelbyklein/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
           <a href="#top">Back to top ↑</a>
