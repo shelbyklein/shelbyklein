@@ -147,3 +147,7 @@ sequenceDiagram
 - Live login page responds HTTP 200 with Shelby Klein branding; exported `/clients/index.html` contains the live URL and no test portal URL.
 - Rechecked: `build:pages`, hero scene, changed-file oxlint, and diff checks pass. Full lint and content retain their previously recorded unrelated failures.
 - Test invoice `AEZ0QVLO-0001` still shows Open ($1 remaining). Live client email login and public site deployment remain unverified. No push to main is authorized yet.
+
+## Test payment verified (2026-09-30)
+
+CP-03 passed: refreshed Dashboard invoice `AEZ0QVLO-0001` (`in_1ULPWvBhFKEUT5cx5Iqzwxrf`) shows **Paid**, **Succeeded**, and **$0.00 remaining**. Refreshed authenticated test portal shows the $1 `Client portal test` invoice as **Paid** in invoice history, with the test Visa ending 4242 saved. Previous Open/unpaid entries above describe earlier state and are superseded by this check. No real-money charge was made.
