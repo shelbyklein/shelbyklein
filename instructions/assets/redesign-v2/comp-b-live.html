@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pegboard Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#f4f4f0; --ink:#1c1d1a; --muted:#5f625a; --board:#d4492a; --hole:#5a1a0a; --tape-black:#1b1b1b; --tape-blue:#1f4f9e; --tape-white:#f7f7f2; }
+  * { box-sizing:border-box; }
+  html, body { overflow-x:hidden; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:"Bricolage Grotesque",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; } img { display:block; user-select:none; -webkit-user-drag:none; }
+
+  .header { height:76px; display:flex; align-items:center; justify-content:space-between; padding:0 48px; }
+  .brand { display:flex; align-items:center; gap:12px; font-weight:800; font-size:22px; letter-spacing:-.5px; }
+  .brand svg { width:36px; height:36px; transform-origin:50% 0; }
+  .brand:hover svg { animation:sway 1.1s ease-out; }
+  @keyframes sway { 20%{transform:rotate(9deg)} 45%{transform:rotate(-6deg)} 70%{transform:rotate(3deg)} 100%{transform:rotate(0)} }
+  nav { display:flex; gap:34px; font-size:16px; }
+  nav a { position:relative; } nav a::after { content:""; position:absolute; left:0; right:0; bottom:-4px; height:2px; background:currentColor; transform:scaleX(0); transform-origin:right; transition:transform .3s; }
+  nav a:hover::after, nav .talk::after { transform:scaleX(1); transform-origin:left; }
+  nav .talk { font-weight:600; }
+
+  .hero { display:grid; grid-template-columns:minmax(380px,520px) 1fr; gap:40px; padding:0 24px 0 48px; min-height:calc(100vh - 76px); align-items:start; }
+  .intro { align-self:center; padding:40px 0 80px; }
+  .who { font:700 11px "IBM Plex Mono",monospace; letter-spacing:.14em; color:var(--muted); }
+  h1 { font-size:clamp(46px,5.2vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:800; margin:22px 0 26px; }
+  .intro p { font-size:20px; line-height:1.55; color:#3c3f38; margin:0 0 30px; max-width:470px; }
+  .actions { display:flex; gap:12px; flex-wrap:wrap; }
+  .btn { background:var(--ink); color:#fff; padding:14px 20px; font-weight:600; font-size:16px; border-radius:6px; transition:transform .2s; } .btn:hover { transform:translateY(-2px); }
+  .btn.ghost { background:transparent; color:var(--ink); box-shadow:inset 0 0 0 1.5px var(--ink); }
+  .hint { margin-top:34px; font:500 12px "IBM Plex Mono",monospace; color:var(--muted); letter-spacing:.04em; line-height:1.7; }
+
+  .board-wrap { position:relative; margin-bottom:24px; }
+  .board { position:relative; border-radius:12px; background-color:var(--board); overflow:hidden; touch-action:pan-y;
+    background-image:radial-gradient(circle at 16px 16px, rgba(60,10,0,.6) 0 3.2px, rgba(255,255,255,.13) 3.7px, transparent 4.5px);
+    background-size:32px 32px; box-shadow:inset 0 0 0 1px rgba(0,0,0,.15), inset 0 -60px 90px rgba(0,0,0,.14); }
+  .stage { position:absolute; left:0; top:0; transform-origin:0 0; }
+  .item { position:absolute; cursor:grab; }
+  .item.dragging { cursor:grabbing; }
+  .swing { position:relative; will-change:transform; }
+  .hook { position:absolute; width:4px; height:32px; background:linear-gradient(90deg,#8d9196,#e8eaec 45%,#9a9ea3); border-radius:2px; box-shadow:2px 3px 3px rgba(0,0,0,.3); transform-origin:50% 0; }
+  .hook::before { content:""; position:absolute; top:-7px; left:-3px; width:10px; height:10px; border-radius:50%; background:var(--hole); box-shadow:inset 0 0 0 3px #c9ccd0; }
+  .cut { filter:drop-shadow(6px 12px 10px rgba(60,10,0,.45)); }
+  .print { background:#fff; padding:8px; box-shadow:6px 12px 16px rgba(60,10,0,.4); }
+  .print img { width:100%; height:100%; object-fit:cover; pointer-events:none; }
+  .clip { position:absolute; top:-14px; left:50%; width:38px; height:22px; margin-left:-19px; background:#1d1d1d; border-radius:4px 4px 2px 2px; box-shadow:2px 3px 4px rgba(0,0,0,.4); }
+  .clip::after { content:""; position:absolute; left:8px; right:8px; top:-12px; height:14px; border:2px solid #c9ccd0; border-bottom:0; border-radius:6px 6px 0 0; }
+  .shelf { position:absolute; height:12px; background:linear-gradient(#fafafa,#d7d7d3); border-radius:2px; box-shadow:0 8px 12px rgba(60,10,0,.35); }
+  .shelf::before, .shelf::after { content:""; position:absolute; top:12px; width:6px; height:34px; background:#bfc2c5; border-radius:0 0 3px 3px; }
+  .shelf::before { left:22px; } .shelf::after { right:22px; }
+  .phone { width:160px; height:334px; border-radius:28px; background:#111; padding:8px; box-shadow:6px 14px 18px rgba(60,10,0,.45), inset 0 0 0 2px #333; }
+  .phone img { width:100%; height:100%; object-fit:cover; object-position:top; border-radius:21px; }
+  .laptop { width:352px; } .laptop .screen { height:220px; background:#111; border-radius:12px 12px 0 0; padding:10px; } .laptop .screen img { width:100%; height:100%; object-fit:cover; object-position:top; border-radius:4px; }
+  .laptop .base { height:14px; background:linear-gradient(#d9dadc,#a9abae); border-radius:0 0 10px 10px; margin:0 -22px; box-shadow:0 10px 14px rgba(60,10,0,.4); }
+  .tag { position:absolute; white-space:nowrap; font:700 11px "IBM Plex Mono",monospace; letter-spacing:.16em; text-transform:uppercase; color:#fff; padding:5px 9px 4px; border-radius:3px; background:var(--tape-black);
+    text-shadow:0 1px 0 rgba(0,0,0,.45); box-shadow:2px 3px 4px rgba(60,10,0,.4), inset 0 1px 0 rgba(255,255,255,.14); pointer-events:none; }
+  .tag.white { background:var(--tape-white); color:var(--ink); text-shadow:none; } .tag.blue { background:var(--tape-blue); }
+
+  /* Take-it-down view */
+  .veil { position:fixed; inset:0; background:var(--paper); opacity:0; visibility:hidden; z-index:50; }
+  .lift { position:fixed; left:0; top:0; z-index:60; transform-origin:0 0; pointer-events:none; }
+  .detail { position:fixed; z-index:70; left:56%; top:50%; transform:translateY(-50%); width:min(440px,38vw); visibility:hidden; }
+  .detail .who { display:block; margin-bottom:16px; }
+  .detail h2 { font-size:clamp(40px,5vw,72px); line-height:.98; letter-spacing:-.04em; margin:0 0 18px; }
+  .detail p { font-size:19px; line-height:1.55; color:#3c3f38; margin:0 0 28px; }
+  .detail .actions { gap:10px; }
+  button.btn { border:0; font:inherit; font-weight:600; cursor:pointer; }
+
+  /* Work index */
+  .below { padding:72px 48px 120px; display:grid; grid-template-columns:minmax(380px,520px) 1fr; gap:40px; }
+  .below h2 { margin:0; font-size:40px; letter-spacing:-1.4px; }
+  .below .sub { color:var(--muted); font-size:17px; line-height:1.6; max-width:360px; margin:14px 0 0; }
+  .rows { border-top:1.5px solid var(--ink); }
+  .row { display:grid; grid-template-columns:1fr 220px 40px; align-items:center; padding:20px 0; border-bottom:1px solid #d6d7d1; font-size:22px; letter-spacing:-.3px; transition:padding .3s, color .3s; }
+  .row span { color:var(--muted); font-size:15px; letter-spacing:0; } .row span:last-child { text-align:right; transition:transform .3s; }
+  .row:hover { padding-left:12px; color:var(--board); } .row:hover span:last-child { transform:translateX(-6px); color:var(--board); }
+  .peek { position:fixed; left:0; top:0; width:280px; height:200px; z-index:40; pointer-events:none; opacity:0; border-radius:8px; overflow:hidden; box-shadow:0 18px 40px rgba(0,0,0,.25); background:#ddd; }
+  .peek img { width:100%; height:100%; object-fit:cover; }
+
+  @media (max-width:860px) {
+    .header { padding:0 16px; height:64px; } nav { display:none; }
+    .hero { grid-template-columns:1fr; min-height:0; padding:0 16px; gap:8px; }
+    .intro { padding:20px 0 24px; } .intro p { font-size:17px; } .hint { margin-top:22px; }
+    .board-wrap { margin:0 -8px 24px; }
+    .tag { font-size:16px; padding:7px 12px 6px; }
+    .detail { left:16px; right:16px; top:auto; bottom:28px; transform:none; width:auto; } .detail h2 { font-size:44px; } .detail p { font-size:17px; margin-bottom:20px; }
+    .below { grid-template-columns:1fr; padding:48px 16px 80px; gap:24px; } .row { grid-template-columns:1fr auto; font-size:19px; } .row span:nth-child(2) { display:none; }
+    .peek { display:none; }
+  }
+</style>
+</head>
+<body>
+<header class="header">
+  <a class="brand" href="#" aria-label="Shelby Klein home">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#1c1d1a"/><g fill="none" stroke="#f4f4f0" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"><path d="M17.2 13.4c-.9-2.3-2.8-3.4-5-3.4-2.7 0-4.7 1.7-4.7 4 0 5.6 10.1 3.6 10.1 9.8 0 2.8-2.3 4.9-5.3 4.9-2.5 0-4.5-1.3-5.4-3.6"/><path d="M23.4 31.2V11.4c0-4.2 6.4-4.2 6.4 0v1.4"/><path d="M33.4 16.6l-9.4 7.6 9.8 7.2"/></g><circle cx="26.6" cy="11.2" r="1.5" fill="#d4492a"/></svg>
+    Shelby Klein
+  </a>
+  <nav><a href="#work">Work</a><a href="#">Apps</a><a href="#">Writing</a><a href="#">About</a><a class="talk" href="mailto:shelbykleindesign@gmail.com">Let’s talk</a></nav>
+</header>
+
+<section class="hero">
+  <div class="intro">
+    <span class="who" data-in>DESIGNER · DEVELOPER · ATLANTA</span>
+    <h1 id="headline">I design and build things for screens and hands.</h1>
+    <p data-in>Websites, software, live broadcast graphics, and physical products, from Team USA’s Olympic archery jerseys to a gaming case for the iPhone.</p>
+    <div class="actions" data-in><a class="btn" href="#work">See selected work</a><a class="btn ghost" href="mailto:shelbykleindesign@gmail.com">Let’s talk</a></div>
+    <div class="hint" data-in>Everything on the wall is a project.<br>Give one a nudge, or take it down.</div>
+  </div>
+  <div class="board-wrap"><div class="board" id="board" aria-label="Pegboard of projects"><div class="stage" id="stage"></div></div></div>
+</section>
+
+<section class="below" id="work">
+  <div><h2>Selected work</h2><p class="sub">Client websites, Team USA, products I’ve shipped, and the software I’m building now.</p></div>
+  <div class="rows" id="rows"></div>
+</section>
+
+<div class="veil" id="veil"></div>
+<div class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+  <span class="who" id="detail-cat"></span>
+  <h2 id="detail-title"></h2>
+  <p id="detail-body"></p>
+  <div class="actions"><a class="btn" id="detail-link" href="#">Open the case study</a><button class="btn ghost" id="detail-close" type="button">Hang it back</button></div>
+</div>
+<div class="peek" id="peek"><img alt=""></div>
+
+<script src="../../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../../node_modules/gsap/dist/SplitText.min.js"></script>
+<script>
+gsap.registerPlugin(SplitText);
+const IMG = '../../../public/images/';
+const SITE = 'https://shelbyklein.com/work/';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Layout coordinates live in two design canvases; the stage scales to fit the board.
+const CANVAS = { desk: { w: 808, h: 824 }, mob: { w: 560, h: 1190 } };
+const items = [
+  { id: 'playcase', kind: 'hang', title: 'PlayCase', cat: 'Physical product', body: 'A gaming case that brings physical controls to the iPhone.',
+    w: 264, h: 264, pivot: [132, 50], k: 20, html: `<img class="cut" src="${IMG}playcase/handheld-blue.webp" width="264" height="264" alt="PlayCase">`,
+    tag: ['PlayCase', 'blue'], desk: { x: 48, y: 64, tag: [72, 318] }, mob: { x: 20, y: 64, tag: [44, 320] } },
+  { id: 'olympic-jerseys', kind: 'hang', title: 'Team USA Olympic Jerseys', cat: 'USA Archery · 2020 & 2024 Games', body: 'Team USA archery jerseys for the Tokyo and Paris Olympic Games.',
+    w: 210, h: 252, pivot: [105, -26], k: 24, html: `<span class="clip"></span><div class="print" style="width:210px;height:252px"><img src="${IMG}olympic-jersey-card.webp" alt="Team USA Olympic archery jersey"></div>`,
+    tag: ['Team USA jerseys'], desk: { x: 386, y: 84, tag: [386, 352] }, mob: { x: 326, y: 84, tag: [306, 352] } },
+  { id: 'steam-deck-hq', kind: 'hang', title: 'Steam Deck HQ', cat: 'Independent platform', body: 'Brand identity and web development for a handheld gaming publication.',
+    w: 160, h: 334, pivot: [80, 2], k: 22, html: `<div class="phone"><img src="${IMG}websites/steam-deck-hq-mobile.jpg" alt="Steam Deck HQ website"></div>`,
+    tag: ['Steam Deck HQ'], desk: { x: 640, y: 64, tag: [640, 412] }, mob: { x: 36, y: 430, tag: [24, 780] } },
+  { id: 'sea-education', kind: 'shelf', title: 'Sea Education Association', cat: 'Client website', body: 'Website design and development for ocean education.',
+    w: 352, h: 234, html: `<div class="laptop"><div class="screen"><img src="${IMG}websites/sea-education-desktop.jpg" alt="Sea Education Association website"></div><div class="base"></div></div>`,
+    tag: ['Client websites', 'white'], desk: { x: 84, y: 400, tag: [84, 368] }, mob: { x: 182, y: 470, tag: [182, 428] } },
+  { id: 'archery-is-for-everyone', kind: 'hang', title: 'Archery is for Everyone', cat: 'USA Archery × Marvel', body: 'An inclusive archery campaign with USA Archery and Marvel Entertainment.',
+    w: 128, h: 150, pivot: [64, -26], k: 30, html: `<span class="clip"></span><div class="print" style="width:128px;height:150px;padding:5px"><img src="${IMG}Archery-is-for-Everyone.webp" alt="Archery is for Everyone campaign"></div>`,
+    tag: ['× Marvel'], desk: { x: 560, y: 488, tag: [560, 654] }, mob: { x: 228, y: 806, tag: [228, 972] } },
+  { id: 'national-event-identities', kind: 'hang', title: 'National Event Identities', cat: 'USA Archery', body: 'A series of identities for USA Archery’s national events.',
+    w: 96, h: 96, pivot: [48, 2], k: 34, html: `<div class="print" style="width:96px;height:96px;padding:5px;border-radius:12px"><img style="border-radius:8px" src="${IMG}logos-usaa-scaled.webp" alt="National event identity"></div>`,
+    tag: ['Identities'], desk: { x: 696, y: 470, tag: [690, 582] }, mob: { x: 420, y: 806, tag: [400, 920] } },
+  { id: 'tracker-trapper', kind: 'shelf', title: 'Tracker Trapper', cat: 'Independent software', body: 'A menu-bar companion that keeps coding-agent progress, blockers, and the next step in view.',
+    w: 138, h: 92, html: `<img class="cut" src="${IMG}tracker-trapper/bird-friends.webp" width="138" height="92" alt="Tracker Trapper">`,
+    tag: ['Tracker Trapper', 'blue'], desk: { x: 60, y: 668, tag: [64, 784] }, mob: { x: 40, y: 1020, tag: [40, 1136] } },
+];
+const apps = [['newton', 'Newton', 'newton-logo.png', 'A desktop workspace for persistent AI teams.'], ['current', 'Current', 'apps/current-icon.png', 'A live rhyme studio with speech input and phrase suggestions.'],
+  ['flogg', 'Flogg', 'apps/flogg-icon.png', 'A personal print log for understanding volatile 70A TPU settings.'], ['newton', 'Appleseed', 'apps/appleseed-icon.png', 'A focused mobile companion that keeps Newton projects close at hand.'],
+  ['playcase-editor', 'Deltaskin Editor', 'apps/playcase-editor-icon.png', 'A visual editor for the simple JSON configurations behind PlayCase.']];
+apps.forEach(([id, title, src, body], i) => items.push({ id, kind: 'shelf', title, cat: 'Apps & software', body, w: 64, h: 64,
+  html: `<img class="cut" src="${IMG}${src}" width="64" height="64" alt="${title}">`, desk: { x: 250 + i * 76, y: 692 }, mob: { x: 196 + i * 68, y: 1044 } }));
+const shelves = { desk: [[40, 634, 440], [40, 756, 760]], mob: [[164, 704, 384], [20, 1108, 520]] };
+const boardTags = [{ text: 'Apps & software', color: 'white', desk: [630, 712], mob: [330, 1136] }];
+
+const stage = document.getElementById('stage'), board = document.getElementById('board');
+let mode = innerWidth <= 860 ? 'mob' : 'desk', scale = 1;
+
+function tagEl(text, color) { const t = document.createElement('span'); t.className = 'tag ' + (color || ''); t.textContent = text; stage.appendChild(t); return t; }
+items.forEach((it) => {
+  const el = document.createElement('a'); el.className = 'item'; el.href = SITE + it.id + '/'; el.setAttribute('aria-label', it.title);
+  el.innerHTML = `<div class="swing">${it.html}</div>`; stage.appendChild(el);
+  it.el = el; it.swing = el.firstElementChild; it.theta = 0; it.omega = 0; it.live = false;
+  if (it.kind === 'hang') { it.hook = document.createElement('span'); it.hook.className = 'hook'; stage.insertBefore(it.hook, el); gsap.set(it.swing, { transformOrigin: `${it.pivot[0]}px ${it.pivot[1]}px` }); }
+  if (it.tag) it.tagEl = tagEl(it.tag[0], it.tag[1]);
+});
+const shelfEls = shelves.desk.map(() => { const s = document.createElement('span'); s.className = 'shelf'; stage.prepend(s); return s; });
+boardTags.forEach((b) => { b.el = tagEl(b.text, b.color); });
+
+function layout() {
+  mode = innerWidth <= 860 ? 'mob' : 'desk';
+  const c = CANVAS[mode];
+  scale = board.parentElement.clientWidth / c.w;
+  board.style.height = c.h * scale + 'px';
+  gsap.set(stage, { width: c.w, height: c.h, scale });
+  items.forEach((it) => {
+    const p = it[mode]; gsap.set(it.el, { left: p.x, top: p.y, width: it.w, height: it.h });
+    if (it.hook) gsap.set(it.hook, { left: p.x + it.pivot[0] - 2, top: p.y + it.pivot[1] - 30 });
+    if (it.tagEl) gsap.set(it.tagEl, { left: p.tag[0], top: p.tag[1] });
+  });
+  shelves[mode].forEach(([x, y, w], i) => gsap.set(shelfEls[i], { left: x, top: y, width: w }));
+  boardTags.forEach((b) => gsap.set(b.el, { left: b[mode][0], top: b[mode][1] }));
+}
+layout(); addEventListener('resize', layout);
+
+// Pendulum physics for everything on a hook.
+const hanging = items.filter((it) => it.kind === 'hang');
+gsap.ticker.add((time, dms) => {
+  const dt = Math.min(dms / 1000, 1 / 30);
+  hanging.forEach((it) => {
+    if (!it.live || it.held) return;
+    it.omega += (-it.k * Math.sin(it.theta) - 2.4 * it.omega) * dt;
+    it.theta += it.omega * dt;
+    gsap.set(it.swing, { rotation: it.theta * 57.2958 });
+  });
+});
+
+function stagePoint(e) { const r = board.getBoundingClientRect(); return [(e.clientX - r.left) / scale, (e.clientY - r.top) / scale]; }
+let last = null;
+board.addEventListener('pointermove', (e) => {
+  if (reduce || dragging) return;
+  const [x, y] = stagePoint(e);
+  if (last) {
+    const dx = x - last[0];
+    hanging.forEach((it) => {
+      const p = it[mode]; if (!it.live || x < p.x || x > p.x + it.w || y < p.y + Math.min(0, it.pivot[1]) || y > p.y + it.h) return;
+      const reach = Math.max(.25, Math.min(1.2, (y - (p.y + it.pivot[1])) / it.h));
+      it.omega = Math.max(-3, Math.min(3, it.omega - (dx / it.h) * 3.6 * reach));
+    });
+  }
+  last = [x, y];
+});
+board.addEventListener('pointerleave', () => { last = null; });
+
+// Drag to swing; a click without movement takes the item down.
+let dragging = null;
+items.forEach((it) => {
+  it.el.addEventListener('click', (e) => { e.preventDefault(); if (it.moved) return; takeDown(it); });
+  it.el.addEventListener('pointerdown', (e) => {
+    it.moved = false; const start = stagePoint(e); let prev = { t: performance.now(), a: 0 };
+    if (it.kind !== 'hang' || reduce) return;
+    const p = it[mode], px = p.x + it.pivot[0], py = p.y + it.pivot[1];
+    const a0 = Math.atan2(start[0] - px, start[1] - py) + it.theta;
+    const move = (ev) => {
+      const [x, y] = stagePoint(ev);
+      if (!it.moved && Math.hypot(x - start[0], y - start[1]) < 6) return;
+      if (!it.moved) { it.moved = true; it.held = true; dragging = it; it.el.classList.add('dragging'); it.el.setPointerCapture(ev.pointerId); }
+      const th = Math.max(-1.1, Math.min(1.1, a0 - Math.atan2(x - px, y - py)));
+      const now = performance.now(); it.omega = (th - it.theta) / Math.max(.008, (now - prev.t) / 1000) * .6; prev.t = now;
+      it.theta = th; gsap.set(it.swing, { rotation: th * 57.2958 });
+    };
+    const up = () => { removeEventListener('pointermove', move); removeEventListener('pointerup', up); it.held = false; dragging = null; it.el.classList.remove('dragging'); it.omega = Math.max(-6, Math.min(6, it.omega)); };
+    addEventListener('pointermove', move); addEventListener('pointerup', up);
+  });
+  if (it.kind === 'shelf') it.el.addEventListener('pointerenter', () => { if (!reduce && !gsap.isTweening(it.swing)) gsap.timeline().to(it.swing, { y: -12, rotation: gsap.utils.random(-5, 5), duration: .18, ease: 'power2.out' }).to(it.swing, { y: 0, rotation: 0, duration: .6, ease: 'bounce.out' }); });
+});
+
+// Take it down: lift the object off the wall and open its card.
+const veil = document.getElementById('veil'), detail = document.getElementById('detail');
+let open = null;
+function takeDown(it) {
+  if (open) return;
+  it.held = true; it.theta = 0; it.omega = 0; gsap.set(it.swing, { rotation: 0 });
+  const r = it.swing.getBoundingClientRect();
+  const clone = it.swing.cloneNode(true); clone.className = 'lift'; clone.style.width = it.w + 'px'; document.body.appendChild(clone);
+  gsap.set(clone, { x: r.left, y: r.top, scale, rotation: 0 });
+  it.el.style.visibility = 'hidden';
+  const vw = innerWidth, vh = innerHeight, narrow = vw <= 860;
+  const S = narrow ? Math.min(.8 * vw / it.w, .38 * vh / it.h) : Math.min(.42 * vw / it.w, .66 * vh / it.h, 2.4);
+  const cx = narrow ? vw / 2 : vw * .3, cy = narrow ? vh * .3 : vh / 2;
+  document.getElementById('detail-cat').textContent = it.cat.toUpperCase();
+  document.getElementById('detail-title').textContent = it.title;
+  document.getElementById('detail-body').textContent = it.body;
+  document.getElementById('detail-link').href = SITE + it.id + '/';
+  const tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
+  if (reduce) { gsap.set(clone, { x: cx - it.w * S / 2, y: cy - it.h * S / 2, scale: S, rotation: 0 }); tl.to([veil, detail], { autoAlpha: 1, duration: .2 }); }
+  else tl.to(clone, { y: r.top - 30, rotation: 0, duration: .22, ease: 'power2.out' })
+    .to(veil, { autoAlpha: .97, duration: .45 }, '<.05')
+    .to(clone, { x: cx - it.w * S / 2, y: cy - it.h * S / 2, scale: S, duration: .7 }, '<')
+    .fromTo(detail, { autoAlpha: 0, y: narrow ? 30 : 0, x: narrow ? 0 : 40 }, { autoAlpha: 1, x: 0, y: 0, duration: .5, ease: 'power3.out' }, '-=.3');
+  open = { it, clone, tl };
+  document.getElementById('detail-close').focus({ preventScroll: true });
+}
+function hangBack() {
+  if (!open) return; const { it, clone, tl } = open;
+  tl.timeScale(1.4).reverse().eventCallback('onReverseComplete', () => { clone.remove(); it.el.style.visibility = ''; it.held = false; if (it.kind === 'hang') it.omega = reduce ? 0 : 2.2; open = null; it.el.focus({ preventScroll: true }); });
+}
+document.getElementById('detail-close').addEventListener('click', hangBack);
+veil.addEventListener('click', hangBack);
+addEventListener('keydown', (e) => { if (e.key === 'Escape') hangBack(); });
+
+// Work index with a cursor-following preview.
+const rowsData = [['playcase', 'PlayCase', 'Physical product', 'playcase/play.webp'], ['olympic-jerseys', 'Team USA Olympic jerseys', 'USA Archery', 'jersey-1-1-1024x683.webp'],
+  ['sea-education', 'Sea Education Association', 'Client website', 'websites/sea-education-desktop.jpg'], ['usa-archery-broadcast', 'USA Archery Live', 'Broadcast systems', 'usaa-livestream-screenshot.webp'],
+  ['steam-deck-hq', 'Steam Deck HQ', 'Brand and web', 'sdhq-cover-image.webp'], ['newton', 'Newton', 'Software in development', 'newton.webp']];
+const rows = document.getElementById('rows'), peek = document.getElementById('peek'), peekImg = peek.querySelector('img');
+rows.innerHTML = rowsData.map(([id, t, c, img]) => `<a class="row" href="${SITE}${id}/" data-img="${IMG}${img}">${t}<span>${c}</span><span>→</span></a>`).join('');
+const px = gsap.quickTo(peek, 'x', { duration: .5, ease: 'power3' }), py = gsap.quickTo(peek, 'y', { duration: .5, ease: 'power3' });
+rows.addEventListener('pointermove', (e) => { px(e.clientX + 36); py(e.clientY - 236); });
+rows.querySelectorAll('.row').forEach((row) => {
+  row.addEventListener('pointerenter', () => { peekImg.src = row.dataset.img; gsap.to(peek, { autoAlpha: 1, scale: 1, rotation: gsap.utils.random(-3, 3), duration: .3 }); });
+  row.addEventListener('pointerleave', () => gsap.to(peek, { autoAlpha: 0, scale: .9, duration: .25 }));
+});
+
+// Intro: words rise, hooks pop, things drop onto the wall and swing, labels print.
+function intro() {
+  const split = SplitText.create('#headline', { type: 'words,lines', mask: 'lines' });
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.from(split.words, { yPercent: 110, duration: .8, stagger: .045, ease: 'power4.out' })
+    .from('[data-in]', { y: 16, autoAlpha: 0, duration: .6, stagger: .07 }, '-=.55')
+    .from(board, { autoAlpha: 0, y: 24, duration: .6 }, .1)
+    .from(hanging.map((it) => it.hook), { scaleY: 0, duration: .35, stagger: .05, ease: 'back.out(3)' }, .45)
+    .from(shelfEls, { scaleX: 0, transformOrigin: 'left center', duration: .5, stagger: .1 }, .5);
+  hanging.forEach((it, i) => tl.from(it.el, { y: -1100, duration: .55, ease: 'power2.in', onComplete: () => { it.live = true; it.omega = (i % 2 ? 1 : -1) * gsap.utils.random(2, 3.2); } }, .6 + i * .12));
+  items.filter((it) => it.kind === 'shelf').forEach((it, i) => tl.from(it.el, { y: -320, autoAlpha: 0, duration: .9, ease: 'bounce.out' }, 1.1 + i * .07));
+  [...items.filter((it) => it.tagEl).map((it) => it.tagEl), ...boardTags.map((b) => b.el)].forEach((t, i) => {
+    const n = t.textContent.length; tl.fromTo(t, { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: n * .035, ease: `steps(${n})` }, 1.5 + i * .09);
+  });
+}
+if (reduce) hanging.forEach((it) => { it.live = true; }); else document.fonts.ready.then(intro);
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@ import './globals.css';
 import './editorial.css';
 import './print.css';
 import './collage.css';
-import { PrintStudio } from '@/components/print-studio';
+import './workshop.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -24,9 +24,9 @@ const displayFont = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: 'Shelby Klein — Design & Creative Technology',
+  title: 'Shelby Klein — Designer & Developer',
   description:
-    'Independent designer and creative technologist in Atlanta, Georgia. Product design, software, brand identities, Olympic apparel, broadcast, and interactive experiences.',
+    'Shelby Klein designs and builds websites, software, live broadcast graphics, and physical products in Atlanta, Georgia.',
   icons: { icon: sitePath('/favicon.svg') },
 };
 
@@ -49,7 +49,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} antialiased`}
       >
-        <PrintStudio>{children}</PrintStudio>
+        {children}
       </body>
     </html>
   );
