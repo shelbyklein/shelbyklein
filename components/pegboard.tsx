@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { sitePath } from '@/lib/site-path';
-import { PEGBOARD_CANVAS, pegBoardTags, pegNote, pegShelves, type PegItem, type PegTag } from '@/lib/pegboard';
+import { PEGBOARD_CANVAS, pegBoardTags, pegNote, pegShelves, pegStands, type PegItem, type PegTag } from '@/lib/pegboard';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -19,6 +19,7 @@ function Fixture({ item }: { item: PegItem }) {
   const src = sitePath(item.src);
   const img = <img src={src} alt={item.alt} width={item.w} height={item.h} draggable={false} />;
   switch (item.fixture) {
+    case 'stand': return <img className="peg-cut peg-standing" src={src} alt={item.alt} width={item.w} height={item.h} draggable={false} />;
     case 'cut': return <img className="peg-cut" src={src} alt={item.alt} width={item.w} height={item.h} draggable={false} />;
     case 'clip': return <><span className="peg-clip" /><div className="peg-print" style={{ width: item.w, height: item.h }}>{img}</div></>;
     case 'print': return <div className="peg-print" style={{ width: item.w, height: item.h }}>{img}</div>;
@@ -188,6 +189,7 @@ export function Pegboard({ header, intro, items, projects }: { header: ReactNode
           <div className="peg-board" aria-label="Pegboard of projects. Select an object to open its project.">
             <div className="peg-stage" style={{ width: PEGBOARD_CANVAS.w, height: PEGBOARD_CANVAS.h }}>
               {pegShelves.map(([x, y, w]) => <span key={`${x}-${y}`} className="peg-shelf" style={{ left: x, top: y, width: w }} />)}
+              {pegStands.map(([x, y, w]) => <span key={`s${x}-${y}`} className="peg-stand" style={{ left: x, top: y, width: w }} aria-hidden="true"><span className="peg-stand-back" /></span>)}
               {items.map((item, i) => item.pivot && <span key={`h${item.key}`} className="peg-hook" data-hook={i} style={{ left: item.x + item.pivot[0] - 2, top: item.y + item.pivot[1] - 30 }} />)}
               <span className="peg-hook" data-hook={-1} style={{ left: pegNote.x + pegNote.pivot[0] - 2, top: pegNote.y + pegNote.pivot[1] - 30 }} />
               {items.map((item, i) => (

@@ -1,7 +1,7 @@
 // Layout for the homepage pegboard. Coordinates are in a 2460×824 design canvas that scales to the viewport height.
 export const PEGBOARD_CANVAS = { w: 2460, h: 824 };
 
-export type PegFixture = 'cut' | 'print' | 'clip' | 'phone' | 'tv' | 'laptop' | 'sticker';
+export type PegFixture = 'cut' | 'print' | 'clip' | 'phone' | 'tv' | 'laptop' | 'sticker' | 'stand';
 export type PegTag = { text: string; color?: 'blue' | 'white'; x: number; y: number };
 export type PegItem = {
   key: string;
@@ -19,7 +19,7 @@ export type PegItem = {
 
 export const pegItems: PegItem[] = [
   // Bay one: what clients and employers should see first.
-  { key: 'playcase-blue', projectId: 'playcase', fixture: 'cut', src: '/images/playcase/handheld-blue.webp', alt: 'PlayCase in blue', x: 48, y: 64, w: 264, h: 264, pivot: [132, 50], k: 20, tag: { text: 'PlayCase', color: 'blue', x: 72, y: 318 } },
+  { key: 'playcase-blue', projectId: 'playcase', fixture: 'stand', src: '/images/playcase/play.webp', alt: 'PlayCase in blue, standing upright with a game on screen', x: 132, y: 22, w: 160, h: 290, tag: { text: 'PlayCase', color: 'blue', x: 112, y: 330 } },
   { key: 'jerseys', projectId: 'olympic-jerseys', fixture: 'clip', src: '/images/olympic-jersey-card.webp', alt: 'Team USA Olympic archery jersey', x: 386, y: 84, w: 210, h: 252, pivot: [105, -26], k: 24, tag: { text: 'Team USA jerseys', x: 386, y: 352 } },
   { key: 'sdhq', projectId: 'steam-deck-hq', fixture: 'phone', src: '/images/websites/steam-deck-hq-mobile.jpg', alt: 'Steam Deck HQ website on a phone', x: 640, y: 64, w: 160, h: 334, pivot: [80, 2], k: 22, tag: { text: 'Steam Deck HQ', x: 640, y: 412 } },
   { key: 'sea', projectId: 'sea-education', fixture: 'laptop', src: '/images/websites/sea-education-desktop.jpg', alt: 'Sea Education Association website on a laptop', x: 84, y: 400, w: 352, h: 234, tag: { text: 'Client websites', color: 'white', x: 84, y: 368 } },
@@ -42,6 +42,9 @@ export const pegItems: PegItem[] = [
   { key: 'playcase-red', projectId: 'playcase', fixture: 'cut', src: '/images/playcase/dual-screen-red.webp', alt: 'PlayCase in red', x: 1790, y: 70, w: 220, h: 220, pivot: [110, 42], k: 21, tag: { text: 'Colorways', x: 1814, y: 284 } },
   { key: 'playcase-grey', projectId: 'playcase', fixture: 'cut', src: '/images/playcase/classic-grey.webp', alt: 'PlayCase in grey', x: 1790, y: 380, w: 220, h: 220, pivot: [110, 42], k: 21 },
 ];
+
+/** Small acrylic stands that things sit in, drawn behind the item: [x, y, width]. */
+export const pegStands: [number, number, number][] = [[112, 298, 200]];
 
 export const pegShelves: [number, number, number][] = [[40, 634, 440], [40, 756, 760], [880, 634, 440]];
 export const pegBoardTags: PegTag[] = [{ text: 'Apps & software', color: 'white', x: 630, y: 712 }];
