@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { PegBand, Hang, PageHead } from '@/components/peg-band';
 
 export const metadata: Metadata = {
   title: 'Client portal — Shelby Klein',
@@ -24,54 +25,39 @@ export default function ClientsPage() {
   return (
     <div id="top">
       <SiteHeader />
-      <main id="main" className="apps-main wrap">
-        <header className="apps-heading">
-          <span className="eyebrow">CLIENTS</span>
-          <h1>Client<br />portal.</h1>
-          <p>
-            Everything for our work together lives in two places: invoices and payments through
-            Stripe, and proposals and deliverables in a private folder shared with you.
-          </p>
-        </header>
+      <main id="main" className="page-main clients-page">
+        <PageHead label="Clients" title={<>Client<br />portal.</>}>
+          <p>Everything for our work together lives in two places: invoices and payments through Stripe, and proposals and deliverables in a private folder shared with you.</p>
+        </PageHead>
 
-        <section className="clients-grid" aria-label="Client resources">
-          <div className="clients-card">
-            <span className="eyebrow">STRIPE · SECURE BILLING</span>
-            <h2>Invoices &amp; payments</h2>
-            <p>Sign in with the email address I bill. Stripe emails you a one-time login link.</p>
-            <ul>
-              <li>View and pay open invoices</li>
-              <li>Download invoices and receipts</li>
-              <li>Update saved payment methods</li>
-            </ul>
-            <a className="clients-button" href={billingPortalURL} target="_blank" rel="noreferrer">
-              Open billing portal <ArrowUpRight size={17} />
-            </a>
-          </div>
-          <div className="clients-card">
-            <span className="eyebrow">GOOGLE DRIVE · SHARED WITH YOU</span>
-            <h2>Proposals &amp; deliverables</h2>
-            <p>
-              Each project has a private folder shared only with your email. You’ll find proposals,
-              proofs, and final files there.
-            </p>
-            <ul>
-              <li>Review proposal PDFs, then approve by email</li>
-              <li>Download proofs and final assets</li>
-            </ul>
-            <a className="clients-link" href={sharedFilesURL} target="_blank" rel="noreferrer">
-              Open files shared with you <ArrowUpRight size={17} />
-            </a>
-            <p className="clients-note">
-              Can’t find your folder? Email <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
-            </p>
-          </div>
-        </section>
+        <PegBand className="clients-board" label="Client resources">
+          <Hang pivot={-26} k={16}>
+            <span className="peg-clip" />
+            <div className="peg-note clients-note-card">
+              <span className="peg-label">STRIPE · SECURE BILLING</span>
+              <h2>Invoices &amp; payments</h2>
+              <p>Sign in with the email address I bill. Stripe emails you a one-time login link.</p>
+              <ul><li>View and pay open invoices</li><li>Download invoices and receipts</li><li>Update saved payment methods</li></ul>
+              <a className="peg-btn" href={billingPortalURL} target="_blank" rel="noreferrer">Open billing portal <ArrowUpRight size={17} /></a>
+            </div>
+          </Hang>
+          <Hang pivot={-26} k={18}>
+            <span className="peg-clip" />
+            <div className="peg-note clients-note-card">
+              <span className="peg-label">GOOGLE DRIVE · SHARED WITH YOU</span>
+              <h2>Proposals &amp; deliverables</h2>
+              <p>Each project has a private folder shared only with your email. You’ll find proposals, proofs, and final files there.</p>
+              <ul><li>Review proposal PDFs, then approve by email</li><li>Download proofs and final assets</li></ul>
+              <a className="peg-btn ghost" href={sharedFilesURL} target="_blank" rel="noreferrer">Open files shared with you <ArrowUpRight size={17} /></a>
+              <p className="clients-small">Can’t find your folder? Email <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.</p>
+            </div>
+          </Hang>
+        </PegBand>
 
-        <ol className="clients-steps" aria-label="How it works">
+        <ol className="steps-row" aria-label="How it works">
           {steps.map((step, index) => (
             <li key={step.title}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
+              <span className="peg-tag">{String(index + 1).padStart(2, '0')}</span>
               <h3>{step.title}</h3>
               <p>{step.body}</p>
             </li>

@@ -4,8 +4,6 @@ import { Geist, Geist_Mono, Bricolage_Grotesque } from 'next/font/google';
 import 'reacticle/styles.css';
 import './globals.css';
 import './editorial.css';
-import './print.css';
-import './collage.css';
 import './workshop.css';
 
 const geistSans = Geist({

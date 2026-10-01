@@ -8,6 +8,7 @@ import { projectLinkLabel } from '@/lib/project-links';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { ProjectArt } from '@/components/project-art';
+import { PegBand, Hang, PageHead } from '@/components/peg-band';
 
 export function generateStaticParams() {
   return projects.map(project => ({ slug: project.id }));
@@ -30,31 +31,31 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return <div id="top">
     <SiteHeader />
-    <main id="main" className={`case-main case-detail wrap case-${project.id}`}>
+    <main id="main" className={`page-main case-page case-detail case-${project.id}`}>
       <a className="back-link" href={sitePath('/#work')}><ArrowLeft size={16} aria-hidden="true" /> All work</a>
 
-      <header className="case-heading">
-        <span className="eyebrow">{project.label}</span>
-        <h1>{project.originalTitle}</h1>
-        <p>{project.summary}</p>
-        {project.url && <a className="case-visit" href={project.url} target="_blank" rel="noreferrer">
-          {projectLinkLabel(project)} <ArrowUpRight size={18} aria-hidden="true" />
-        </a>}
-      </header>
-
-      <dl className="case-facts">
-        <div><dt>Project</dt><dd>{project.client}</dd></div>
-        <div><dt>My role</dt><dd>{study.role}</dd></div>
-        <div><dt>Format</dt><dd>{study.format}{study.period && <span>{study.period}</span>}</dd></div>
-      </dl>
-
-      {project.cover && <figure className="case-hero">
-        <div className={`case-cover ${project.id}-cover`}><ProjectArt project={project} detail /></div>
-        <figcaption>
-          <span>{study.coverCaption}</span>
-          {!['vispix', 'tracker-trapper'].includes(project.id) && <a href={project.cover} target="_blank" rel="noreferrer">View image <ArrowUpRight size={15} aria-hidden="true" /></a>}
-        </figcaption>
-      </figure>}
+      <div className={`page-intro case-intro${project.cover ? '' : ' no-cover'}`}>
+        <PageHead label={project.label} title={project.originalTitle}>
+          <p>{project.summary}</p>
+          <dl className="case-facts">
+            <div><dt className="peg-tag">Project</dt><dd>{project.client}</dd></div>
+            <div><dt className="peg-tag">My role</dt><dd>{study.role}</dd></div>
+            <div><dt className="peg-tag">Format</dt><dd>{study.format}{study.period && <span>{study.period}</span>}</dd></div>
+          </dl>
+          {project.url && <a className="peg-btn case-visit" href={project.url} target="_blank" rel="noreferrer">
+            {projectLinkLabel(project)} <ArrowUpRight size={18} aria-hidden="true" />
+          </a>}
+        </PageHead>
+        {project.cover && <figure className="case-hero">
+          <PegBand className="case-band" label={`${project.originalTitle} cover`}>
+            <Hang pivot={-26} k={12}><span className="peg-clip" /><span className={`peg-print case-print ${project.id}-cover`}><ProjectArt project={project} detail /></span></Hang>
+          </PegBand>
+          <figcaption>
+            <span>{study.coverCaption}</span>
+            {!['vispix', 'tracker-trapper'].includes(project.id) && <a href={project.cover} target="_blank" rel="noreferrer">View image <ArrowUpRight size={15} aria-hidden="true" /></a>}
+          </figcaption>
+        </figure>}
+      </div>
 
       <nav className="case-navigation" aria-label="On this project page">
         <a href="#overview">Overview</a>

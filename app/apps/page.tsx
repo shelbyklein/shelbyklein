@@ -3,6 +3,8 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { getProject, type Project } from '@/lib/portfolio';
 import { sitePath } from '@/lib/site-path';
+import { ArrowUpRight } from 'lucide-react';
+import { PegBand, Hang, PageHead } from '@/components/peg-band';
 
 export const metadata: Metadata = {
   title: 'Apps — Shelby Klein',
@@ -61,26 +63,27 @@ export default function AppsPage() {
   return (
     <div id="top">
       <SiteHeader />
-      <main id="main" className="apps-main wrap">
-        <header className="apps-heading">
-          <span className="eyebrow">APPS</span>
-          <h1>Tools I build<br />for the work.</h1>
-          <p>
-            A directory of independent applications and focused tools: workspaces for ongoing
-            projects, creative utilities, and small interfaces made to solve a specific problem.
-          </p>
-        </header>
+      <main id="main" className="page-main">
+        <div className="page-intro">
+          <PageHead label="Apps" title={<>Tools I build<br />for the work.</>}>
+            <p>Independent applications and focused tools: workspaces for ongoing projects, creative utilities, and small interfaces made to solve one problem well.</p>
+          </PageHead>
+          <PegBand className="apps-band" label="App icons on a pegboard">
+            {apps.map((app, i) => <Hang key={app.id} href={app.href} tag={app.name} tagColor={i % 3 === 1 ? 'blue' : undefined} pivot={2} k={30 + (i % 3) * 4}>
+              <span className="peg-print peg-sticker app-sticker"><img src={sitePath(appIcons[app.id])} alt={app.name} width="96" height="96" /></span>
+            </Hang>)}
+          </PegBand>
+        </div>
 
-        <section className="apps-directory" aria-label="App directory">
+        <section className="shelf" aria-label="App directory">
           {apps.map((app) => (
-              <a className="apps-card" href={app.href} key={app.id} aria-label={`Explore ${app.name}`}>
-                <img className="apps-icon" src={sitePath(appIcons[app.id])} alt="" width="512" height="512" />
-                <span className="apps-card-content">
-                  <span className="eyebrow">{app.label}</span>
-                  <strong>{app.name}</strong>
-                  <span>{app.summary}</span>
-                </span>
-              </a>
+            <a className="shelf-card" href={app.href} key={app.id}>
+              <img className="shelf-icon" src={sitePath(appIcons[app.id])} alt="" width="512" height="512" />
+              <span className="peg-label">{app.label}</span>
+              <strong>{app.name}</strong>
+              <span className="shelf-summary">{app.summary}</span>
+              <span className="shelf-go">Open <ArrowUpRight size={16} aria-hidden="true" /></span>
+            </a>
           ))}
         </section>
       </main>

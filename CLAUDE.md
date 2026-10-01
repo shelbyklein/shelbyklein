@@ -38,7 +38,9 @@ Don't re-run `scripts/build-content.py`. It was the one-time WordPress migration
 - Plain `<img>` is intentional (static export, no image optimizer); `nextjs/no-img-element` is off.
 - `components/ui/` and `hooks/` are stock shadcn scaffolding; only `sheet` is used. The lint rules they trip are disabled for those paths in `.oxlintrc.json` — don't hand-edit them to satisfy lint.
 - `app/[slug]`, `app/project`, `app/projects`, and `app/blog` redirect old WordPress URLs.
-- The homepage hero is a standalone canvas scene at `public/scenes/alien-planet.html`, checked in CI by `scripts/check-hero-scene.mjs`.
+- The homepage is an interactive pegboard wall: `components/pegboard.tsx` (GSAP, ScrollTrigger, SplitText), with object positions in `lib/pegboard.ts` on a 2460×824 design canvas. Every `projectId` there must exist in `content/projects.json`.
+- Secondary pages use `components/peg-band.tsx` (`PageHead`, `PegBand`, `Hang`) for the swinging pegboard band. Site-wide tokens, header, footer, and page styles live in `app/workshop.css`, which loads last. `next/font` sets its variables on `<body>`, so font tokens are defined there, not on `:root`.
+- `public/scenes/alien-planet.html` is no longer on the homepage, but CI still checks it with `scripts/check-hero-scene.mjs`, so leave it in place.
 
 ## Other directories
 
