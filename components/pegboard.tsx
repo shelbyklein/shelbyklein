@@ -8,8 +8,8 @@ import { PEGBOARD_CANVAS, pegBoardTags, pegNote, pegShelves, pegStands, type Peg
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-export type PegProject = { title: string; label: string; summary: string; href: string };
-type Detail = { title: string; label: string; summary: string; href: string };
+export type PegProject = { title: string; label: string; summary: string; href: string; linkLabel?: string };
+type Detail = PegProject;
 type Body = { item: PegItem | null; el: HTMLElement; swing: HTMLElement; hook?: HTMLElement; theta: number; omega: number; live: boolean; held: boolean; moved: boolean; w: number; h: number; x: number; y: number; pivot?: [number, number]; k: number };
 
 const DEG = 57.2958;
@@ -126,7 +126,7 @@ export function Pegboard({ header, intro, items, projects }: { header: ReactNode
       const vw = innerWidth, vh = innerHeight, narrow = vw <= 860;
       const S = narrow ? Math.min((0.8 * vw) / b.w, (0.38 * vh) / b.h) : Math.min((0.42 * vw) / b.w, (0.66 * vh) / b.h, 2.4);
       const cx = narrow ? vw / 2 : vw * 0.3, cy = narrow ? vh * 0.3 : vh / 2;
-      setDetail({ title: p.title, label: p.label, summary: p.summary, href: p.href });
+      setDetail(p);
       document.documentElement.style.overflow = 'hidden';
       const veil = el.querySelector('.peg-veil'), card = el.querySelector('.peg-detail');
       const tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
@@ -217,7 +217,7 @@ export function Pegboard({ header, intro, items, projects }: { header: ReactNode
         <span className="peg-label">{detail?.label}</span>
         <h2 id="peg-detail-title">{detail?.title}</h2>
         <p>{detail?.summary}</p>
-        <div className="peg-actions"><a className="peg-btn" href={detail?.href}>Open the case study</a><button className="peg-btn ghost peg-detail-close" type="button" onClick={() => closeRef.current()}>Hang it back</button></div>
+        <div className="peg-actions"><a className="peg-btn" href={detail?.href}>{detail?.linkLabel ?? 'Open the case study'}</a><button className="peg-btn ghost peg-detail-close" type="button" onClick={() => closeRef.current()}>Hang it back</button></div>
       </dialog>
     </div>
   );

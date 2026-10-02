@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { chatterbox } from '@/lib/chatterbox';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { getProject, type Project } from '@/lib/portfolio';
@@ -16,7 +17,7 @@ const appNames: Record<string, string> = {
   'playcase-editor': 'PlayCase Editor',
 };
 const appIcons: Record<string, string> = {
-  chatterbox: '/images/apps/chatterbox-icon.png',
+  chatterbox: chatterbox.icon,
   newton: '/images/newton-logo.png',
   current: '/images/apps/current-icon.png',
   vispix: '/images/vispix-logo.png',
@@ -62,14 +63,7 @@ export default function AppsPage() {
     href: sitePath('/work/tracker-trapper'),
   });
 
-  apps.unshift({
-    id: 'chatterbox',
-    label: 'macOS · AI chat workspace',
-    name: 'Chatterbox',
-    summary: 'A native Mac app for working with Claude and Codex, with project-based chats, live progress, and the ability to steer agents as they work.',
-    href: 'https://github.com/shelbyklein/chatterbox',
-    linkLabel: 'View on GitHub',
-  });
+  apps.unshift(chatterbox);
 
   return (
     <div id="top">
