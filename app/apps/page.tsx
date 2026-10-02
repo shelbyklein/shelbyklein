@@ -16,6 +16,7 @@ const appNames: Record<string, string> = {
   'playcase-editor': 'PlayCase Editor',
 };
 const appIcons: Record<string, string> = {
+  chatterbox: '/images/apps/chatterbox-icon.png',
   newton: '/images/newton-logo.png',
   current: '/images/apps/current-icon.png',
   vispix: '/images/vispix-logo.png',
@@ -31,6 +32,7 @@ type AppDirectoryEntry = {
   name: string;
   summary: string;
   href: string;
+  linkLabel?: string;
 };
 
 export default function AppsPage() {
@@ -60,6 +62,15 @@ export default function AppsPage() {
     href: sitePath('/work/tracker-trapper'),
   });
 
+  apps.unshift({
+    id: 'chatterbox',
+    label: 'macOS · AI chat workspace',
+    name: 'Chatterbox',
+    summary: 'A native Mac app for working with Claude and Codex, with project-based chats, live progress, and the ability to steer agents as they work.',
+    href: 'https://github.com/shelbyklein/chatterbox',
+    linkLabel: 'View on GitHub',
+  });
+
   return (
     <div id="top">
       <SiteHeader />
@@ -82,7 +93,7 @@ export default function AppsPage() {
               <span className="peg-label">{app.label}</span>
               <strong>{app.name}</strong>
               <span className="shelf-summary">{app.summary}</span>
-              <span className="shelf-go">Open <ArrowUpRight size={16} aria-hidden="true" /></span>
+              <span className="shelf-go">{app.linkLabel ?? 'Open'} <ArrowUpRight size={16} aria-hidden="true" /></span>
             </a>
           ))}
         </section>

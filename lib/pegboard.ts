@@ -30,7 +30,6 @@ export const pegItems: PegItem[] = [
   { key: 'current', projectId: 'current', fixture: 'cut', src: '/images/apps/current-icon.png', alt: 'Current', x: 326, y: 692, w: 64, h: 64 },
   { key: 'flogg', projectId: 'flogg', fixture: 'cut', src: '/images/apps/flogg-icon.png', alt: 'Flogg', x: 402, y: 692, w: 64, h: 64 },
   { key: 'appleseed', projectId: 'newton', fixture: 'cut', src: '/images/apps/appleseed-icon.png', alt: 'Appleseed', x: 478, y: 692, w: 64, h: 64 },
-  { key: 'deltaskin', projectId: 'playcase-editor', fixture: 'cut', src: '/images/apps/playcase-editor-icon.png', alt: 'Deltaskin Editor', x: 554, y: 692, w: 64, h: 64 },
   // Bay two: broadcast, installations, print, and more client sites.
   { key: 'broadcast', projectId: 'usa-archery-broadcast', fixture: 'tv', src: '/images/usaa-livestream-screenshot.webp', alt: 'USA Archery live broadcast graphics', x: 880, y: 72, w: 360, h: 212, pivot: [180, 2], k: 18, tag: { text: 'USA Archery Live', x: 880, y: 300 } },
   { key: 'us-open', projectId: 'us-open', fixture: 'clip', src: '/images/us-open-fan-experience-7.jpg', alt: 'U.S. Open fan experience installation', x: 1296, y: 96, w: 196, h: 174, pivot: [98, -26], k: 26, tag: { text: 'U.S. Open', x: 1296, y: 286 } },
