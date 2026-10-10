@@ -19,7 +19,7 @@ Deliver committed source/content/media, this plan, published pages, and local pr
 - [x] REF-01: Add project records, case studies and authentic assets. Check: content validator covers all 21 projects and every image exists.
 - [x] REF-02: Integrate Apps, Experiments, shared Chatterbox link and tools-log refresh. Check: exported links target correct pages, concept labels visible, existing app entries retained.
 - [x] REF-03: Verify desktop/mobile and required checks. Check: screenshots inspected, assets/overflow/errors asserted; all four checks pass.
-- [ ] REF-04: Commit, push and verify deployment. Check: successful Pages run at committed SHA and live new content observed.
+- [x] REF-04: Commit, push and verify deployment. Check: successful Pages run at committed SHA and live new content observed.
 
 ## Work preparation
 Execution: linear, current session; exact model/effort unavailable. One small shared content change, no delegation. Authorization: implement now and standing authorization to push normal website changes to main. Readiness: R1–R13 pass; tasks and issue checklist aligned after issue creation. No blocking questions. Existing pegboard aesthetics are fixed by prior user direction.
@@ -38,4 +38,7 @@ The tools article renders a custom React essay; update that component as well as
 ## Implementation evidence
 REF-01–03 complete: 21 project/case-study records; 9 articles; content assets validated. Required lint, hero-scene and build pass. Static export: 34 content pages, 6 embedded scenes, 138 local links/assets. Chrome checks: 12 desktop/mobile route states at 1440/390, reduced motion, app-directory navigation, keyboard focus, no broken local images/overflow/application errors. Both local concept pages render WebGL at both widths without page errors. Screenshots in work/content-refresh/. App icon and early demo carry source sidecars. Footer preserves Clients entry; browser check confirms Stripe billing link retained. Source baseline 9b73a00422a55f1c3563e00692dd18391a0ecb81.
 
-Finish review: ship at scoped level; all six Apps/case-study captures valid, no material fixes. Existing templates remain authoritative. Documentation consistency review pending.
+Finish review: ship at scoped level; all six Apps/case-study captures valid, no material fixes. Existing templates remain authoritative. Documentation review confirms palette, type, layout, materials, and components match the incumbent; no system changes or document repair needed.
+
+## Delivery
+Source committed and pushed as e0d205f8fc30863c64da09551c0063cc8e12b0ea. Pages run https://github.com/shelbyklein/shelbyklein/actions/runs/38078599505 deployed the new content. Live Chrome verification passed all 12 desktop/mobile route checks; both local concept URLs returned 200 with WebGL canvas and no page errors. Live screenshots: work/content-refresh/live-apps-1440.png, live-apps-390.png, live-chatterbox-1440.png, live-spoolside-390.png. Issue remains open for user review; no automatic closure.
