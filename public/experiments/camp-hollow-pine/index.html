@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Camp Hollow Pine · Overnight Summer Camp on Loon Lake</title>
+<meta name="description" content="Camp Hollow Pine is an overnight summer camp on Loon Lake for campers ages 8–16. Walk the trail and see camp in 3D." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..800,50..100&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #f6efe0;
+    --paper: rgba(247, 241, 228, 0.93);
+    --ink: #1f2a1d;
+    --ink-soft: #4a5644;
+    --pine: #2f4a2c;
+    --ember: #d9682f;
+    --night: rgba(16, 22, 38, 0.86);
+    --sec: 170vh;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: auto; overflow-x: clip; }
+  body {
+    margin: 0;
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    color: var(--ink);
+    background: #0d1426;
+    -webkit-font-smoothing: antialiased;
+  }
+  canvas#scene { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; z-index: 0; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px clamp(18px, 4vw, 44px);
+    pointer-events: none;
+  }
+  header::before { content: ""; position: absolute; inset: 0 0 -40px; background: linear-gradient(rgba(14, 24, 18, .38), rgba(14, 24, 18, 0)); z-index: -1; }
+  header > * { pointer-events: auto; }
+  .brand { display: flex; align-items: center; gap: 12px; color: var(--cream); text-decoration: none; }
+  .brand svg { width: 34px; height: 34px; }
+  .brand b { font-family: "Fraunces", serif; font-weight: 700; font-size: 20px; letter-spacing: .01em; font-variation-settings: "SOFT" 100; }
+  .brand small { display: block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; opacity: .8; }
+  .head-cta {
+    font: 600 14px/1 "Instrument Sans", sans-serif; color: var(--ink); background: var(--cream);
+    padding: 12px 18px; border-radius: 999px; text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,.18); transition: transform .2s, background .2s;
+  }
+  .head-cta:hover { transform: translateY(-1px); background: #fff; }
+  header, .brand { text-shadow: 0 1px 12px rgba(0,0,0,.25); }
+
+  /* ---------- Sections ---------- */
+  main { position: relative; z-index: 10; }
+  section { height: var(--sec); position: relative; padding: 0 clamp(18px, 5vw, 72px); }
+  section:last-child { height: 100vh; }
+  .card {
+    position: sticky; top: 17vh;
+    width: min(440px, 100%);
+    background: var(--paper);
+    backdrop-filter: blur(10px) saturate(1.2);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
+    border-radius: 22px;
+    padding: 30px 32px 28px;
+    box-shadow: 0 24px 60px rgba(15, 25, 15, .22), 0 1px 0 rgba(255,255,255,.6) inset;
+    will-change: opacity, transform;
+  }
+  .card.right { margin-left: auto; }
+  .card.night { background: var(--night); color: #ece6d6; box-shadow: 0 24px 60px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.08) inset; }
+  .eyebrow { display: flex; gap: 10px; align-items: center; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ember); margin-bottom: 12px; }
+  .eyebrow::before { content: ""; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
+  .card h2 {
+    font-family: "Fraunces", serif; font-weight: 650; font-size: clamp(32px, 3.4vw, 44px); line-height: 1.02;
+    margin: 0 0 14px; letter-spacing: -.01em; font-variation-settings: "SOFT" 100, "opsz" 96;
+  }
+  .card p { font-size: 16px; line-height: 1.6; margin: 0 0 12px; color: var(--ink-soft); }
+  .card.night p { color: #c9c3b3; }
+  .card ul { margin: 6px 0 4px; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .card li { font-size: 15px; line-height: 1.45; padding-left: 22px; position: relative; color: var(--ink-soft); }
+  .card.night li { color: #c9c3b3; }
+  .card li::before { content: ""; position: absolute; left: 2px; top: .52em; width: 8px; height: 8px; border-radius: 50%; background: var(--pine); }
+  .card.night li::before { background: var(--ember); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(47,74,44,.15); }
+  .card.night .stats { border-top-color: rgba(255,255,255,.12); }
+  .stats b { display: block; font-family: "Fraunces", serif; font-size: 28px; font-weight: 700; color: var(--pine); line-height: 1; font-variation-settings: "SOFT" 100; }
+  .card.night .stats b { color: #f2b27a; }
+  .stats span { font-size: 12px; line-height: 1.3; color: var(--ink-soft); display: block; margin-top: 6px; }
+  .card.night .stats span { color: #bcb6a6; }
+
+  /* Hero */
+  .hero { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 15vh; text-align: center; color: var(--cream); will-change: opacity, transform; }
+  .hero::before { content: ""; position: absolute; left: 50%; top: 8vh; width: min(1100px, 100vw); height: 62vh; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(18, 34, 26, .5), rgba(18, 34, 26, 0)); z-index: -1; pointer-events: none; }
+  .hero .kicker { font-size: 13px; letter-spacing: .28em; text-transform: uppercase; font-weight: 600; opacity: .95; margin-bottom: 18px; }
+  .hero h1 {
+    font-family: "Fraunces", serif; font-weight: 800; margin: 0;
+    font-size: clamp(54px, 10vw, 148px); line-height: .9; letter-spacing: -.025em;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    text-shadow: 0 4px 40px rgba(20, 40, 30, .35);
+  }
+  .hero h1 em { font-style: italic; font-weight: 500; }
+  .hero .sub { max-width: 520px; font-size: 18px; line-height: 1.55; margin: 22px auto 0; text-shadow: 0 1px 16px rgba(0,0,0,.35); }
+  .scroll-hint { position: absolute; bottom: 96px; left: 50%; transform: translateX(-50%); text-shadow: 0 1px 10px rgba(0,0,0,.45); display: inline-flex; flex-direction: column; align-items: center; gap: 10px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; opacity: .9; }
+  .scroll-hint i { width: 22px; height: 36px; border: 2px solid currentColor; border-radius: 12px; position: relative; }
+  .scroll-hint i::after { content: ""; position: absolute; left: 50%; top: 7px; width: 4px; height: 7px; margin-left: -2px; border-radius: 2px; background: currentColor; animation: wheel 1.8s infinite; }
+  @keyframes wheel { 0% { transform: translateY(0); opacity: 1 } 70% { transform: translateY(10px); opacity: 0 } 100% { opacity: 0 } }
+
+  /* Enroll */
+  .enroll { width: min(620px, 100%); margin: 0 auto; top: 14vh; }
+  .sessions { display: grid; gap: 10px; margin: 18px 0 22px; }
+  .session { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 14px 16px; border-radius: 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); }
+  .session strong { font-family: "Fraunces", serif; font-size: 19px; font-weight: 600; color: #f6efe0; }
+  .session .price { font-weight: 600; color: #f2b27a; text-align: right; }
+  .session small { color: #bcb6a6; font-size: 13px; }
+  .session .tag { font-size: 12px; color: #bcb6a6; text-align: right; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { font: 600 15px/1 "Instrument Sans", sans-serif; padding: 15px 22px; border-radius: 999px; text-decoration: none; transition: transform .2s, background .2s; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.primary { background: var(--ember); color: #fff8ee; box-shadow: 0 8px 22px rgba(0,0,0,.3); }
+  .btn.primary:hover { background: #e7773c; }
+  .btn.ghost { color: #f6efe0; border: 1.5px solid rgba(246,239,224,.4); }
+  .btn.ghost:hover { border-color: #f6efe0; }
+  .fine { font-size: 12.5px !important; color: #b7b1a2 !important; margin: 18px 0 0 !important; }
+
+  /* ---------- Trail progress ---------- */
+  .trail {
+    position: fixed; z-index: 20; left: 50%; bottom: 22px; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 0; padding: 10px 16px; border-radius: 999px;
+    background: rgba(20, 28, 22, .38); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  }
+  .trail button {
+    all: unset; cursor: pointer; position: relative; width: 12px; height: 12px; border-radius: 50%;
+    background: rgba(246,239,224,.35); transition: background .3s, transform .3s; margin: 0 14px;
+  }
+  .trail button + button::before { content: ""; position: absolute; right: 100%; top: 50%; width: 28px; height: 0; border-top: 2px dashed rgba(246,239,224,.35); margin-right: 0; }
+  .trail button.done { background: rgba(246,239,224,.75); }
+  .trail button.active { background: var(--ember); transform: scale(1.35); }
+  .trail button span {
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(4px); white-space: nowrap;
+    font-size: 12px; font-weight: 600; letter-spacing: .06em; color: var(--cream); opacity: 0; transition: .25s; pointer-events: none;
+    text-shadow: 0 1px 8px rgba(0,0,0,.5);
+  }
+  .trail button:hover span, .trail button.active span { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .trail button:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+  /* Loader */
+  #loader { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: #1d2d22; color: var(--cream); transition: opacity .9s ease; font-family: "Fraunces", serif; font-size: 22px; font-style: italic; }
+  #loader.gone { opacity: 0; pointer-events: none; }
+  #loader small { display: block; text-align: center; font-family: "Instrument Sans"; font-style: normal; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; opacity: .6; margin-top: 10px; }
+
+  @media (max-width: 760px) {
+    :root { --sec: 150vh; }
+    .card, .card.right { position: sticky; top: auto; bottom: 86px; margin: 0 auto; padding: 22px 22px 20px; }
+    section { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 90px; }
+    section.hero-sec { display: block; padding-bottom: 0; }
+    .card h2 { font-size: 30px; }
+    .card p { font-size: 15px; }
+    .stats b { font-size: 22px; }
+    .trail button { margin: 0 9px; }
+    .trail button + button::before { width: 18px; }
+    .brand small { display: none; }
+    .brand b { font-size: 16px; }
+    .brand svg { width: 28px; height: 28px; }
+    .head-cta { padding: 10px 14px; font-size: 13px; }
+    .head-cta .yr { display: none; }
+    .trail button span { display: none; }
+    .hero .kicker { letter-spacing: .14em; font-size: 11px; }
+    .scroll-hint { bottom: 92px; }
+    .enroll { top: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) { .scroll-hint i::after { animation: none; } }
+</style>
+</head>
+<body>
+<div id="loader"><div>Lighting the lanterns…<small>Camp Hollow Pine</small></div></div>
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<header>
+  <a class="brand" href="#top" aria-label="Camp Hollow Pine home">
+    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#f6efe0"/><path d="M20 7l-8 11h4l-6 8h7v6h6v-6h7l-6-8h4z" fill="#2f4a2c"/></svg>
+    <span><b>Camp Hollow Pine</b><small>Loon Lake · Since 1952</small></span>
+  </a>
+  <a class="head-cta" href="#enroll" data-goto="6">Enroll<span class="yr"> for 2027</span></a>
+</header>
+
+<main id="top">
+  <section class="hero-sec" data-station="0">
+    <div class="hero">
+      <div class="kicker">Overnight summer camp · Ages 8–16</div>
+      <h1>Camp<br><em>Hollow Pine</em></h1>
+      <p class="sub">Seventy-five summers of cabin nights, cold lake mornings and songs around the fire. Take the trail and see where your camper will spend their summer.</p>
+      <div class="scroll-hint"><i></i>Scroll to walk the trail</div>
+    </div>
+  </section>
+
+  <section data-station="1">
+    <article class="card right">
+      <div class="eyebrow">Stop 01 · Cabin Row</div>
+      <h2>Home base for the summer</h2>
+      <p>Each camper lives in one of our twelve log cabins: eight bunks, two counselors, screened windows and a front porch made for rainy afternoons and card games.</p>
+      <ul>
+        <li>Cabins are grouped by age, so first-timers are among friends</li>
+        <li>Nightly "cabin chat" before lights-out with your counselors</li>
+        <li>Letters home every Sunday, and we post photos daily</li>
+      </ul>
+      <div class="stats">
+        <div><b>12</b><span>log cabins on the row</span></div>
+        <div><b>4:1</b><span>camper to counselor ratio</span></div>
+        <div><b>9:30</b><span>lights out, every night</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section data-station="2">
+    <article class="card">
+      <div class="eyebrow">Stop 02 · The Lodge</div>
+      <h2>Big tables, loud songs, seconds on pancakes</h2>
+      <p>Meals are family-style, cabin by cabin. Our kitchen cooks from scratch and handles allergies and dietary needs with a separate prep line.</p>
+      <ul>
+        <li>Upstairs: the arts loft for pottery, lanyards and woodburning</li>
+        <li>Mail call after lunch (yes, care packages are allowed)</li>
+        <li>Rainy days become talent shows and board-game tournaments</li>
+      </ul>
+      <div class="stats">
+        <div><b>3+1</b><span>meals plus a cookie break</span></div>
+        <div><b>100%</b><span>nut-free kitchen</span></div>
+        <div><b>40+</b><span>camp songs, all shouted</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section data-station="3">
+    <article class="card right">
+      <div class="eyebrow">Stop 03 · The Tower</div>
+      <h2>Climb it at your own pace</h2>
+      <p>Our 40-foot climbing tower and the zipline down to the lake are the big moments of the summer. We run "challenge by choice": every step up counts, and so does the decision to stop.</p>
+      <ul>
+        <li>Climbing, rappelling and the lakeside zipline</li>
+        <li>Archery range with certified instructors</li>
+        <li>Low ropes course for team challenges</li>
+      </ul>
+      <div class="stats">
+        <div><b>40 ft</b><span>tower with three routes</span></div>
+        <div><b>600 ft</b><span>zipline to the shore</span></div>
+        <div><b>ACCT</b><span>certified staff and gear</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section data-station="4">
+    <article class="card">
+      <div class="eyebrow">Stop 04 · The Waterfront</div>
+      <h2>Loon Lake, from first swim to sunset paddle</h2>
+      <p>Every camper takes a swim check on day one, then picks from swimming, canoeing, kayaking, sailing and paddleboarding. Evenings end with the sun going down behind the far ridge.</p>
+      <ul>
+        <li>Buddy system and tag board at every swim period</li>
+        <li>Overnight canoe trips for campers 13 and up</li>
+        <li>The Polar Bear Club: a 7am swim, every morning, if you dare</li>
+      </ul>
+      <div class="stats">
+        <div><b>120</b><span>acres of clear, spring-fed lake</span></div>
+        <div><b>8</b><span>Red Cross lifeguards on duty</span></div>
+        <div><b>26</b><span>canoes, kayaks and sailboats</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section data-station="5">
+    <article class="card right night">
+      <div class="eyebrow">Stop 05 · Campfire Circle</div>
+      <h2>Every night ends here</h2>
+      <p>Skits, stories and the same songs campers have sung here since 1952. Then flashlights off for five minutes of stars, a walk back to the cabins, and lights out.</p>
+      <ul>
+        <li>S'mores on Fridays, plus the end-of-session candle boat ceremony</li>
+        <li>Stargazing nights with our astronomy counselor</li>
+        <li>Nurse on site around the clock in the health lodge</li>
+      </ul>
+      <div class="stats">
+        <div><b>75</b><span>summers of campfires</span></div>
+        <div><b>24/7</b><span>on-site nurse and director</span></div>
+        <div><b>0</b><span>phones (we keep them safe)</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="enroll" data-station="6">
+    <article class="card night enroll">
+      <div class="eyebrow">Summer 2027 · Enrollment open</div>
+      <h2>Save a bunk for your camper</h2>
+      <p>Sessions fill by spring. Returning families get a two-week head start, and financial aid is available for every session.</p>
+      <div class="sessions">
+        <div class="session"><strong>Session I · First Light</strong><span class="price">$2,450</span><small>June 20 – July 3 · 2 weeks · great first summer</small><span class="tag">Ages 8–12</span></div>
+        <div class="session"><strong>Session II · Full Summer</strong><span class="price">$4,600</span><small>July 6 – July 31 · 4 weeks · includes canoe trip</small><span class="tag">Ages 10–16</span></div>
+        <div class="session"><strong>Session III · Last Swim</strong><span class="price">$2,450</span><small>August 2 – August 15 · 2 weeks</small><span class="tag">Ages 8–16</span></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="#enroll">Reserve a bunk</a>
+        <a class="btn ghost" href="#enroll">Book a family tour</a>
+      </div>
+      <p class="fine">Camp Hollow Pine is a fictional camp. This is a concept site built with Three.js.</p>
+    </article>
+  </section>
+</main>
+
+<nav class="trail" aria-label="Camp trail">
+  <button data-goto="0" aria-label="Welcome"><span>Welcome</span></button>
+  <button data-goto="1" aria-label="Cabin Row"><span>Cabin Row</span></button>
+  <button data-goto="2" aria-label="The Lodge"><span>The Lodge</span></button>
+  <button data-goto="3" aria-label="The Tower"><span>The Tower</span></button>
+  <button data-goto="4" aria-label="Waterfront"><span>Waterfront</span></button>
+  <button data-goto="5" aria-label="Campfire"><span>Campfire</span></button>
+  <button data-goto="6" aria-label="Enroll"><span>Enroll</span></button>
+</nav>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="./camp.js"></script>
+</body>
+</html>

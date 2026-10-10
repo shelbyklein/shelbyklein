@@ -12,12 +12,13 @@ export const metadata: Metadata = {
   description: 'A directory of independent apps and focused tools built by Shelby Klein.',
 };
 
-const appIds = ['newton', 'current', 'vispix', 'flogg', 'playcase-editor'];
+const appIds = ['newton', 'spoolside', 'current', 'vispix', 'flogg', 'playcase-editor'];
 const appNames: Record<string, string> = {
   'playcase-editor': 'PlayCase Editor',
 };
 const appIcons: Record<string, string> = {
   chatterbox: chatterbox.icon,
+  spoolside: '/images/apps/spoolside-icon.webp',
   newton: '/images/newton-logo.png',
   current: '/images/apps/current-icon.png',
   vispix: '/images/vispix-logo.png',
@@ -63,7 +64,7 @@ export default function AppsPage() {
     href: sitePath('/work/tracker-trapper'),
   });
 
-  apps.unshift(chatterbox);
+  apps.unshift({ ...chatterbox, href: sitePath(chatterbox.href) });
 
   return (
     <div id="top">
@@ -90,6 +91,27 @@ export default function AppsPage() {
               <span className="shelf-go">{app.linkLabel ?? 'Open'} <ArrowUpRight size={16} aria-hidden="true" /></span>
             </a>
           ))}
+        </section>
+        <section id="experiments" className="experiments-section" aria-labelledby="experiments-title">
+          <div className="case-section-heading"><h2 id="experiments-title">Experiments</h2></div>
+          <p className="case-section-intro">Small, playable studies in how a website can feel. These are concepts, with room to try things before they become production work.</p>
+          <div className="experiments-grid">
+            <article className="experiment-note">
+              <span className="peg-clip" aria-hidden="true" />
+              <h3>An office you can walk through.</h3>
+              <p>A Three.js spatial-navigation concept for Workplace Solutions. Scroll between rooms, or inspect the furniture. The architecture and most furnishings are illustrative, not completed client interiors.</p>
+              <p className="experiment-status">Interactive concept · WebGL</p>
+              <a className="peg-btn" href={sitePath('/experiments/office-walkthrough/index.html')} target="_blank" rel="noreferrer">Open the walkthrough <ArrowUpRight size={17} aria-hidden="true" /></a>
+              <a className="text-link" href={sitePath('/work/workplace-solutions')}>See the WPS project <ArrowUpRight size={16} aria-hidden="true" /></a>
+            </article>
+            <article className="experiment-note">
+              <span className="peg-clip" aria-hidden="true" />
+              <h3>A little trip to Camp Hollow Pine.</h3>
+              <p>A fictional camp website exploring a scroll-driven 3D scene and an outdoor visual identity. An independent design study, rather than a launched client website.</p>
+              <p className="experiment-status">Fictional website · Interactive concept</p>
+              <a className="peg-btn" href={sitePath('/experiments/camp-hollow-pine/index.html')} target="_blank" rel="noreferrer">Explore the camp <ArrowUpRight size={17} aria-hidden="true" /></a>
+            </article>
+          </div>
         </section>
       </main>
       <SiteFooter />

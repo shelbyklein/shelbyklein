@@ -698,5 +698,78 @@
       "flogg"
     ],
     "article": false
+  },
+  "chatterbox": {
+    "headline": "A conversation that stays close to the work.",
+    "intro": "I built Chatterbox around the way I work across coding and creative projects. A project needs more than a prompt: it has a folder, a history, decisions, and work that continues after one reply. The Mac app gives that ongoing conversation a practical home while Claude and Codex do the work.",
+    "role": "Product design & native development",
+    "format": "Native macOS application",
+    "coverCaption": "The Chatterbox app icon",
+    "scope": [
+      {
+        "title": "A workspace for projects",
+        "body": "Project-bound chats keep the conversation beside its working folder. Repository context, issues, and live plans help make the next step visible."
+      },
+      {
+        "title": "Working alongside an agent",
+        "body": "Progress notes, tool steps, and final replies have different jobs in the interface. The message box stays available so I can steer work while it is running."
+      },
+      {
+        "title": "Native integration",
+        "body": "The Swift app connects to the installed Claude Code and Codex tools, using their existing sign-in and configuration rather than requiring a separate API-key workflow."
+      }
+    ],
+    "sections": [
+      {
+        "title": "The interface is part of the workflow",
+        "body": "Seeing an agent work is different from reading its final answer. Chatterbox keeps progress available during a turn, then folds completed steps away so the conversation remains readable. Model presets, permission controls, and project navigation sit close to the task."
+      },
+      {
+        "title": "Continuity across tools",
+        "body": "A conversation can move between Claude and Codex with a transcript handoff. Their underlying histories remain separate; the app supplies the missed conversation as context. The goal is to make changing tools compatible with continuing the same project."
+      }
+    ],
+    "related": [
+      "spoolside",
+      "tracker-trapper"
+    ],
+    "article": true
+  },
+  "spoolside": {
+    "headline": "The software behind a small production workshop.",
+    "intro": "PlayCase brings together product design, 3D printing, and customer fulfillment. I built Spoolside to connect those daily responsibilities: what has been ordered, what needs making, which files belong to a project, and what is ready for assembly or shipping.",
+    "role": "Workflow design & full-stack development",
+    "format": "Installable web application",
+    "coverCaption": "Spoolside’s current app icon",
+    "scope": [
+      {
+        "title": "Orders into production work",
+        "body": "Read-only WooCommerce imports connect ordered items and quantities to production notes and fulfillment checks. Assembly and packing gates make the remaining work explicit."
+      },
+      {
+        "title": "Files and printers together",
+        "body": "The library keeps printable files with their project, while printer panels show live status and support deliberate print actions. Sliced files retain plate and material information."
+      },
+      {
+        "title": "A phone-friendly workshop tool",
+        "body": "Compact mobile order views, printer access, and installable web-app behavior support using the dashboard away from a desk. The hosted workspace stores production records in server-side SQLite."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Separate planning from machine action",
+        "body": "A queue record is not a printer command. Starting a stored print requires choosing a printer, mapping filament slots, and confirming that the build plate is clear. The distinction matters when a planning interface also controls physical equipment."
+      },
+      {
+        "title": "From a demo to a working system",
+        "body": "The first interface explored the workflow using sample jobs and simulated printers. The hosted version adds order imports, real printer telemetry, saved production records, and print-library controls. The image below documents that early demo; it is not evidence of live orders or production performance."
+      }
+    ],
+    "galleryTitle": "An early interface exploration",
+    "galleryIntro": "A labeled demo captures the initial relationship between printers, queue, and materials. The current production workflow has continued to evolve.",
+    "related": [
+      "playcase",
+      "chatterbox"
+    ]
   }
 }

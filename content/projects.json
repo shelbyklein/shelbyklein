@@ -676,5 +676,59 @@
     "videos": [],
     "source": "https://trackertrapper.com/ — public site and Mac preview, verified September 2026",
     "legacySlug": null
+  },
+  {
+    "id": "chatterbox",
+    "title": "Chatterbox",
+    "originalTitle": "Chatterbox",
+    "summary": "A native Mac workspace for ongoing projects with Claude and Codex.",
+    "label": "Independent software · macOS",
+    "tags": [
+      "Product design",
+      "Swift",
+      "Agent tooling"
+    ],
+    "cover": "/images/apps/chatterbox-icon.png",
+    "client": "Independent project",
+    "url": "https://github.com/shelbyklein/chatterbox",
+    "paragraphs": [
+      "Chatterbox brings Claude and Codex into a native Mac workspace, with project-based chats, visible progress, and an input that stays available while agents work.",
+      "The interface supports steering ongoing work and handing a conversation between agents, alongside project folders, GitHub context, model choices, and permission controls."
+    ],
+    "images": [],
+    "videos": [],
+    "source": "Chatterbox README and current Swift source, reviewed October 2026",
+    "legacySlug": null
+  },
+  {
+    "id": "spoolside",
+    "title": "Spoolside",
+    "originalTitle": "Spoolside",
+    "summary": "A workshop dashboard connecting PlayCase orders, print files, printers, and fulfillment.",
+    "label": "Independent software · Workshop tool",
+    "tags": [
+      "Product design",
+      "Web development",
+      "3D printing"
+    ],
+    "cover": "/images/apps/spoolside-icon.webp",
+    "client": "PlayCase · Independent project",
+    "url": null,
+    "paragraphs": [
+      "Spoolside brings the day-to-day production work behind PlayCase into one installable web dashboard. It connects read-only WooCommerce orders with printer telemetry, stored print files, production notes, and fulfillment checks.",
+      "The hosted workspace stores its records on the server. Its local preview uses labeled demo data, keeping experiments separate from the production workshop."
+    ],
+    "images": [
+      {
+        "src": "/images/spoolside/early-demo.webp",
+        "alt": "Early Spoolside demo showing sample printer statuses, a queue, and filament inventory",
+        "caption": "Early interface exploration with simulated printers and sample jobs; not a live production screenshot.",
+        "width": 1440,
+        "height": 1153
+      }
+    ],
+    "videos": [],
+    "source": "Spoolside README, current project source and labeled early demo, reviewed October 2026",
+    "legacySlug": null
   }
 ]

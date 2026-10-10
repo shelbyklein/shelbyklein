@@ -13,7 +13,7 @@ const indexOrder = ['playcase', 'olympic-jerseys', 'sea-education', 'usa-archery
 
 export default function Home() {
   const pegProjects: Record<string, PegProject> = Object.fromEntries([...new Set(pegItems.map((item) => item.projectId))].map((id) => {
-    if (id === chatterbox.id) return [id, { title: chatterbox.name, label: chatterbox.label, summary: chatterbox.summary, href: chatterbox.href, linkLabel: chatterbox.linkLabel }];
+    if (id === chatterbox.id) return [id, { title: chatterbox.name, label: chatterbox.label, summary: chatterbox.summary, href: sitePath(chatterbox.href), linkLabel: chatterbox.linkLabel }];
     const p = getProject(id)!;
     return [id, { title: p.title, label: p.label, summary: p.summary, href: sitePath(`/work/${id}`) }];
   }));

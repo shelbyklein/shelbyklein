@@ -105,6 +105,16 @@ export const articleRevisions: Record<string, { excerpt?: string; html: string }
 <a class="article-tool-card" href="https://github.com/UditAkhourii/cdaf" target="_blank" rel="noreferrer"><span class="article-tool-logo"><img src="https://cdn.simpleicons.org/github" alt=""/></span><span><strong>CDAF</strong><small>A sidecar format that helps AI agents reuse video understanding instead of re-analyzing footage.</small></span><b>↗</b></a>
 </div>
 
+<h2>Tools I build</h2>
+
+<p>Alongside those tools, I build interfaces around the work I return to.</p>
+<ul>
+<li><strong><a href="/work/chatterbox">Chatterbox</a></strong> — A native Mac workspace for project conversations with Claude and Codex, including progress and steering while an agent works.</li>
+<li><strong><a href="/work/spoolside">Spoolside</a></strong> — The workshop dashboard behind PlayCase, connecting orders, printer status, files, and production checks.</li>
+<li><strong>Peppy</strong> — My native InDesign plug-in for letting agents work in open documents, with named undo steps and explicit saves.</li>
+</ul>
+<p>Updated October 2026. The original publication date is retained.</p>
+
 <h2>How I use this list</h2>
 
 <p>These tools fit different modes of work. Some help make a fast, one-shot artifact; others support a long-running software project; others help with the diverse tasks that make up a creative practice. I’ll add to this list when a tool or project earns a durable place in that work.</p>`,

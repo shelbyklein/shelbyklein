@@ -267,3 +267,15 @@ body::before { display:none; }
 .peg-stand::after { content:""; position:absolute; top:14px; left:50%; width:8px; height:30px; margin-left:-4px; background:#bfc2c5; border-radius:0 0 3px 3px; }
 .peg-stand-back { position:absolute; left:50%; bottom:12px; width:96px; height:150px; margin-left:-48px; border-radius:6px 6px 0 0; background:linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.22)); border:2px solid rgba(255,255,255,.35); border-bottom:0; transform:perspective(300px) rotateX(-8deg); }
 .peg-standing { filter:drop-shadow(8px 14px 12px rgba(60,10,0,.45)); position:relative; z-index:1; }
+
+/* New work inherits the pegboard and paper surfaces. */
+.case-chatterbox .case-print>img,.case-spoolside .case-print>img{object-fit:contain;max-height:320px;padding:32px}
+.experiments-section{padding:60px 0 80px;scroll-margin-top:110px}
+.experiments-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px;margin-top:38px}
+.experiment-note{position:relative;background:var(--paper-light);padding:42px 32px 32px;box-shadow:2px 8px 18px rgba(40,30,15,.1)}
+.experiment-note>.peg-clip{position:absolute;top:-14px;left:calc(50% - 18px)}
+.experiment-note h3{font-family:var(--display);font-size:30px;line-height:1.15;margin:0 0 18px}
+.experiment-note p{font-size:17px;line-height:1.7;max-width:65ch}
+.experiment-note .experiment-status{font-size:14px;color:var(--muted);margin:24px 0 18px}
+.experiment-note .text-link{display:flex;margin-top:22px;gap:8px;align-items:center}
+@media(max-width:700px){.experiments-grid{grid-template-columns:1fr;gap:38px}.experiment-note{padding:36px 24px 26px}.experiment-note h3{font-size:27px}.experiments-section{padding:45px 0 60px}}
