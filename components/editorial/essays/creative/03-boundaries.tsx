@@ -9,32 +9,13 @@ export function CreativeBoundaries() {
       title="Beyond the software window"
     >
       <p>
-        That thinking runs through earlier work.{' '}
-        <a href={sitePath('/work/usa-archery-broadcast')}>
-          USA Archery broadcasts
-        </a>{' '}
-        connect graphics, scoring, audio, video, and custom software under the
-        pressure of a live event.{' '}
+        That thinking extends beyond software.{' '}
         <a href={sitePath('/work/playcase')}>PlayCase</a> gives an iPhone
         physical controls and swappable layouts for classic games, spanning
         industrial design, prototyping, and production.
       </p>
-      <Raw title="Interfaces on air and in hand">
-        <div className="essay-image-pair">
-          <figure className="essay-figure">
-            <a href={sitePath('/work/usa-archery-broadcast')}>
-              <img
-                src={sitePath('/images/usaa-livestream-screenshot.webp')}
-                width="800"
-                height="450"
-                loading="lazy"
-                alt="Title graphic for the 2025 USA Archery Indoor Nationals Final broadcast."
-              />
-            </a>
-            <figcaption>
-              USA Archery: visual design within a live production system.
-            </figcaption>
-          </figure>
+      <Raw title="Physical interfaces">
+        <div className="essay-image-pair" style={{ gridTemplateColumns: '1fr' }}>
           <figure className="essay-figure">
             <a href={sitePath('/work/playcase')}>
               <img

@@ -202,7 +202,7 @@ export function Pegboard({ header, intro, items, projects }: { header: ReactNode
                   <span className="peg-label">END OF THE WALL</span>
                   <h2>Got something to build?</h2>
                   <p>Have a project, or a role to fill? I’d love to hear about it.</p>
-                  <div className="peg-actions"><a className="peg-btn" href="mailto:shelbykleindesign@gmail.com">Let’s talk</a><a className="peg-btn ghost" href={sitePath('/Shelby-Klein-Resume.pdf')} target="_blank" rel="noreferrer">Resumé</a></div>
+                  <div className="peg-actions"><a className="peg-btn" href="mailto:shelbykleindesign@gmail.com">Let’s talk</a></div>
                 </div></div>
               </div>
               {items.map((item) => item.tag && <Tag key={`t${item.key}`} tag={item.tag} />)}

@@ -21,17 +21,14 @@ meta={
 547:('playcase','PlayCase','A gaming case that brings physical controls to the iPhone.','Independent product',['Product design','3D printing','Brand & marketing'],playcase_visuals['cover']['src'].removeprefix('/images/'),'https://playcase.gg','PlayCase'),
 660:('sea-education','Sea Education Association','Website design and development for ocean education.','Client project',['Web design','Web development'],'sea-card.webp','https://sea.edu','Sea Education Association'),
 550:('field-studies','The School for Field Studies','Website design and content systems for environmental field studies.','Client project',['Web design','Content architecture'],'sfs-card.webp','https://fieldstudies.org','School for Field Studies'),
-1049:('usa-archery-broadcast','USA Archery Live','Live broadcasts, motion graphics, and scoring systems for national archery events.','National events',['Live production','Motion & software'],'usaa-livestream-screenshot.webp',None,'USA Archery'),
 19:('steam-deck-hq','Steam Deck HQ','Brand identity and web development for a handheld gaming publication.','Independent platform',['Brand identity','Web development'],'sdhq-cover-image.webp','https://steamdeckhq.com','Steam Deck HQ'),
-549:('national-event-identities','National event identities','A series of identities for USA Archery’s national events.','USA Archery',['Brand identity','Event design'],'logos-usaa-scaled.webp',None,'USA Archery'),
-533:('olympic-jerseys','Team USA Olympic Jerseys','Team USA archery jerseys for the Tokyo and Paris Olympic Games.','2020 & 2024 Olympic Games',['Apparel design','Creative direction'],'olympic-jersey-card.webp',None,'USA Archery'),
 21:('workplace-solutions','Workplace Solutions','Website redesign, presentations, and video for a commercial interiors company.','Client project',['Web design','Video & presentations'],'q2-stadium-suite.webp','https://wpsolutions.com','Workplace Solutions'),
-114:('archery-is-for-everyone','Archery is for Everyone','An inclusive archery campaign with USA Archery and Marvel Entertainment.','USA Archery × Marvel',['Campaign direction','Film & design'],'Archery-is-for-Everyone.webp',None,'USA Archery, in collaboration with Marvel Entertainment'),
 539:('us-open','U.S. Open Fan Experience','A motion-tracking installation for the 2016 U.S. Open.','2016 U.S. Open',['Interactive experience','Game development'],'us-open-fan-experience-7.jpg',None,'USTA'),
 22:('sfs-brochure','SFS Recruitment Brochure','Recruitment brochures for the School for Field Studies.','Client project',['Editorial design','Print production'],'SFS-Brochure-card.webp',None,'School for Field Studies'),
 }
 projects=[]
 for raw in json.loads((R/'research/wp-project.json').read_text()):
+ if raw['id'] not in meta: continue
  slug,title,summary,label,tags,cover,url,client=meta[raw['id']]
  paragraphs=[plain(p) for p in re.findall(r'<p\b[^>]*>(.*?)</p>',raw['content']['rendered'],re.S) if plain(p)]
  if raw['id']==660: paragraphs=['Website design and development for Sea Education Association, an organization connecting students with ocean education and exploration. The original portfolio documents the work through desktop and mobile website imagery.']

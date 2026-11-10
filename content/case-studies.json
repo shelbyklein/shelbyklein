@@ -102,8 +102,7 @@
       }
     ],
     "related": [
-      "current",
-      "archery-is-for-everyone"
+      "current"
     ],
     "article": true
   },
@@ -179,82 +178,6 @@
       "current"
     ],
     "article": true
-  },
-  "usa-archery-broadcast": {
-    "headline": "Bringing a national event to the screen.",
-    "intro": "For USA Archery’s national events, I work across the full live production process: the streaming A/V setup, motion graphics, scoring integration, custom software, and on-site execution. The work brings creative production and technical systems together with a small crew and limited resources.",
-    "role": "Live stream producer",
-    "format": "Live broadcast & custom software",
-    "coverCaption": "A frame from USA Archery’s live event coverage",
-    "scope": [
-      {
-        "title": "Production systems",
-        "body": "Building and supporting the streaming audio and video stack used for national event coverage."
-      },
-      {
-        "title": "Graphics and live data",
-        "body": "Creating motion graphics and integrating real-time scoring with USA Archery’s data."
-      },
-      {
-        "title": "On-site execution",
-        "body": "Carrying the setup into live production and developing custom software to support the broadcast."
-      }
-    ],
-    "sections": [
-      {
-        "title": "The graphics are connected to the event",
-        "body": "Scoring is part of how viewers follow the competition. Integrating real-time event data connects the broadcast’s visual presentation to what is happening on the field. This work spans both the appearance of the graphics and the software that supports them."
-      },
-      {
-        "title": "Designing for the moment of production",
-        "body": "The production has to bring its technical and creative parts together while the event is happening. My role covers preparing those parts and operating the broadcast on site. Working across the stack gives me a direct connection between the systems I build and the conditions in which they are used."
-      }
-    ],
-    "videoTitle": "Event broadcasts",
-    "videoIntro": "Selected examples of USA Archery’s national event coverage.",
-    "related": [
-      "archery-is-for-everyone",
-      "olympic-jerseys"
-    ],
-    "article": true
-  },
-  "olympic-jerseys": {
-    "headline": "Team identity, made for the field of play.",
-    "intro": "I designed Team USA archery jerseys for the Tokyo 2020 and Paris 2024 Olympic Games. The work carried a national identity into competition apparel, from early concepts and visual direction through production-ready artwork.",
-    "role": "Apparel design & creative direction",
-    "format": "Olympic competition apparel",
-    "period": "Tokyo 2020 · Paris 2024",
-    "coverCaption": "Team USA archery competition apparel",
-    "scope": [
-      {
-        "title": "Concept development",
-        "body": "Exploring how Team USA’s identity could take shape across the competition jerseys."
-      },
-      {
-        "title": "Visual direction",
-        "body": "Balancing national identity and Olympic branding requirements with the needs of performance apparel."
-      },
-      {
-        "title": "Production artwork",
-        "body": "Preparing the designs for manufacture in collaboration with athletes, USA Archery, and apparel partners."
-      }
-    ],
-    "sections": [
-      {
-        "title": "Identity with practical constraints",
-        "body": "Competition apparel has to work as clothing and as a visible expression of the team. The design process considered performance requirements alongside national identity and Olympic branding standards. Those constraints shaped the visual direction as the concepts developed."
-      },
-      {
-        "title": "Carrying the design into production",
-        "body": "The work continued beyond concept selection into production-ready artwork and collaboration with the people wearing and manufacturing the garments. The photographs show the designs in their intended setting: Team USA athletes competing."
-      }
-    ],
-    "galleryTitle": "The jerseys in competition",
-    "galleryIntro": "Photographs of the apparel in use, preserved from the original project portfolio.",
-    "related": [
-      "national-event-identities",
-      "usa-archery-broadcast"
-    ]
   },
   "steam-deck-hq": {
     "headline": "An identity and publishing home for a gaming community.",
@@ -404,82 +327,6 @@
     "related": [
       "sea-education",
       "us-open"
-    ]
-  },
-  "national-event-identities": {
-    "headline": "A family of identities with room to evolve.",
-    "intro": "I designed a series of logos for USA Archery’s national events. The work develops a distinct identity for each event while retaining the core visual motifs that connect the series to the organization.",
-    "role": "Identity & event design",
-    "format": "Logo series",
-    "coverCaption": "A collection of USA Archery national event identities",
-    "scope": [
-      {
-        "title": "Event identities",
-        "body": "Individual logos developed for USA Archery’s national competitions."
-      },
-      {
-        "title": "A shared visual language",
-        "body": "Core motifs provide continuity across the series."
-      },
-      {
-        "title": "Ongoing development",
-        "body": "New designs evolve the event identities while retaining a recognizable relationship to earlier work."
-      }
-    ],
-    "sections": [
-      {
-        "title": "Recognizable as a group",
-        "body": "A series of event marks has to hold together across different competitions and editions. The work keeps that relationship visible through recurring design motifs, giving the individual identities a common foundation."
-      },
-      {
-        "title": "Space for each event",
-        "body": "Within that foundation, each logo provides an opportunity to develop a particular event’s character. The collection shows the balance between continuity and variation across the work, with the core identity evolving over successive designs."
-      }
-    ],
-    "galleryTitle": "The identity collection",
-    "galleryIntro": "A selection of the national event logos shown together.",
-    "related": [
-      "olympic-jerseys",
-      "archery-is-for-everyone"
-    ]
-  },
-  "archery-is-for-everyone": {
-    "headline": "An invitation to try archery, across film and design.",
-    "intro": "As creative manager for USA Archery’s “Archery is for Everyone” campaign, I worked across film, graphics, apparel, and club marketing materials. The campaign was a collaboration with Marvel Entertainment and connected its creative message to ways people could find a place to try the sport.",
-    "role": "Campaign creative manager",
-    "format": "Integrated campaign",
-    "coverCaption": "Archery is for Everyone campaign identity",
-    "scope": [
-      {
-        "title": "Film production",
-        "body": "Filming and editing a 30-second advertisement that combines live action with AI-generated cartoon sequences."
-      },
-      {
-        "title": "Campaign materials",
-        "body": "Graphics, apparel, and marketing materials for club leaders and the USA Archery store."
-      },
-      {
-        "title": "Event discovery",
-        "body": "Coordinating development of an event finder connecting visitors with participating clubs and events."
-      }
-    ],
-    "sections": [
-      {
-        "title": "An inclusive message in several formats",
-        "body": "The campaign introduced archery’s inclusivity through a combination of moving image and graphic design. The film appeared as a preroll advertisement on Marvel.com, while the wider materials carried the campaign into apparel, club communication, and the USA Archery store."
-      },
-      {
-        "title": "Connecting interest with participation",
-        "body": "The event finder provided a next step for someone interested in trying archery. My role included coordinating its development on the USA Archery website. That connected the campaign’s invitation with participating clubs and events."
-      }
-    ],
-    "galleryTitle": "Campaign artwork",
-    "galleryIntro": "A selected graphic from the Archery is for Everyone campaign.",
-    "videoTitle": "The campaign film",
-    "videoIntro": "The 30-second advertisement, combining live-action footage and animated sequences.",
-    "related": [
-      "usa-archery-broadcast",
-      "national-event-identities"
     ]
   },
   "us-open": {

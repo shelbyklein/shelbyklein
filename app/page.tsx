@@ -8,8 +8,8 @@ import { pegItems } from '@/lib/pegboard';
 import { projects, articles, getProject } from '@/lib/portfolio';
 import { sitePath } from '@/lib/site-path';
 
-// Client and Team USA work leads the index; independent products and software follow.
-const indexOrder = ['playcase', 'olympic-jerseys', 'sea-education', 'usa-archery-broadcast', 'steam-deck-hq', 'field-studies', 'archery-is-for-everyone', 'national-event-identities', 'workplace-solutions', 'us-open', 'sfs-brochure', 'newton', 'vispix', 'tracker-trapper', 'current', 'flogg', 'playcase-editor', 'playpad', 'arcadia'];
+// Client work leads the index; independent products and software follow.
+const indexOrder = ['playcase',  'sea-education',  'steam-deck-hq', 'field-studies',   'workplace-solutions', 'us-open', 'sfs-brochure', 'newton', 'vispix', 'tracker-trapper', 'current', 'flogg', 'playcase-editor', 'playpad', 'arcadia'];
 
 export default function Home() {
   const pegProjects: Record<string, PegProject> = Object.fromEntries([...new Set(pegItems.map((item) => item.projectId))].map((id) => {
@@ -25,13 +25,13 @@ export default function Home() {
     <Pegboard header={<SiteHeader/>} items={pegItems} projects={pegProjects} intro={<>
       <span className="peg-label" data-in>DESIGNER · DEVELOPER · ATLANTA</span>
       <h1 className="peg-headline" id="main">I design and build things for screens and hands.</h1>
-      <p data-in>Websites, software, live broadcast graphics, and physical products, from Team USA’s Olympic archery jerseys to a gaming case for the iPhone.</p>
+      <p data-in>Websites, creative software, and physical products, from desktop workspaces to a gaming case for the iPhone.</p>
       <div className="peg-actions" data-in><a className="peg-btn" href="#work">See selected work</a><a className="peg-btn ghost" href="mailto:shelbykleindesign@gmail.com">Let’s talk</a></div>
       <p className="peg-hint" data-in>Everything on the wall is a project. Give one a nudge, or take it down.<br/><b aria-hidden="true">↓</b> Scroll to walk the wall</p>
     </>}/>
 
     <section id="work" className="shop-section shop-work" aria-labelledby="work-title">
-      <div><h2 id="work-title">Selected work</h2><p className="shop-sub">Client websites, Team USA, products I’ve shipped, and the software I’m building now.</p></div>
+      <div><h2 id="work-title">Selected work</h2><p className="shop-sub">Client websites, products I’ve shipped, and the software I’m building now.</p></div>
       <WorkIndex rows={rows}/>
     </section>
 
@@ -40,8 +40,8 @@ export default function Home() {
       <div>
         <h2 id="about-title">A designer, a developer, and a dad.</h2>
         <p>I’m Shelby Klein, based in Atlanta, Georgia. I take projects from the first sketch through the last detail, and I build the thing myself, whether it’s a website, a desktop app, or a 3D-printed case.</p>
-        <p>My work spans national campaigns, Olympic competition apparel, live broadcast systems, and independent hardware and software products.</p>
-        <div className="peg-actions"><a className="peg-btn ghost" href={sitePath('/Shelby-Klein-Resume.pdf')} target="_blank" rel="noreferrer">Resumé <ArrowUpRight size={16}/></a><a className="peg-btn ghost" href="https://www.linkedin.com/in/shelbyklein/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={16}/></a></div>
+        <p>My work spans client websites, interactive experiences, print, and independent hardware and software products.</p>
+        <div className="peg-actions"><a className="peg-btn ghost" href="https://www.linkedin.com/in/shelbyklein/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={16}/></a></div>
       </div>
     </section>
 

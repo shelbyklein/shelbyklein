@@ -22,20 +22,16 @@ export type PegItem = {
 export const pegItems: PegItem[] = [
   // Bay one: what clients and employers should see first.
   { key: 'playcase-blue', projectId: 'playcase', fixture: 'stand', src: '/images/playcase/play.webp', alt: 'PlayCase in blue, standing upright with a game on screen', x: 132, y: 22, w: 160, h: 290, tag: { text: 'PlayCase', color: 'blue', x: 112, y: 330 } },
-  { key: 'jerseys', projectId: 'olympic-jerseys', fixture: 'clip', src: '/images/olympic-jersey-card.webp', alt: 'Team USA Olympic archery jersey', x: 386, y: 84, w: 210, h: 252, pivot: [105, -26], k: 24, tag: { text: 'Team USA jerseys', x: 386, y: 352 } },
-  { key: 'sdhq', projectId: 'steam-deck-hq', fixture: 'phone', src: '/images/websites/steam-deck-hq-mobile.jpg', alt: 'Steam Deck HQ website on a phone', x: 640, y: 64, w: 160, h: 334, pivot: [80, 2], k: 22, tag: { text: 'Steam Deck HQ', x: 640, y: 412 } },
+  { key: 'sdhq', projectId: 'steam-deck-hq', fixture: 'phone', src: '/images/websites/steam-deck-hq-mobile.jpg', alt: 'Steam Deck HQ website on a phone', x: 420, y: 64, w: 160, h: 334, pivot: [80, 2], k: 22, tag: { text: 'Steam Deck HQ', x: 420, y: 412 } },
   { key: 'sea', projectId: 'sea-education', fixture: 'laptop', src: '/images/websites/sea-education-desktop.jpg', alt: 'Sea Education Association website on a laptop', x: 84, y: 400, w: 352, h: 234, tag: { text: 'Client websites', color: 'white', x: 84, y: 368 } },
-  { key: 'marvel', projectId: 'archery-is-for-everyone', fixture: 'clip', src: '/images/Archery-is-for-Everyone.webp', alt: 'Archery is for Everyone campaign poster', x: 560, y: 488, w: 128, h: 150, pivot: [64, -26], k: 30, tag: { text: '× Marvel', x: 560, y: 654 } },
-  { key: 'identities', projectId: 'national-event-identities', fixture: 'sticker', src: '/images/logos-usaa-scaled.webp', alt: 'National event identity', x: 696, y: 470, w: 96, h: 96, pivot: [48, 2], k: 34, tag: { text: 'Identities', x: 690, y: 582 } },
   { key: 'birds', projectId: 'tracker-trapper', fixture: 'cut', src: '/images/tracker-trapper/bird-friends.webp', alt: 'Tracker Trapper birds', x: 60, y: 668, w: 138, h: 92, tag: { text: 'Tracker Trapper', color: 'blue', x: 64, y: 784 } },
   { key: 'newton', projectId: 'newton', fixture: 'cut', src: '/images/newton-logo.png', alt: 'Newton', x: 250, y: 692, w: 64, h: 64 },
   { key: 'current', projectId: 'current', fixture: 'cut', src: '/images/apps/current-icon.png', alt: 'Current', x: 326, y: 692, w: 64, h: 64 },
   { key: 'flogg', projectId: 'flogg', fixture: 'cut', src: '/images/apps/flogg-icon.png', alt: 'Flogg', x: 402, y: 692, w: 64, h: 64 },
   { key: 'appleseed', projectId: 'newton', fixture: 'cut', src: '/images/apps/appleseed-icon.png', alt: 'Appleseed', x: 478, y: 692, w: 64, h: 64 },
   { key: chatterbox.id, projectId: chatterbox.id, fixture: 'cut', src: chatterbox.icon, alt: chatterbox.name, x: 554, y: 692, w: 64, h: 64 },
-  // Bay two: broadcast, installations, print, and more client sites.
-  { key: 'broadcast', projectId: 'usa-archery-broadcast', fixture: 'tv', src: '/images/usaa-livestream-screenshot.webp', alt: 'USA Archery live broadcast graphics', x: 880, y: 72, w: 360, h: 212, pivot: [180, 2], k: 18, tag: { text: 'USA Archery Live', x: 880, y: 300 } },
-  { key: 'us-open', projectId: 'us-open', fixture: 'clip', src: '/images/us-open-fan-experience-7.jpg', alt: 'U.S. Open fan experience installation', x: 1296, y: 96, w: 196, h: 174, pivot: [98, -26], k: 26, tag: { text: 'U.S. Open', x: 1296, y: 286 } },
+  // Bay two: installations, print, and more client sites.
+  { key: 'us-open', projectId: 'us-open', fixture: 'clip', src: '/images/us-open-fan-experience-7.jpg', alt: 'U.S. Open fan experience installation', x: 950, y: 80, w: 280, h: 248, pivot: [140, -26], k: 26, tag: { text: 'U.S. Open', x: 950, y: 344 } },
   { key: 'field-studies', projectId: 'field-studies', fixture: 'phone', src: '/images/websites/field-studies-mobile.jpg', alt: 'The School for Field Studies website on a phone', x: 1548, y: 64, w: 160, h: 334, pivot: [80, 2], k: 22, tag: { text: 'Field Studies', x: 1548, y: 412 } },
   { key: 'workplace', projectId: 'workplace-solutions', fixture: 'laptop', src: '/images/websites/workplace-solutions-desktop.jpg', alt: 'Workplace Solutions website on a laptop', x: 924, y: 400, w: 352, h: 234, tag: { text: 'Workplace Solutions', color: 'white', x: 924, y: 368 } },
   { key: 'brochure', projectId: 'sfs-brochure', fixture: 'clip', src: '/images/2023-SFS-Brochure-Page-1-1024x662.webp', alt: 'SFS recruitment brochure spread', x: 1310, y: 480, w: 232, h: 150, pivot: [116, -26], k: 26, tag: { text: 'SFS brochure', x: 1310, y: 644 } },

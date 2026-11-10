@@ -23,8 +23,6 @@ Vispix comes from another familiar part of creative work: choosing images. A pho
 
 These projects share a design challenge. Every additional feature has to earn the space it takes up. Putting five disconnected tools inside one window would still leave a lot of coordination to the user. The useful work is deciding what should share context, what should happen automatically, and what needs a clear human decision. A focused tool needs boundaries, and maintaining those boundaries is part of building it.
 
-I can trace that interest through my earlier work as well. Producing live broadcasts for USA Archery involves graphics, scoring data, audio, video, and on-site production. I’ve built custom software to support that process and connect real-time scoring to the broadcast. In that setting, an interface has to make sense while an event is happening. The visual design and the underlying system have to work together under the same constraints.
-
 PlayCase brings the question into the physical world. It adds real controls to an iPhone for playing classic games, with swappable faceplates for different button layouts. The work spans industrial design, prototyping, production, and the way the product is presented. It’s another example of how much the experience can change when you reconsider the interface between a person and something they already use.
 
 There’s also room for exploration. With Arcadia, I’m investigating how an AI workspace and a simulated world might relate to each other—how software activity could become something you can see and navigate as a place. That gives me room to think about character, presence, and play alongside practical questions about coordination.

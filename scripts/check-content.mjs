@@ -6,7 +6,7 @@ const projects=JSON.parse(await fs.readFile('content/projects.json','utf8'));
 const articles=JSON.parse(await fs.readFile('content/articles.json','utf8'));
 const authored=JSON.parse(await fs.readFile('content/authored-articles.json','utf8'));
 const studies=JSON.parse(await fs.readFile('content/case-studies.json','utf8'));
-assert(projects.length >= 19, 'Preserve existing projects when extending the portfolio');
+assert(projects.length > 0, 'Portfolio must contain projects');
 assert.equal(new Set(articles.map(a=>a.slug)).size,articles.length);
 for(const a of authored)assert(articles.some(x=>x.slug===a.slug),`Authored article missing from articles.json: ${a.slug}`);
 for(const slug of Object.keys(articleRevisions))assert(articles.some(a=>a.slug===slug),`Revision for unknown article: ${slug}`);
@@ -39,7 +39,7 @@ for(const img of images){const f='public'+img;await fs.access(f);if(!img.endsWit
 console.log(`${projects.length} complete case studies, ${articles.length} articles, ${images.size} valid image references.`);
 const base=process.argv[2];
 if(base){
- const paths=['/','/writing',...projects.map(p=>'/work/'+p.id),...articles.map(a=>'/writing/'+a.slug),'/Shelby-Klein-Resume.pdf'];
+ const paths=['/','/writing',...projects.map(p=>'/work/'+p.id),...articles.map(a=>'/writing/'+a.slug)];
  for(const path of paths){
   const r=await fetch(base+path);assert.equal(r.status,200,path);const body=await r.text();assert(!/Internal Server Error|Failed to load URL/.test(body),path);
   if(path.startsWith('/work/')){

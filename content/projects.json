@@ -157,31 +157,6 @@
     "galleryLayout": "website"
   },
   {
-    "id": "usa-archery-broadcast",
-    "title": "USA Archery Live",
-    "originalTitle": "USA Archery Live Stream Production",
-    "summary": "Live broadcasts, motion graphics, and scoring systems for national archery events.",
-    "label": "National events",
-    "tags": [
-      "Live production",
-      "Motion & software"
-    ],
-    "cover": "/images/usaa-livestream-screenshot.webp",
-    "client": "USA Archery",
-    "url": null,
-    "paragraphs": [
-      "As Live Stream Producer for USA Archery, I filled all key production roles using minimal staff and resources for their national events. I build and support the streaming A/V tech stack, create motion graphics, integrate real-time scoring with USAA data, execute on-site production, and develop custom software to support the broadcast."
-    ],
-    "images": [],
-    "videos": [
-      "https://www.youtube.com/embed/qqdaswrabYU?feature=oembed",
-      "https://www.youtube.com/embed/WVhDr5dYSPs?start=2&feature=oembed",
-      "https://www.youtube.com/embed/Iwr9XLw7r4g?start=1&feature=oembed"
-    ],
-    "source": "https://shelbyklein.com/project/usa-archery-live-stream-production/",
-    "legacySlug": "usa-archery-live-stream-production"
-  },
-  {
     "id": "steam-deck-hq",
     "title": "Steam Deck HQ",
     "originalTitle": "Steam Deck HQ",
@@ -238,66 +213,6 @@
     "galleryLayout": "website"
   },
   {
-    "id": "national-event-identities",
-    "title": "National event identities",
-    "originalTitle": "National Archery Event Logos",
-    "summary": "A series of identities for USA Archery’s national events.",
-    "label": "USA Archery",
-    "tags": [
-      "Brand identity",
-      "Event design"
-    ],
-    "cover": "/images/logos-usaa-scaled.webp",
-    "client": "USA Archery",
-    "url": null,
-    "paragraphs": [
-      "Over the last seven years, I’ve had the privilege of designing the logos for USA Archery’s national events. Each year, I strive to innovate and evolve the brand while staying true to its core design motifs, ensuring consistency and growth in its visual identity."
-    ],
-    "images": [
-      {
-        "src": "/images/logos-examples-usaa.webp",
-        "alt": "National event identities — project artwork 1"
-      }
-    ],
-    "videos": [],
-    "source": "https://shelbyklein.com/project/national-event-logos/",
-    "legacySlug": "national-event-logos"
-  },
-  {
-    "id": "olympic-jerseys",
-    "title": "Team USA Olympic Jerseys",
-    "originalTitle": "2020 & 2024 Olympic Games Jerseys",
-    "summary": "Team USA archery jerseys for the Tokyo and Paris Olympic Games.",
-    "label": "2020 & 2024 Olympic Games",
-    "tags": [
-      "Apparel design",
-      "Creative direction"
-    ],
-    "cover": "/images/olympic-jersey-card.webp",
-    "client": "USA Archery",
-    "url": null,
-    "paragraphs": [
-      "Designed of Team USA archery jerseys for the 2020 Tokyo and 2024 Paris Olympic Games. Responsible for concept development, visual direction, and production-ready artwork. Collaborated with athletes, USA Archery, and apparel manufacturers to create designs that balanced performance requirements with national identity and Olympic branding standards."
-    ],
-    "images": [
-      {
-        "src": "/images/jersey-1-1-1024x683.webp",
-        "alt": "On the world’s biggest stage. — project artwork 1"
-      },
-      {
-        "src": "/images/jersey-2-1-1024x683.webp",
-        "alt": "On the world’s biggest stage. — project artwork 2"
-      },
-      {
-        "src": "/images/jersey-3-1-1024x683.webp",
-        "alt": "On the world’s biggest stage. — project artwork 3"
-      }
-    ],
-    "videos": [],
-    "source": "https://shelbyklein.com/project/competition-jerseys-for-olympic-athletes-at-the-2020-2024-olympic-games/",
-    "legacySlug": "competition-jerseys-for-olympic-athletes-at-the-2020-2024-olympic-games"
-  },
-  {
     "id": "workplace-solutions",
     "title": "Workplace Solutions",
     "originalTitle": "Workplace Solutions",
@@ -350,34 +265,6 @@
     "source": "https://shelbyklein.com/project/workplace-solutions/",
     "legacySlug": "workplace-solutions",
     "galleryLayout": "website"
-  },
-  {
-    "id": "archery-is-for-everyone",
-    "title": "Archery is for Everyone",
-    "originalTitle": "Archery is for Everyone Campaign",
-    "summary": "An inclusive archery campaign with USA Archery and Marvel Entertainment.",
-    "label": "USA Archery × Marvel",
-    "tags": [
-      "Campaign direction",
-      "Film & design"
-    ],
-    "cover": "/images/Archery-is-for-Everyone.webp",
-    "client": "USA Archery, in collaboration with Marvel Entertainment",
-    "url": "https://vimeo.com/864416195",
-    "paragraphs": [
-      "As the creative manager for USA Archery’s “Archery is for Everyone” campaign, I led efforts to showcase archery’s inclusivity through multiple touchpoints. I filmed and edited a 30-second video blending live-action and AI-generated cartoon sequences, featured as a preroll ad on marvel.com to engage Marvel fans. Additionally, I designed graphics, apparel, and marketing materials for club leaders and the usarchery.org store. I also coordinated the development of an “event finder” on usarchery.org, connecting users with participating clubs and events. This campaign was a collaboration between USA Archery and Marvel Entertainment."
-    ],
-    "images": [
-      {
-        "src": "/images/Try-Archery-Para-Orange.webp",
-        "alt": "Archery is for Everyone — project artwork 1"
-      }
-    ],
-    "videos": [
-      "https://player.vimeo.com/video/864416195"
-    ],
-    "source": "https://shelbyklein.com/project/archery-is-for-everyone-campaign/",
-    "legacySlug": "archery-is-for-everyone-campaign"
   },
   {
     "id": "us-open",
