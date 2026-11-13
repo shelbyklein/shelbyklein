@@ -75,39 +75,32 @@
   "steam-deck-hq": {
     "images": [
       {
-        "src": "/images/websites/steam-deck-hq-desktop.jpg",
-        "alt": "Steam Deck HQ website — desktop view, September 2026",
+        "src": "/images/websites/steam-deck-hq-desktop-2026-11.webp",
+        "alt": "Steam Deck HQ homepage with its current navigation, featured stories, and game recommendations",
         "width": 1440,
         "height": 1000,
-        "caption": "Desktop view · September 2026",
+        "caption": "Desktop homepage · November 2026",
         "source": "https://steamdeckhq.com/"
       },
       {
-        "src": "/images/websites/steam-deck-hq-detail.jpg",
-        "alt": "Steam Deck HQ website — page content, September 2026",
+        "src": "/images/websites/steam-deck-hq-review-2026-11.webp",
+        "alt": "Warhammer Survivors review with ratings and recommended Steam Deck settings",
         "width": 1440,
         "height": 1000,
-        "caption": "Page content · September 2026",
-        "source": "https://steamdeckhq.com/"
+        "caption": "Review and recommended settings · November 2026",
+        "source": "https://steamdeckhq.com/game-reviews/steam-deck/warhammer-survivors/"
       },
       {
-        "src": "/images/websites/steam-deck-hq-mobile.jpg",
-        "alt": "Steam Deck HQ website — mobile view, September 2026",
+        "src": "/images/websites/steam-deck-hq-mobile-2026-11.webp",
+        "alt": "Steam Deck HQ mobile homepage with its logo, featured story, and recent headlines",
         "width": 390,
         "height": 844,
-        "caption": "Mobile view · September 2026",
+        "caption": "Mobile homepage · November 2026",
         "source": "https://steamdeckhq.com/"
-      },
-      {
-        "src": "/images/SDHQ-Website-Home-Page.webp",
-        "alt": "Steam Deck HQ — project artwork 1"
-      },
-      {
-        "src": "/images/sdhq-sea-of-stars-game-review-copy.webp",
-        "alt": "Steam Deck HQ — project artwork 2"
       }
     ],
-    "galleryLayout": "website"
+    "galleryLayout": "website",
+    "cover": "/images/websites/steam-deck-hq-desktop-2026-11.webp"
   },
   "workplace-solutions": {
     "images": [
