@@ -18,6 +18,7 @@ const appNames: Record<string, string> = {
 };
 const appIcons: Record<string, string> = {
   chatterbox: chatterbox.icon,
+  'duo-pixel': '/images/duo-pixel/icon.webp',
   spoolside: '/images/apps/spoolside-icon.webp',
   newton: '/images/newton-logo.png',
   current: '/images/apps/current-icon.png',
@@ -65,6 +66,14 @@ export default function AppsPage() {
   });
 
   apps.unshift({ ...chatterbox, href: sitePath(chatterbox.href) });
+  apps.splice(1, 0, {
+    id: 'duo-pixel',
+    label: 'iPhone · Coming to the App Store',
+    name: 'Duo Pixel',
+    summary: 'A pixel art and animation studio for your phone. Draw with layers, animate frame by frame, and export GIFs, sprite sheets, and PNGs.',
+    href: sitePath('/duo-pixel'),
+    linkLabel: 'Explore Duo Pixel',
+  });
 
   return (
     <div id="top">
